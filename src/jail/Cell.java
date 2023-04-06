@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Cell {
     private Officer officer;
     private ArrayList<Prisoner> prisoners;
-    private String cell_type;
-    private int cell_number;
+    private String cellType;
+    private int cellNumber;
     
     public Cell() {
         this(new Officer(), new ArrayList<Prisoner>(), "", 0);
@@ -16,15 +16,15 @@ public class Cell {
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cell_type, int cell_number) {
         this.officer = new officer(officer);
         this.prisoners = copy(prisoners);
-        this.cell_type = cell_type;
-        this.cell_number = cell_number;
+        this.cellType = cellType;
+        this.cellNumber = cellNumber;
     }
     
     public Cell(Cell c1){
         this.officer = new officer(c1.officer);
         this.prisoners = copy(c1.prisoners);
-        this.cell_type = c1.cell_type;
-        this.cell_number = c1.cell_number;
+        this.cellType = c1.cellType;
+        this.cellNumber = c1.cellNumber;
     }
 
     public Officer getOfficer() {
@@ -43,20 +43,20 @@ public class Cell {
         this.prisoners = prisoners;
     }
 
-    public String getCell_type() {
-        return cell_type;
+    public String getCellType() {
+        return cellType;
     }
 
-    public void setCell_type(String cell_type) {
-        this.cell_type = cell_type;
+    public void setCellType(String cellType) {
+        this.cellType = cellType;
     }
 
-    public int getCell_number() {
-        return cell_number;
+    public int getCellNumber() {
+        return cellNumber;
     }
 
-    public void setCell_number(int cell_number) {
-        this.cell_number = cell_number;
+    public void setCellNumber(int cellNumber) {
+        this.cellNumber = cellNumber;
     }
     
     public void copy(ArrayList<Prisoner> p){
