@@ -14,14 +14,14 @@ public class Cell {
     }
     
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cell_type, int cell_number) {
-        this.officer = new officer(officer);
+        this.officer = new Officer(officer);
         this.prisoners = copy(prisoners);
         this.cell_type = cell_type;
         this.cell_number = cell_number;
     }
     
     public Cell(Cell c1){
-        this.officer = new officer(c1.officer);
+        this.officer = new Officer(c1.officer);
         this.prisoners = copy(c1.prisoners);
         this.cell_type = c1.cell_type;
         this.cell_number = c1.cell_number;
