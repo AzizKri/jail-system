@@ -15,14 +15,14 @@ public class Cell {
     
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cell_type, int cell_number) {
         this.officer = new Officer(officer);
-        this.prisoners = copy(prisoners);
+        copy(prisoners);
         this.cellType = cellType;
         this.cellNumber = cellNumber;
     }
     
     public Cell(Cell c1){
-        this.officer = new officer(c1.officer);
-        this.prisoners = copy(c1.prisoners);
+        this.officer = new Officer(c1.officer);
+        copy(c1.prisoners);
         this.cellType = c1.cellType;
         this.cellNumber = c1.cellNumber;
     }
@@ -32,7 +32,7 @@ public class Cell {
     }
 
     public void setOfficer(Officer officer) {
-        this.officer = officer;
+        this.officer = new Officer(officer);
     }
 
     public ArrayList<Prisoner> getPrisoners() {
@@ -40,7 +40,7 @@ public class Cell {
     }
 
     public void setPrisoners(ArrayList<Prisoner> prisoners) {
-        this.prisoners = prisoners;
+        copy(prisoners);
     }
 
     public String getCellType() {
@@ -74,7 +74,7 @@ public class Cell {
     }
     
     public void transfer(Prisoner p, Cell c){
-        if (this.prisoners.contains(p) && !c.prisoners.conatins(p)){
+        if (this.prisoners.contains(p) && !c.prisoners.contains(p)){
             c.add_prisoner(p);
             this.remove_prisoner(p);
         }
