@@ -15,6 +15,13 @@ public class Person {
         this.setGender(gender);
         this.ID = ID;
     }
+    
+    public Person(Person prs) {
+        this.name = prs.name;
+        this.age = prs.age;
+        this.gender = prs.gender;
+        this.ID = prs.ID + " COPY";
+    }
 
     public String getName() {
         return name;
