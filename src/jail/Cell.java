@@ -13,7 +13,7 @@ public class Cell {
         this(new Officer(), new ArrayList<Prisoner>(), "", 0);
     }
     
-    public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cell_type, int cell_number) {
+    public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cellType, int cellNumber) {
         this.officer = new Officer(officer);
         copy(prisoners);
         this.cellType = cellType;
