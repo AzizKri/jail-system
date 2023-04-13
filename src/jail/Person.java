@@ -2,7 +2,7 @@ package jail;
 
 public class Person {
     private String name;
-    private int age;
+    private Date DOB;
     private char gender;
     private String ID;
 
