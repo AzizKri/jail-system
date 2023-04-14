@@ -17,6 +17,7 @@ public class Visitation {
         this.dateOfVisit = dateOfVisit;
         this.time = time;
         this.visitors.add(Visitor.getVisitor(visitorID));
+        this.prisoners.add(Prisoner.getPrisoner(prisonerID));
     }
 
     public Visitation(Date dateOfVisit, String time, ArrayList<Prisoner> prisoners, ArrayList<Visitor> visitors) { // Create a new visitation with multiple prisoners visitors
