@@ -1,29 +1,33 @@
 package jail;
 
 public class Person {
-    private String name;
-    private Date DOB;
-    private char gender;
-    private String ID;
+    private String name;    // Person's name
+    private Date DOB;       // Person's Date of Birth
+    private char gender;    // Person's gender
+    private String ID;      // Person's ID
 
-    public Person() {
+    // Constructors
+    
+    public Person() {       // Default constructor. No name, DOB is 0/0/0. No gender. No ID
         this("", new Date(), '\u0000', "");
     }
 
-    public Person(String name, Date DOB, char gender, String ID) {
+    public Person(String name, Date DOB, char gender, String ID) {  // Initializing Constructor
         this.name = name;
         this.DOB = new Date(DOB);
         this.setGender(gender);
         this.ID = ID;
     }
     
-    public Person(Person prs) {
+    public Person(Person prs) {     // Copy constructor
         this.name = prs.name;
         this.DOB = new Date(prs.DOB);
         this.gender = prs.gender;
         this.ID = prs.ID + " COPY";
     }
-
+    
+    // Setters and getters
+    
     public String getName() {
         return name;
     }
@@ -36,11 +40,11 @@ public class Person {
         return DOB;
     }
 
-    public void setAge(Date DOB) {
+    public void setDOB(Date DOB) {
         this.DOB = new Date(DOB);
     }
     
-    public void setAge(int day, int month, int year) {
+    public void setDOB(int day, int month, int year) {
         this.DOB = new Date(day, month, year);
     }
 
@@ -49,10 +53,7 @@ public class Person {
     }
 
     public void setGender(char gender) {
-        this.gender = 
-                Character.compare(Character.toUpperCase(gender), 'M') == 0 ||
-                Character.compare(Character.toUpperCase(gender), 'F') == 0 ?
-                gender : 'N';
+        this.gender = gender;
     }
 
     public String getID() {
@@ -62,7 +63,9 @@ public class Person {
     public void setID(String ID) {
         this.ID = ID;
     }
-
+    
+    // toString
+    
     @Override
     public String toString() {
         return "PERSON DETAILS: \nName:" + name +
