@@ -7,7 +7,7 @@ public class Date {
     private LocalDate date;
 
     public Date() {
-        this(0, 0, 0);
+        date = LocalDate.now();
     }
 
     public Date(int year, int month, int day) {
@@ -45,6 +45,7 @@ public class Date {
         return String.format("%d years, %d months, %d days", rD.getYears(), rD.getMonths(), rD.getDays());
     }
 
+    @Override
     public String toString() {
         return date.toString();
     }
