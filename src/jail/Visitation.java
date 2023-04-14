@@ -100,6 +100,6 @@ public class Visitation {
 
     @Override
     public String toString() {
-        return "VISIT:" + visitationID + "\nVisitors: " + visitors + "\nPrisoners: " + prisoners + "\nDate of Visit: " + dateOfVisit + "\nTime: " + time + "\n";
+        return "VISIT " + visitationID + "\nVisitors: " + visitors + "\nPrisoners: " + prisoners + "\nDate of Visit: " + dateOfVisit + "\nTime: " + time + "\n";
     }
 }
