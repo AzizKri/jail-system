@@ -7,18 +7,19 @@ public class Person {
     private String ID;
 
     public Person() {
+        this("", new Date(), '\u0000', "");
     }
 
-    public Person(String name, int age, char gender, String ID) {
+    public Person(String name, Date DOB, char gender, String ID) {
         this.name = name;
-        this.age = (age >= 0) ? age : 0;
+        this.DOB = new Date(DOB);
         this.setGender(gender);
         this.ID = ID;
     }
     
     public Person(Person prs) {
         this.name = prs.name;
-        this.age = prs.age;
+        this.DOB = new Date(prs.DOB);
         this.gender = prs.gender;
         this.ID = prs.ID + " COPY";
     }
@@ -31,12 +32,16 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public Date getDOB() {
+        return DOB;
     }
 
-    public void setAge(int age) {
-        this.age = (age >= 0) ? age : 0;
+    public void setAge(Date DOB) {
+        this.DOB = new Date(DOB);
+    }
+    
+    public void setAge(int day, int month, int year) {
+        this.DOB = new Date(day, month, year);
     }
 
     public char getGender() {
@@ -61,7 +66,7 @@ public class Person {
     @Override
     public String toString() {
         return "PERSON DETAILS: \nName:" + name +
-                "\nAge: " + age + 
+                "\nDOB: " + DOB + 
                 "\nGender: " + gender + 
                 "\nID: " + ID + "\n";
     }
