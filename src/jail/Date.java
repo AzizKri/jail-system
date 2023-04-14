@@ -1,54 +1,51 @@
 package jail;
 
-public class Date {
-    private int day;
-    private int month;
-    private int year;
+import java.time.*;
 
-    public Date(int day, int month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
+public class Date {
+
+    private LocalDate date;
+
+    public Date() {
+        this(0, 0, 0);
+    }
+
+    public Date(int year, int month, int day) {
+        date = LocalDate.of(year, month, day);
+    }
+
+    public Date(Date d) {
+        this.date = LocalDate.of(d.date.getYear(), d.date.getMonthValue(), d.date.getDayOfMonth());
     }
 
     public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
+        return date.getDayOfMonth();
     }
 
     public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
+        return date.getMonthValue();
     }
 
     public int getYear() {
-        return year;
+        return date.getYear();
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public LocalDate releaseDate(long duration) {
+        return date.plusDays(duration);
     }
-    
-    public Date releaseDate(int duration){
-        int y = this.year + duration / 365;
-        duration %= 365;
-        int m = this.month + duration / 30;
-        duration %= 30;
-        int d = this.day + duration;
-        return new Date(d, m, y);
+
+    public int getAge() {
+        LocalDate curDate = LocalDate.now();
+        return Period.between(date, curDate).getYears();
     }
-    
-    public int toDays(){
-        return this.year * 365 + this.month * 30 + this.day;
+
+    public String remainingTime() {
+        LocalDate curDate = LocalDate.now();
+        Period rD = Period.between(curDate, date);
+        return String.format("%d years, %d months, %d days", rD.getYears(), rD.getMonths(), rD.getDays());
     }
-    
-    public String toString(){
-        return String.format("%02d/%02d/%02d", day, month, year);
+
+    public String toString() {
+        return date.toString();
     }
 }
