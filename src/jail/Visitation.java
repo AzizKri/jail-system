@@ -13,7 +13,7 @@ public class Visitation {
     // Constructors
     
     public Visitation(Date dateOfVisit, String time, String prisonerID, String visitorID) { // Create a new visitation with one prisoner and one visitor
-        this.visitationID = UUID.randomUUID().toString();
+        this.visitationID = UUID.randomUUID().toString();   // Random Unique ID (example: 4382553f-d534-4742-b1db-1f7a8eac601e)
         this.dateOfVisit = dateOfVisit;
         this.time = time;
         this.visitors.add(Visitor.getVisitor(visitorID));
@@ -21,7 +21,7 @@ public class Visitation {
     }
 
     public Visitation(Date dateOfVisit, String time, ArrayList<Prisoner> prisoners, ArrayList<Visitor> visitors) { // Create a new visitation with multiple prisoners visitors
-        this.visitationID = UUID.randomUUID().toString();
+        this.visitationID = UUID.randomUUID().toString();   // Random Unique ID (example: 4382553f-d534-4742-b1db-1f7a8eac601e)
         this.dateOfVisit = dateOfVisit;
         this.time = time;
         this.visitors = visitors;
@@ -29,7 +29,7 @@ public class Visitation {
     }
     
     public Visitation(Visitation visit) {                   // Copy constructor
-        this.visitationID = UUID.randomUUID().toString();
+        this.visitationID = UUID.randomUUID().toString();   // Random Unique ID (example: 4382553f-d534-4742-b1db-1f7a8eac601e)
         this.dateOfVisit = visit.dateOfVisit;
         this.time = visit.time;
         this.visitors = visit.visitors;
