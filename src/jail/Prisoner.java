@@ -10,7 +10,7 @@ public class Prisoner extends Person{
     public Prisoner() {
     }
 
-    public Prisoner(String a, int b, char c, String d, String e, int f, int g, int h, int i){
+    public Prisoner(String name, int b, char gender, String id, String offense, int duration, int dayOf, int h, int i){
         
     }
     
