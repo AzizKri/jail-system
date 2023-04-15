@@ -7,28 +7,45 @@ public class Prisoner extends Person{
     private Date entry;
     private String inmateID;
 
-    public Prisoner() {
+    
+    public Prisoner() {  //Def. Constructor
+        this(new Person(), "Null",0 ,  new Date(), "Null");
     }
-
-    public Prisoner(String name, int b, char gender, String id, String offense, int duration, int dayOf, int h, int i){
-        
+  
+    //Initializing constructor using the super class and Prisoner attributes
+    public Prisoner(Person p, String offense, int duration, Date entry, String inmateID){
+        this.setName(p.getName());
+        this.setDOB(p.getDOB());
+        this.setGender(p.getGender());
+        this.setID(p.getID());
+        this.offense = offense;
+        this.duration = duration;
+        this.entry = entry;
+        this.inmateID = inmateID;
     }
     
-    public Prisoner(String a, int b, char c, String d, String e, int f, Date g){
-        
+    //Initializing concstructor using all attributes (including super class)
+    public Prisoner(String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID){
+        super(name, DOB, gender, ID);
+        this.offense = offense;
+        this.duration = duration;
+        this.entry = entry;
+        this.inmateID = inmateID;
     }
     
-    public Prisoner(Person p, String str, int i, Date d){
-        
-    }
-    
+    //Copy Constructor
     public Prisoner(Prisoner copy){
+        copy.setName(this.getName());
+        copy.setDOB(this.getDOB());
+        copy.setGender(this.getGender());
+        copy.setID(this.getID() + "COPY");
         this.offense = copy.offense;
         this.duration = copy.duration;
         this.entry = new Date(copy.entry);
         this.inmateID = copy.inmateID + "COPY";
     }
     
+    //Setters
     public void setOffense(String offense) {
         this.offense = offense;
     }
@@ -45,6 +62,7 @@ public class Prisoner extends Person{
         this.inmateID = inmateID;
     }
     
+    //Getters
     public String getOffense() {
         return offense;
     }
@@ -63,7 +81,7 @@ public class Prisoner extends Person{
     
     @Override
     public String toString(){
-        return "";
+        return super.toString() + "Inmate ID: " + inmateID + "\nOffense: " + offense + "\nDuration: " + duration + "\nEntry: " + entry;
     }
 
     
