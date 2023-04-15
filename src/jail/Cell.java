@@ -79,4 +79,16 @@ public class Cell {
             this.remove_prisoner(p);
         }
     }
+    
+    public String toString(){
+        String s = "";
+        for (int i = 0; i < prisoners.size(); i++) {
+            s += prisoners.get(i) + "\n";
+        }
+        return "Officer:\n" + officer + "\n" + 
+               "Prisoners:\n" +
+                s +
+                "Cell Type: " + cellType + "\n" +
+                "Cell Number: " + cellNumber;
+    }
 }
