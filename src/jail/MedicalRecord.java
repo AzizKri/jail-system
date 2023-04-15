@@ -8,7 +8,7 @@ public class MedicalRecord {
     private String treatment;
     
     public MedicalRecord(){
-        this()
+        this(new Prisoner(), new Date(), "No Record", "No Diagnosis", "No Treatment");
     }
 
     public MedicalRecord(Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment) {
@@ -61,13 +61,13 @@ public class MedicalRecord {
     
     @Override
     public String toString(){
-        return "Medical Record: \n" +
-               "Record ID: " + recordID + "\n" + 
-               "Prisoner ID: " + prisoner.getInmateID() + "\n" + 
-               "DOB: " + prisoner.getDOB() + "\n" + 
-               "Date of Diagnosis: " + date + "\n" + 
-               "Diagnosis: " + diagnosis + "\n" + 
-               "Treatment: " + treatment;
+        return "Medical Record:" +
+               "\nRecord ID: " + recordID +  
+               "\nPrisoner ID: " + prisoner.getInmateID() + 
+               "\nDOB: " + prisoner.getDOB() +  
+               "\nDate of Diagnosis: " + date + 
+               "\nDiagnosis: " + diagnosis + 
+               "\nTreatment: " + treatment + "\n";
     }
     
 }
