@@ -7,10 +7,11 @@ public class MedicalRecord {
     private String diagnosis;
     private String treatment;
     
-    public MedicalRecord(){
+    public MedicalRecord(){ //Def. constructor
         this(new Prisoner(), new Date(), "No Record", "No Diagnosis", "No Treatment");
     }
 
+    //Initializing constructor
     public MedicalRecord(Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment) {
         this.prisoner = prisoner;
         this.date = date;
@@ -19,6 +20,7 @@ public class MedicalRecord {
         this.treatment = treatment;
     }
 
+    //Setters and Getters
     public Prisoner getPrisoner() {
         return prisoner;
     }
@@ -63,7 +65,7 @@ public class MedicalRecord {
     public String toString(){
         return "Medical Record:" +
                "\nRecord ID: " + recordID +  
-               "\nPrisoner ID: " + prisoner.getInmateID() + 
+               "\nInmate ID: " + prisoner.getInmateID() + 
                "\nDOB: " + prisoner.getDOB() +  
                "\nDate of Diagnosis: " + date + 
                "\nDiagnosis: " + diagnosis + 
