@@ -45,7 +45,7 @@ public class Officer extends Person{
 
     @Override
     public String toString() {
-        return "PERSON DETAILS: \nName:" + getName() +
+        return  "Name:" + getName() +
                 "\nDOB: " + getDOB() + 
                 "\nGender: " + getGender() + 
                 "\nID: " + getID() +
