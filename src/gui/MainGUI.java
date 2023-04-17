@@ -56,6 +56,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         b1.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b1.setText("Add Prisoner");
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 40));
 
         b2.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
@@ -145,6 +150,12 @@ public class MainGUI extends javax.swing.JFrame {
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b3ActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mainDesktop.removeAll();
+        AddPrisoner ap = new AddPrisoner();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_b1ActionPerformed
 
     /**
      * @param args the command line arguments
