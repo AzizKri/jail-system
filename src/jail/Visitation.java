@@ -16,7 +16,7 @@ public class Visitation {
         this.visitationID = UUID.randomUUID().toString();   // Random Unique ID (example: 4382553f-d534-4742-b1db-1f7a8eac601e)
         this.dateOfVisit = dateOfVisit;
         this.time = time;
-        this.visitors.add(Visitor.getVisitor(visitorID));
+        this.visitors.add(Database.getVisitor(visitorID));
         // this.prisoners.add(Prisoner.getPrisoner(prisonerID));
     }
 
@@ -81,7 +81,7 @@ public class Visitation {
     }
     
     public void addVisitor(String visitorID) {              // Add a visitor by ID
-        this.visitors.add(Visitor.getVisitor(visitorID));
+        this.visitors.add(Database.getVisitor(visitorID));
     }
     
     public void addPrisoners(ArrayList<Prisoner> prisoners) { // Add multiple prisoners
