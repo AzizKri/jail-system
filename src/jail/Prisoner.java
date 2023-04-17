@@ -6,14 +6,15 @@ public class Prisoner extends Person{
     private int duration;
     private Date entry;
     private String inmateID;
+    private int cellNumber;
 
     
     public Prisoner() {  //Def. Constructor
-        this(new Person(), "Null",0 ,  new Date(), "Null");
+        this(new Person(), "Null",0 ,  new Date(), "Null", 0);
     }
   
     //Initializing constructor using the super class and Prisoner attributes
-    public Prisoner(Person p, String offense, int duration, Date entry, String inmateID){
+    public Prisoner(Person p, String offense, int duration, Date entry, String inmateID, int cellNumber){
         this.setName(p.getName());
         this.setDOB(p.getDOB());
         this.setGender(p.getGender());
@@ -22,6 +23,7 @@ public class Prisoner extends Person{
         this.duration = duration;
         this.entry = entry;
         this.inmateID = inmateID;
+        this.cellNumber = cellNumber;
     }
     
     //Initializing concstructor using all attributes (including super class)
@@ -78,14 +80,20 @@ public class Prisoner extends Person{
     public String getInmateID() {
         return inmateID;
     }
+
+    public int getCellNumber() {
+        return cellNumber;
+    }
+
+    public void setCellNumber(int cellNumber) {
+        this.cellNumber = cellNumber;
+    }
+    
+    
     
     @Override
     public String toString(){
         return super.toString() + "Inmate ID: " + inmateID + "\nOffense: " + offense + "\nDuration: " + duration + "\nEntry: " + entry;
     }
-
-    
-    
-    
 }
 
