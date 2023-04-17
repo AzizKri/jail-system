@@ -6,24 +6,21 @@ import java.util.ArrayList;
 public class Cell {
     private Officer officer;
     private ArrayList<Prisoner> prisoners;
-    private String cellType;
     private int cellNumber;
     
     public Cell() {
-        this(new Officer(), new ArrayList<Prisoner>(), "", 0);
+        this(new Officer(), new ArrayList<Prisoner>(), 0);
     }
     
-    public Cell(Officer officer, ArrayList<Prisoner> prisoners, String cellType, int cellNumber) {
+    public Cell(Officer officer, ArrayList<Prisoner> prisoners, int cellNumber) {
         this.officer = new Officer(officer);
         copy(prisoners);
-        this.cellType = cellType;
         this.cellNumber = cellNumber;
     }
     
     public Cell(Cell c1){
         this.officer = new Officer(c1.officer);
         copy(c1.prisoners);
-        this.cellType = c1.cellType;
         this.cellNumber = c1.cellNumber;
     }
 
@@ -41,14 +38,6 @@ public class Cell {
 
     public void setPrisoners(ArrayList<Prisoner> prisoners) {
         copy(prisoners);
-    }
-
-    public String getCellType() {
-        return cellType;
-    }
-
-    public void setCellType(String cellType) {
-        this.cellType = cellType;
     }
 
     public int getCellNumber() {
@@ -89,7 +78,6 @@ public class Cell {
         return "Officer:\n" + officer + 
                "\nPrisoners:\n" +
                 s +
-                "Cell Type: " + cellType +
                 "\nCell Number: " + cellNumber;
     }
 }
