@@ -1,8 +1,5 @@
 package jail;
 
-import java.util.ArrayList;
-
-
 public class Visitor extends Person {
     private String visitorID;
 
@@ -11,7 +8,7 @@ public class Visitor extends Person {
         Database.addVisitor(this);
     }
 
-    public Visitor(String visitorID, String name, Date DOB, char gender, String personID) { // Create a new visitor and new person
+    public Visitor(String name, Date DOB, char gender, String personID, String visitorID) { // Create a new visitor and new person
         super(name, DOB, gender, personID);
         this.visitorID = visitorID;
         Database.addVisitor(this);
@@ -43,6 +40,6 @@ public class Visitor extends Person {
     
     @Override
     public String toString() {
-        return super.toString() + "Visitor ID: " + visitorID + "\n";
+        return super.toString() + "," + visitorID + ";";
     }
 }
