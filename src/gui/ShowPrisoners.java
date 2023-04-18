@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package gui;
+import jail.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +15,10 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddPrisner
      */
+    Database db;
     public ShowPrisoners() {
         initComponents();
+        db = new Database();
     }
 
     /**
@@ -32,8 +36,9 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TA = new javax.swing.JTextArea();
         showBTN = new javax.swing.JButton();
+        clearBTN = new javax.swing.JButton();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -54,29 +59,45 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TA.setColumns(20);
+        TA.setRows(5);
+        jScrollPane1.setViewportView(TA);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 740, 350));
 
         showBTN.setText("Show Prisoners");
+        showBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(showBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 200, 30));
+
+        clearBTN.setText("Clear");
+        jPanel1.add(clearBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void showBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showBTNActionPerformed
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+        }
+        TA.append(Database.getCells().get(CMB.getSelectedIndex()).display());
+    }//GEN-LAST:event_showBTNActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CMB;
+    private javax.swing.JTextArea TA;
+    private javax.swing.JButton clearBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton showBTN;
     // End of variables declaration//GEN-END:variables
 }
