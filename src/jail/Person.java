@@ -70,4 +70,8 @@ public class Person {
     public String toString() {
         return name + "," + DOB + "," + gender + "," + ID;
     }
+    
+    public String display(){
+        return "Name: " + name + "\nDOB: " + DOB + "\nGender: " + gender + "\nID: " + ID;
+    }
 }

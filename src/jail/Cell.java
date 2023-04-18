@@ -79,4 +79,12 @@ public class Cell {
         }
         return officer + ";" + cellNumber + s;
     }
+    
+    public String display(){
+        String s = "";
+        for (int i = 0; i < prisoners.size(); i++) {
+            s += prisoners.get(i).display() + "\n";
+        }
+        return s;
+    }
 }

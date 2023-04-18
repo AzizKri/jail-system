@@ -102,5 +102,9 @@ public class Prisoner extends Person{
     public String toString(){
         return super.toString() + "," + inmateID + "," + offense + "," + duration + "," + entry + "," + cellNumber;
     }
+    
+    public String display(){
+        return super.display() + "\nInmateID: " + inmateID + "\nOffense: " + offense + "\nDuration: " + duration + "\nEntry: " + entry + "\nCell Number: " + cellNumber;
+    }
 }
 
