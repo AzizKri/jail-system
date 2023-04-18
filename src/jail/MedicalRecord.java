@@ -9,7 +9,6 @@ public class MedicalRecord {
     
     public MedicalRecord(){ //Def. constructor
         this(new Prisoner(), new Date(), "No Record", "No Diagnosis", "No Treatment");
-        Database.addMedicalRecord(this);
     }
 
     //Initializing constructor

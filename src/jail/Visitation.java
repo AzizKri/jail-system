@@ -11,7 +11,6 @@ public class Visitation {
     
     public Visitation() {
         this("null", new Date(), "12AM", "0000", "0000");
-        Database.addVisitation(this);
     }
     
     public Visitation(String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID) { // Create a new visitation with one prisoner and one visitor

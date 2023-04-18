@@ -11,7 +11,6 @@ public class Prisoner extends Person{
     
     public Prisoner() {  //Def. Constructor
         this(new Person(), "Null",0 ,  new Date(), "Null", 0);
-        Database.addPrisoner(this);
     }
   
     //Initializing constructor using the super class and Prisoner attributes

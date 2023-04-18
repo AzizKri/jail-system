@@ -10,7 +10,6 @@ public class Cell {
     
     public Cell() {
         this(new Officer(), new ArrayList<Prisoner>(), 0);
-        Database.addCell(this);
     }
     
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, int cellNumber) {
