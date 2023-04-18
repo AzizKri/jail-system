@@ -73,11 +73,8 @@ public class Cell {
     public String toString(){
         String s = "";
         for (int i = 0; i < prisoners.size(); i++) {
-            s += prisoners.get(i) + "\n";
+            s += prisoners.get(i) + ";";
         }
-        return "Officer:\n" + officer + 
-               "\nPrisoners:\n" +
-                s +
-                "\nCell Number: " + cellNumber;
+        return officer + "," + s.substring(0, s.length()-1) + "," + cellNumber;
     }
 }

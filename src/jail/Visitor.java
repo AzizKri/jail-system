@@ -40,6 +40,6 @@ public class Visitor extends Person {
     
     @Override
     public String toString() {
-        return super.toString() + "," + visitorID + ";";
+        return super.toString() + "," + visitorID;
     }
 }

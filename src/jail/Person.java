@@ -68,9 +68,6 @@ public class Person {
     
     @Override
     public String toString() {
-        return "PERSON DETAILS: \nName:" + name +
-                "\nDOB: " + DOB + 
-                "\nGender: " + gender + 
-                "\nID: " + ID + "\n";
+        return name + "," + DOB + "," + gender + "," + ID;
     }
 }

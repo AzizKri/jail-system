@@ -5,19 +5,19 @@ public class Officer extends Person{
     private String rank;
     
     public Officer(){
-        this.badgeNumber=null;
+        this.badgeNumber = null;
         this.rank = null;
     }
     
-    public Officer(String name, Date dob, char gender, String id, String badgenumber, String rank ){
+    public Officer(String name, Date dob, char gender, String id, String badgenumber, String rank){
         super(name, dob, gender, id);
-        this.badgeNumber=badgenumber;
+        this.badgeNumber = badgenumber;
         this.rank = rank;
     }
     
     public Officer (Person per, String badgenumber, String rank){
         super(per);
-        this.badgeNumber=badgenumber;
+        this.badgeNumber = badgenumber;
         this.rank = rank;
     }
     
@@ -45,12 +45,7 @@ public class Officer extends Person{
 
     @Override
     public String toString() {
-        return  "Name:" + getName() +
-                "\nDOB: " + getDOB() + 
-                "\nGender: " + getGender() + 
-                "\nID: " + getID() +
-                "\nBadge Number: " + this.badgeNumber +
-                "\nRank: " + this.rank;
+        return  super.toString() + "," + this.badgeNumber + "," + this.rank;
     }
     
     
