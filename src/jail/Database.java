@@ -14,12 +14,12 @@ public class Database {
     private Scanner cellsFile = null;
     private Scanner medicalRecordsFile = null;
     
-    private static ArrayList<Prisoner> prisoners = new ArrayList();
-    private static ArrayList<Officer> officers = new ArrayList();
-    private static ArrayList<Visitor> visitors = new ArrayList();
-    private static ArrayList<Visitation> visitations = new ArrayList();
-    private static ArrayList<Cell> cells = new ArrayList();
-    private static ArrayList<MedicalRecord> medicalRecords = new ArrayList();
+    private static final ArrayList<Prisoner> prisoners = new ArrayList();
+    private static final ArrayList<Officer> officers = new ArrayList();
+    private static final ArrayList<Visitor> visitors = new ArrayList();
+    private static final ArrayList<Visitation> visitations = new ArrayList();
+    private static final ArrayList<Cell> cells = new ArrayList();
+    private static final ArrayList<MedicalRecord> medicalRecords = new ArrayList();
 
     // Constructors
     
