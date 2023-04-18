@@ -7,7 +7,8 @@ public class JailSystem {
     public static void main(String[] args) {
         Date db = new Date(2000, 1, 1);
         Date entry = new Date(2018, 1, 1);
-        Prisoner p1 = new Prisoner("Ali", db, 'M', "12354", "Murder", 2, entry, "12345");
+        Prisoner p1 = new Prisoner("Ali", db, 'M', "12354", "Murder", 2, entry, "12345", 0008);
+        // "Ali", db, 'M', "12354", "Murder", 2, entry, "12345", 0008
         Prisoner p2 = new Prisoner(p1);
         p2.setName("Ahmed");
         Officer of = new Officer("Ali", db, 'M', "12354", "12345", "Officer");
