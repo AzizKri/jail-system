@@ -9,6 +9,7 @@ public class MedicalRecord {
     
     public MedicalRecord(){ //Def. constructor
         this(new Prisoner(), new Date(), "No Record", "No Diagnosis", "No Treatment");
+        Database.addMedicalRecord(this);
     }
 
     //Initializing constructor
@@ -18,6 +19,7 @@ public class MedicalRecord {
         this.recordID = recordID;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
+        Database.addMedicalRecord(this);
     }
 
     //Setters and Getters
@@ -61,19 +63,20 @@ public class MedicalRecord {
         this.treatment = treatment;
     }
     
-    public String toFile(){
-        return recordID + "," + prisoner.getInmateID() + "," + prisoner.getDOB() + "," + date + "," + diagnosis;
-    }
-    
     @Override
     public String toString(){
-        return "Medical Record:" +
-               "\nRecord ID: " + recordID +  
-               "\nInmate ID: " + prisoner.getInmateID() + 
-               "\nDOB: " + prisoner.getDOB() +  
-               "\nDate of Diagnosis: " + date + 
-               "\nDiagnosis: " + diagnosis + 
-               "\nTreatment: " + treatment + "\n";
+        return recordID + ";" + prisoner.getInmateID() + ";" + prisoner.getDOB() + ";" + date + ";" + diagnosis + ";" + treatment;
     }
+    
+//    @Override
+//    public String toString(){
+//        return "Medical Record:" +
+//               "\nRecord ID: " + recordID +  
+//               "\nInmate ID: " + prisoner.getInmateID() + 
+//               "\nDOB: " + prisoner.getDOB() +  
+//               "\nDate of Diagnosis: " + date + 
+//               "\nDiagnosis: " + diagnosis + 
+//               "\nTreatment: " + treatment + "\n";
+//    }
     
 }

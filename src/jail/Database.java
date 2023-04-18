@@ -75,6 +75,24 @@ public class Database {
         } catch(FileNotFoundException ex) {
             System.out.println("Cells File not found");
         }
+        // Medical Records
+        try {
+            medicalRecordsFile = new Scanner(new File("src/files/MedicalRecords.txt"));
+            while(medicalRecordsFile.hasNextLine()) {
+                String[] line = medicalRecordsFile.nextLine().split(";");
+                /*[541684;0058;18-4-1996;12-9-2022;Cancer;Public execution]*/
+                /*recordID;InmateID;DOB;date;diagnosis;treatment*/
+                Prisoner prisoner = Database.getPrisonerByInmateID(line[1]);
+                String[] DOBStr = line[2].split("-");
+                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                String[] DateStr = line[3].split("-");
+                Date date = new Date(Integer.parseInt(DateStr[2]), Integer.parseInt(DateStr[1]), Integer.parseInt(DateStr[0]));
+                new MedicalRecord(prisoner, date, line[0], line[4], line[5]);
+                // Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment
+            }
+        } catch(FileNotFoundException ex) {
+            System.out.println("Cells File not found");
+        }
         // Visitors
         try {
             visitorsFile = new Scanner(new File("src/files/Visitors.txt"));
@@ -131,6 +149,14 @@ public class Database {
 
     public static void addCell(Cell cell) {
         cells.add(cell);
+    }
+
+    public static ArrayList<MedicalRecord> getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public static void addMedicalRecord(MedicalRecord medicalRecord) {
+        medicalRecords.add(medicalRecord);
     }
     
     public static ArrayList<Visitor> getVisitors() {
