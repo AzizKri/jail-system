@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Database {
-    private Scanner prisonerFile = null;
+    private Scanner prisonersFile = null;
     private Scanner officersFile = null;
-    private Scanner visitationFile = null;
+    private Scanner visitorsFile = null;
+    private Scanner visitationsFile = null;
     private Scanner cellsFile = null;
     private Scanner medicalRecordsFile = null;
     
@@ -22,42 +23,82 @@ public class Database {
     // Constructors
     
     public Database() {
-        
+        // Prisoner
         try {
-            visitationFile = new Scanner(new File("src/files/Visitations.txt"));
-            while(visitationFile.hasNextLine()) {
-                String[] line = visitationFile.nextLine().split("\n");
-                for (String info : line) {
-                    String[] items = info.split(",");
-                    /*
-                    0001,
-                    John,
-                    12;5;1997,
-                    M,
-                    785-573257,
-                    0005,
-                    Jake,
-                    18;4;1996,
-                    M,
-                    785-3248743,
-                    0058,
-                    Theft,
-                    5,
-                    2;6;2018,
-                    16;4;2023,
-                    5pm
-                    */
-                    String[] dateStr = items[14].split(";");
-                    visitations.add(new Visitation(items[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), items[15], items[5], items[10]));
-                }
-                // visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
+            prisonersFile = new Scanner(new File("src/files/Prisoners.txt"));
+            while(prisonersFile.hasNextLine()) {
+                String[] line = prisonersFile.nextLine().split(",");
+                /*[Jake,18;4;1996,M,785-3248743,0058,Theft,5,2;6;2018]*/
+                String[] DOBStr = line[1].split(";");
+                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                String[] CrimeStr = line[7].split(";");
+                Date crimeDate = new Date(Integer.parseInt(CrimeStr[2]), Integer.parseInt(CrimeStr[1]), Integer.parseInt(CrimeStr[0]));
+                prisoners.add(new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4]));
+                // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID
+            }
+        } catch(FileNotFoundException ex) {
+            System.out.println("Prisoner File not found");
+        }
+        // Officers
+        try {
+            officersFile = new Scanner(new File("src/files/Officers.txt"));
+            while(officersFile.hasNextLine()) {
+                String[] line = officersFile.nextLine().split(",");
+                /*[Josh,4;8;1997,M,785-8465910,SN-845931562,Officer]*/
+                String[] DOBStr = line[1].split(";");
+                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                officers.add(new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]));
+                // String name, Date dob, char gender, String id, String badgenumber, String rank
+            }
+        } catch(FileNotFoundException ex) {
+            System.out.println("Officers File not found");
+        }
+        // Visitors
+        try {
+            visitorsFile = new Scanner(new File("src/files/Visitors.txt"));
+            while(visitorsFile.hasNextLine()) {
+                String[] line = visitorsFile.nextLine().split(",");
+                /*[John,12;5;1997,M,785-573257,0005]*/
+                String[] DOBStr = line[1].split(";");
+                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                visitors.add(new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]));
+                // String name, Date DOB, char gender, String personID, String visitorID
+            }
+        } catch(FileNotFoundException ex) {
+            System.out.println("Visitors File not found");
+        }
+        // Visitations
+        try {
+            visitationsFile = new Scanner(new File("src/files/Visitations.txt"));
+            while(visitationsFile.hasNextLine()) {
+                String[] line = visitationsFile.nextLine().split(",");
+                /*[0001,John,12;5;1997,M,785-573257,0005,Jake,18;4;1996,M,785-3248743,0058,Theft,5,2;6;2018,16;4;2023,5pm]*/
+                String[] dateStr = line[14].split(";");
+                visitations.add(new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[15], line[5], line[10]));
+                // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             }
         } catch(FileNotFoundException ex) {
             System.out.println("Visitation File not found");
         }
     }
 
-    // Setters and getters
+    // Getters and Adders
+
+    public static ArrayList<Prisoner> getPrisoners() {
+        return prisoners;
+    }
+
+    public static void addPrisoner(Prisoner prisoner) {
+        prisoners.add(prisoner);
+    }
+
+    public static ArrayList<Officer> getOfficers() {
+        return officers;
+    }
+
+    public static void addOfficer(Officer officer) {
+        officers.add(officer);
+    }
     
     public static ArrayList<Visitor> getVisitors() {
         return visitors;
@@ -66,13 +107,13 @@ public class Database {
     public static void addVisitor(Visitor visitor) {
         visitors.add(visitor);
     }
-
-    public static ArrayList<Prisoner> getPrisoners() {
-        return prisoners;
+    
+    public static ArrayList<Visitation> getVisitations() {
+        return visitations;
     }
 
-    public static void addPrisoner(Prisoner prisoner) {
-        prisoners.add(prisoner);
+    public static void addVisitation(Visitation visit) {
+        visitations.add(visit);
     }
     
     // Public methods
