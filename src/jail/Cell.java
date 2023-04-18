@@ -14,7 +14,7 @@ public class Cell {
     
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, int cellNumber) {
         this.officer = Database.getOfficer(officer.getBadgeNumber());
-        copy(prisoners);
+        this.prisoners = prisoners;
         this.cellNumber = cellNumber;
         Database.addCell(this);
     }
@@ -83,7 +83,7 @@ public class Cell {
     public String display(){
         String s = "";
         for (int i = 0; i < prisoners.size(); i++) {
-            s += prisoners.get(i).display() + "\n";
+            s += prisoners.get(i).display() + "\n" + "-----------------------------------------------" + "\n";
         }
         return s;
     }

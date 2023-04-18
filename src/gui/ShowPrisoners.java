@@ -74,6 +74,11 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         jPanel1.add(showBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 200, 30));
 
         clearBTN.setText("Clear");
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(clearBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
@@ -85,8 +90,13 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
             Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
         }
-        TA.append(Database.getCells().get(CMB.getSelectedIndex()).display());
+        TA.setText((Database.getCells().get(CMB.getSelectedIndex())).display());
     }//GEN-LAST:event_showBTNActionPerformed
+
+    private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
+        TA.setText("");
+        CMB.setSelectedIndex(0);
+    }//GEN-LAST:event_clearBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
