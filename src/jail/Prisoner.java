@@ -49,6 +49,7 @@ public class Prisoner extends Person{
         this.duration = copy.duration;
         this.entry = new Date(copy.entry);
         this.inmateID = copy.inmateID;
+        this.cellNumber = copy.cellNumber;
         Database.addPrisoner(this);
     }
     
