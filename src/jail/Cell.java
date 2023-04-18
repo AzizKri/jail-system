@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Cell {
     private Officer officer;
-    private ArrayList<Prisoner> prisoners;
+    private ArrayList<Prisoner> prisoners = new ArrayList<Prisoner>();
     private int cellNumber;
     
     public Cell() {
@@ -73,8 +73,8 @@ public class Cell {
     public String toString(){
         String s = "";
         for (int i = 0; i < prisoners.size(); i++) {
-            s += prisoners.get(i) + ";";
+            s += ";" + prisoners.get(i);
         }
-        return officer + "," + s.substring(0, s.length()-1) + "," + cellNumber;
+        return officer + ";" + cellNumber + s;
     }
 }

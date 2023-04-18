@@ -40,14 +40,14 @@ public class Prisoner extends Person{
     
     //Copy Constructor
     public Prisoner(Prisoner copy){
-        copy.setName(this.getName());
-        copy.setDOB(this.getDOB());
-        copy.setGender(this.getGender());
-        copy.setID(this.getID() + "COPY");
+        this.setName(copy.getName());
+        this.setDOB(copy.getDOB());
+        this.setGender(copy.getGender());
+        this.setID(copy.getID());
         this.offense = copy.offense;
         this.duration = copy.duration;
         this.entry = new Date(copy.entry);
-        this.inmateID = copy.inmateID + "COPY";
+        this.inmateID = copy.inmateID;
         Database.addPrisoner(this);
     }
     
