@@ -101,7 +101,7 @@ public class Prisoner extends Person{
     
     @Override
     public String toString(){
-        return super.toString() + "," + inmateID + "," + offense + "," + duration + "," + entry;
+        return super.toString() + "," + inmateID + "," + offense + "," + duration + "," + entry + "," + cellNumber;
     }
 }
 
