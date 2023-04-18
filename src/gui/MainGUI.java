@@ -187,7 +187,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         mainDesktop.removeAll();
-        Visitation ap = new Visitation();
+        VisitationGui ap = new VisitationGui();
         mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_b3ActionPerformed
 
