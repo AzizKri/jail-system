@@ -65,6 +65,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         b2.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b2.setText("Add Officer");
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 170, 40));
 
         b3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
@@ -78,22 +83,47 @@ public class MainGUI extends javax.swing.JFrame {
 
         b4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b4.setText("Transfer");
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 170, 40));
 
         b5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b5.setText("Release Prisoner");
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 40));
 
         b6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b6.setText("Show Prisoners");
+        b6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b6ActionPerformed(evt);
+            }
+        });
         jPanel1.add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 170, 40));
 
         jButton7.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jButton7.setText("View Prisoner Details");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 170, 40));
 
         jButton8.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jButton8.setText("View Officer Details");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 170, 40));
 
         jButton9.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
@@ -107,6 +137,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         jButton10.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jButton10.setText("Treat Prisoner");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 170, 40));
 
         sideLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -144,11 +179,15 @@ public class MainGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        mainDesktop.removeAll();
+        ViewMedicalRecord ap = new ViewMedicalRecord();
+        mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        // TODO add your handling code here:
+        mainDesktop.removeAll();
+        Visitation ap = new Visitation();
+        mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -156,6 +195,48 @@ public class MainGUI extends javax.swing.JFrame {
         AddPrisoner ap = new AddPrisoner();
         mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_b1ActionPerformed
+
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
+        mainDesktop.removeAll();
+        AddOfficer ap = new AddOfficer();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_b2ActionPerformed
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        mainDesktop.removeAll();
+        Transfer ap = new Transfer();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        mainDesktop.removeAll();
+        ReleasePrisoner ap = new ReleasePrisoner();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
+        mainDesktop.removeAll();
+        ShowPrisoners ap = new ShowPrisoners();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_b6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        mainDesktop.removeAll();
+        ViewPrisonerDetails ap = new ViewPrisonerDetails();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        mainDesktop.removeAll();
+        ViewOfficerDetails ap = new ViewOfficerDetails();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        mainDesktop.removeAll();
+        TreatPrisoner ap = new TreatPrisoner();
+        mainDesktop.add(ap).setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
