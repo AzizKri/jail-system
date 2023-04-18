@@ -205,6 +205,15 @@ public class Database {
         return null;
     }
     
+    public static Visitation getVisitation(String visitationID) {
+        for (Visitation visitation : visitations) {
+            if (visitation.getVisitationID().equals(visitationID)) {
+                return visitation;
+            }
+        }
+        return null;
+    }
+    
     public static Visitor getVisitor(String visitorID) {
         for (Visitor visitor : visitors) {
             if (visitor.getVisitorID().equals(visitorID)) {

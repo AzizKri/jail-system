@@ -38,6 +38,64 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         actionType = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        editVisitation = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        visitationId_Edit = new javax.swing.JTextField();
+        DoVLabel_Edit = new javax.swing.JLabel();
+        ToVLabel_Edit = new javax.swing.JLabel();
+        visitDay_Edit = new javax.swing.JComboBox<>();
+        visitMonth_Edit = new javax.swing.JComboBox<>();
+        visitYear_Edit = new javax.swing.JTextField();
+        visitHour_Edit = new javax.swing.JComboBox<>();
+        visitTime_Edit = new javax.swing.JComboBox<>();
+        existingVisitor_Edit = new javax.swing.JRadioButton();
+        newVisitor_Edit = new javax.swing.JRadioButton();
+        prisonerPanel_Edit = new javax.swing.JPanel();
+        prisonerName_Edit = new javax.swing.JTextField();
+        prisonerGender_Edit = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        prisonerIdNumber_Edit = new javax.swing.JTextField();
+        prisonerIdLabel_Edit = new javax.swing.JLabel();
+        prisonerID_Edit = new javax.swing.JTextField();
+        prisonerStatus_Edit = new javax.swing.JLabel();
+        prisonerYear_Edit = new javax.swing.JTextField();
+        prisonerDay_Edit = new javax.swing.JTextField();
+        prisonerMonth_Edit = new javax.swing.JTextField();
+        prisonerSearch_Edit = new javax.swing.JButton();
+        existingVisitorPanel_Edit = new javax.swing.JPanel();
+        eVisitorName_Edit = new javax.swing.JTextField();
+        eVisitorGender_Edit = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        eVisitorIdNumber_Edit = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        eVisitorID_Edit = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        visitorStatus_Edit = new javax.swing.JLabel();
+        eVisitorYear_Edit = new javax.swing.JTextField();
+        eVisitorDay_Edit = new javax.swing.JTextField();
+        eVisitorMonth_Edit = new javax.swing.JTextField();
+        eVisitorSearch_Edit = new javax.swing.JButton();
+        newVisitorPanel_Edit = new javax.swing.JPanel();
+        nVisitorName_Edit = new javax.swing.JTextField();
+        nVisitorDay_Edit = new javax.swing.JComboBox<>();
+        nVisitorMonth_Edit = new javax.swing.JComboBox<>();
+        nVisitorGender_Edit = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        nVisitorIdNumber_Edit = new javax.swing.JTextField();
+        nVisitorYear_Edit = new javax.swing.JTextField();
+        saveVisitation = new javax.swing.JButton();
+        visitationSaveStatus = new javax.swing.JLabel();
+        visitationSearch = new javax.swing.JButton();
+        finalTextPanel_Edit = new javax.swing.JScrollPane();
+        finalText1 = new javax.swing.JTextArea();
         addVisitation = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         visitationId = new javax.swing.JTextField();
@@ -121,6 +179,343 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
 
+        editVisitation.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Visitation ID:");
+        editVisitation.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        visitationId_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitationId_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitationId_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 130, -1));
+
+        DoVLabel_Edit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        DoVLabel_Edit.setText("Date of Visit:");
+        DoVLabel_Edit.setEnabled(false);
+        editVisitation.add(DoVLabel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        ToVLabel_Edit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ToVLabel_Edit.setText("Time of Visit:");
+        ToVLabel_Edit.setEnabled(false);
+        editVisitation.add(ToVLabel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        visitDay_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        visitDay_Edit.setEnabled(false);
+        visitDay_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitDay_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitDay_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 60, -1));
+
+        visitMonth_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        visitMonth_Edit.setEnabled(false);
+        visitMonth_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitMonth_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitMonth_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 60, -1));
+
+        visitYear_Edit.setText("2023");
+        visitYear_Edit.setEnabled(false);
+        editVisitation.add(visitYear_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 80, -1));
+
+        visitHour_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        visitHour_Edit.setEnabled(false);
+        visitHour_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitHour_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitHour_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 60, -1));
+
+        visitTime_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        visitTime_Edit.setEnabled(false);
+        visitTime_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitTime_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitTime_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 60, -1));
+
+        existingVisitor_Edit.setSelected(true);
+        existingVisitor_Edit.setText("Existing Visitor");
+        existingVisitor_Edit.setEnabled(false);
+        existingVisitor_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existingVisitor_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(existingVisitor_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
+
+        newVisitor_Edit.setText("New Visitor");
+        newVisitor_Edit.setEnabled(false);
+        newVisitor_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newVisitor_EditActionPerformed(evt);
+            }
+        });
+        editVisitation.add(newVisitor_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+
+        prisonerPanel_Edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        prisonerName_Edit.setEnabled(false);
+        prisonerName_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerName_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerName_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 220, -1));
+
+        prisonerGender_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Male", "Female" }));
+        prisonerGender_Edit.setEnabled(false);
+        prisonerGender_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerGender_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerGender_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 80, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setText("ID Number:");
+        jLabel20.setEnabled(false);
+        prisonerPanel_Edit.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setText("Prisoner Gender:");
+        jLabel22.setEnabled(false);
+        prisonerPanel_Edit.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel23.setText("Date of Birth:");
+        jLabel23.setEnabled(false);
+        prisonerPanel_Edit.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel24.setText("Prisoner Name:");
+        jLabel24.setEnabled(false);
+        prisonerPanel_Edit.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        prisonerIdNumber_Edit.setEnabled(false);
+        prisonerIdNumber_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerIdNumber_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerIdNumber_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 220, -1));
+
+        prisonerIdLabel_Edit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        prisonerIdLabel_Edit.setText("Prisoner ID:");
+        prisonerPanel_Edit.add(prisonerIdLabel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        prisonerID_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerID_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerID_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 130, -1));
+
+        prisonerStatus_Edit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        prisonerStatus_Edit.setForeground(new java.awt.Color(255, 0, 0));
+        prisonerPanel_Edit.add(prisonerStatus_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 250, 20));
+
+        prisonerYear_Edit.setEnabled(false);
+        prisonerPanel_Edit.add(prisonerYear_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 80, -1));
+
+        prisonerDay_Edit.setEnabled(false);
+        prisonerDay_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerDay_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerDay_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 60, -1));
+
+        prisonerMonth_Edit.setEnabled(false);
+        prisonerPanel_Edit.add(prisonerMonth_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 60, -1));
+
+        prisonerSearch_Edit.setText("Search");
+        prisonerSearch_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerSearch_EditActionPerformed(evt);
+            }
+        });
+        prisonerPanel_Edit.add(prisonerSearch_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 80, -1));
+
+        editVisitation.add(prisonerPanel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 340, 190));
+
+        existingVisitorPanel_Edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        eVisitorName_Edit.setEnabled(false);
+        eVisitorName_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eVisitorName_EditActionPerformed(evt);
+            }
+        });
+        existingVisitorPanel_Edit.add(eVisitorName_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 220, -1));
+
+        eVisitorGender_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Male", "Female" }));
+        eVisitorGender_Edit.setEnabled(false);
+        eVisitorGender_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eVisitorGender_EditActionPerformed(evt);
+            }
+        });
+        existingVisitorPanel_Edit.add(eVisitorGender_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setText("Visitor Gender:");
+        jLabel25.setEnabled(false);
+        existingVisitorPanel_Edit.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel26.setText("Date of Birth:");
+        jLabel26.setEnabled(false);
+        existingVisitorPanel_Edit.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel27.setText("Visitor Name:");
+        jLabel27.setEnabled(false);
+        existingVisitorPanel_Edit.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        eVisitorIdNumber_Edit.setEnabled(false);
+        eVisitorIdNumber_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eVisitorIdNumber_EditActionPerformed(evt);
+            }
+        });
+        existingVisitorPanel_Edit.add(eVisitorIdNumber_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 220, -1));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel28.setText("Visitor ID:");
+        existingVisitorPanel_Edit.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        eVisitorID_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eVisitorID_EditActionPerformed(evt);
+            }
+        });
+        existingVisitorPanel_Edit.add(eVisitorID_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 130, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel29.setText("ID Number:");
+        jLabel29.setEnabled(false);
+        existingVisitorPanel_Edit.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        visitorStatus_Edit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        visitorStatus_Edit.setForeground(new java.awt.Color(255, 0, 0));
+        existingVisitorPanel_Edit.add(visitorStatus_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 250, 20));
+
+        eVisitorYear_Edit.setEnabled(false);
+        existingVisitorPanel_Edit.add(eVisitorYear_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 80, -1));
+
+        eVisitorDay_Edit.setEnabled(false);
+        existingVisitorPanel_Edit.add(eVisitorDay_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 60, -1));
+
+        eVisitorMonth_Edit.setEnabled(false);
+        existingVisitorPanel_Edit.add(eVisitorMonth_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 60, -1));
+
+        eVisitorSearch_Edit.setText("Search");
+        eVisitorSearch_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eVisitorSearch_EditActionPerformed(evt);
+            }
+        });
+        existingVisitorPanel_Edit.add(eVisitorSearch_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 80, -1));
+
+        editVisitation.add(existingVisitorPanel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 350, 180));
+
+        newVisitorPanel_Edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nVisitorName_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nVisitorName_EditActionPerformed(evt);
+            }
+        });
+        newVisitorPanel_Edit.add(nVisitorName_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 180, -1));
+
+        nVisitorDay_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        nVisitorDay_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nVisitorDay_EditActionPerformed(evt);
+            }
+        });
+        newVisitorPanel_Edit.add(nVisitorDay_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 50, -1));
+
+        nVisitorMonth_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        nVisitorMonth_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nVisitorMonth_EditActionPerformed(evt);
+            }
+        });
+        newVisitorPanel_Edit.add(nVisitorMonth_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 50, -1));
+
+        nVisitorGender_Edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        nVisitorGender_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nVisitorGender_EditActionPerformed(evt);
+            }
+        });
+        newVisitorPanel_Edit.add(nVisitorGender_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 100, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("ID Number:");
+        newVisitorPanel_Edit.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel30.setText("Visitor Gender:");
+        newVisitorPanel_Edit.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel31.setText("Date of Birth:");
+        newVisitorPanel_Edit.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel32.setText("Visitor Name:");
+        newVisitorPanel_Edit.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        nVisitorIdNumber_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nVisitorIdNumber_EditActionPerformed(evt);
+            }
+        });
+        newVisitorPanel_Edit.add(nVisitorIdNumber_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
+        newVisitorPanel_Edit.add(nVisitorYear_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 60, -1));
+
+        editVisitation.add(newVisitorPanel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 290, 150));
+
+        saveVisitation.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        saveVisitation.setText("Save");
+        saveVisitation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveVisitationActionPerformed(evt);
+            }
+        });
+        editVisitation.add(saveVisitation, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 130, -1));
+
+        visitationSaveStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        visitationSaveStatus.setForeground(new java.awt.Color(255, 0, 0));
+        editVisitation.add(visitationSaveStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 250, 30));
+
+        visitationSearch.setText("Search");
+        visitationSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitationSearchActionPerformed(evt);
+            }
+        });
+        editVisitation.add(visitationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, -1));
+
+        finalText1.setColumns(20);
+        finalText1.setRows(5);
+        finalTextPanel_Edit.setViewportView(finalText1);
+
+        editVisitation.add(finalTextPanel_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 400, 140));
+
+        jPanel1.add(editVisitation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 820, 410));
+
         addVisitation.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -165,6 +560,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         });
         addVisitation.add(visitMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 60, -1));
 
+        visitYear.setText("2023");
         visitYear.setEnabled(false);
         addVisitation.add(visitYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 80, -1));
 
@@ -272,6 +668,11 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         prisonerPanel.add(prisonerYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 80, -1));
 
         prisonerDay.setEnabled(false);
+        prisonerDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prisonerDayActionPerformed(evt);
+            }
+        });
         prisonerPanel.add(prisonerDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 60, -1));
 
         prisonerMonth.setEnabled(false);
@@ -548,13 +949,17 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     private void actionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionTypeActionPerformed
         if (actionType.getSelectedIndex() == 1) {
             addVisitation.setVisible(true);
+            editVisitation.setVisible(false);
+        } else if (actionType.getSelectedIndex() == 2) {
+            addVisitation.setVisible(false);
+            editVisitation.setVisible(true);
         }
     }//GEN-LAST:event_actionTypeActionPerformed
 
     private void createVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVisitationActionPerformed
         Visitor visitor;
         Date DoV = new Date(Integer.parseInt(visitDay.getSelectedItem().toString()), Integer.parseInt(visitMonth.getSelectedItem().toString()), Integer.parseInt(visitYear.getText()));
-        if (newVisitor.isSelected()) {
+        if (newVisitor.isSelected() && !nVisitorName.getText().equals("") && !nVisitorYear.getText().equals("") && !nVisitorIdNumber.getText().equals("")) {
             Date DOB = new Date(Integer.parseInt(nVisitorDay.getSelectedItem().toString()), Integer.parseInt(nVisitorMonth.getSelectedItem().toString()), Integer.parseInt(nVisitorYear.getText()));
             String VID = "Vs-" + (int)(Math.random() * 10000);
             visitor = new Visitor(nVisitorName.getText(), DOB, nVisitorGender.getSelectedItem().toString().charAt(0), nVisitorIdNumber.getText(), VID);
@@ -563,7 +968,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             finalText.setText(visit.display());
             finalTextPanel.setVisible(true);
-        } else if (existingVisitor.isSelected()) {
+        } else if (existingVisitor.isSelected() && !eVisitorName.getText().equals("")) {
             visitor = Database.getVisitor(eVisitorID.getText());
             Visitation visit = new Visitation(visitationId.getText(), DoV, visitHour.getSelectedItem().toString() + visitTime.getSelectedItem().toString(), prisonerID.getText(), visitor.getVisitorID());
             // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
@@ -571,7 +976,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             finalTextPanel.setVisible(true);
         } else {
             visitor = null;
-            visitationStatus.setText("No visitor selected");
+            visitationStatus.setText("Missing Visitor Information");
         }
     }//GEN-LAST:event_createVisitationActionPerformed
 
@@ -619,8 +1024,8 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         Prisoner prisoner = Database.getPrisonerByInmateID(prisonerID.getText());
         if (!(prisoner == null)) {
             prisonerName.setText(prisoner.getName());
-            eVisitorDay.setText(prisoner.getDOB().getDay() + "");
-            eVisitorMonth.setText(prisoner.getDOB().getMonth() + "");
+            prisonerDay.setText(prisoner.getDOB().getDay() + "");
+            prisonerMonth.setText(prisoner.getDOB().getMonth() + "");
             prisonerYear.setText(prisoner.getDOB().getYear() + "");
             prisonerGender.setSelectedIndex((prisoner.getGender() == 'M')? 1 : 2);
             prisonerIdNumber.setText(prisoner.getID());
@@ -628,8 +1033,8 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             createVisitation.setEnabled(true);
         } else {
             prisonerName.setText("");
-            eVisitorDay.setText("");
-            eVisitorMonth.setText("");
+            prisonerDay.setText("");
+            prisonerMonth.setText("");
             prisonerYear.setText("");
             prisonerGender.setSelectedIndex(0);
             prisonerIdNumber.setText("");
@@ -638,33 +1043,203 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_prisonerSearchActionPerformed
 
+    private void prisonerDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerDayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerDayActionPerformed
+
+    private void visitationId_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitationId_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visitationId_EditActionPerformed
+
+    private void visitDay_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitDay_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visitDay_EditActionPerformed
+
+    private void visitMonth_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitMonth_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visitMonth_EditActionPerformed
+
+    private void visitHour_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitHour_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visitHour_EditActionPerformed
+
+    private void visitTime_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitTime_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visitTime_EditActionPerformed
+
+    private void existingVisitor_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingVisitor_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_existingVisitor_EditActionPerformed
+
+    private void newVisitor_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newVisitor_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newVisitor_EditActionPerformed
+
+    private void prisonerName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerName_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerName_EditActionPerformed
+
+    private void prisonerGender_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerGender_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerGender_EditActionPerformed
+
+    private void prisonerIdNumber_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerIdNumber_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerIdNumber_EditActionPerformed
+
+    private void prisonerID_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerID_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerID_EditActionPerformed
+
+    private void prisonerDay_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerDay_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerDay_EditActionPerformed
+
+    private void prisonerSearch_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerSearch_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prisonerSearch_EditActionPerformed
+
+    private void eVisitorName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorName_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eVisitorName_EditActionPerformed
+
+    private void eVisitorGender_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorGender_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eVisitorGender_EditActionPerformed
+
+    private void eVisitorIdNumber_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorIdNumber_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eVisitorIdNumber_EditActionPerformed
+
+    private void eVisitorID_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorID_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eVisitorID_EditActionPerformed
+
+    private void eVisitorSearch_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorSearch_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eVisitorSearch_EditActionPerformed
+
+    private void nVisitorName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorName_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nVisitorName_EditActionPerformed
+
+    private void nVisitorDay_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorDay_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nVisitorDay_EditActionPerformed
+
+    private void nVisitorMonth_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorMonth_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nVisitorMonth_EditActionPerformed
+
+    private void nVisitorGender_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorGender_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nVisitorGender_EditActionPerformed
+
+    private void nVisitorIdNumber_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorIdNumber_EditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nVisitorIdNumber_EditActionPerformed
+
+    private void saveVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveVisitationActionPerformed
+        finalTextPanel_Edit.setVisible(true);
+    }//GEN-LAST:event_saveVisitationActionPerformed
+
+    private void visitationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitationSearchActionPerformed
+        Visitation visit = Database.getVisitation(visitationId_Edit.getText());
+        if (visit != null) {
+            visitHour_Edit.setEnabled(true);
+            DoVLabel_Edit.setEnabled(true);
+            visitMonth_Edit.setEnabled(true);
+            visitTime_Edit.setEnabled(true);
+            ToVLabel_Edit.setEnabled(true);
+            visitYear_Edit.setEnabled(true);
+            visitDay_Edit.setEnabled(true);
+            newVisitor_Edit.setEnabled(true);
+            existingVisitor_Edit.setEnabled(true);
+            existingVisitorPanel_Edit.setVisible(true);
+            prisonerPanel_Edit.setVisible(true);
+            saveVisitation.setVisible(true);
+            
+            Date DoV = visit.getDateOfVisit();
+            String ToV[] = visit.getTime().split("(?=\\D)(?<=\\d)");
+            Visitor visitor = visit.getVisitor();
+            Prisoner prisoner = visit.getPrisoner();
+            
+            visitDay_Edit.setSelectedItem(DoV.getDay() + "");
+            visitMonth_Edit.setSelectedItem(DoV.getMonth() + "");
+            visitYear_Edit.setText(DoV.getYear() + "");
+            visitHour_Edit.setSelectedItem(ToV[0]);
+            visitTime_Edit.setSelectedItem(ToV[1]);
+            
+            eVisitorID_Edit.setText(visitor.getVisitorID());
+            eVisitorName_Edit.setText(visitor.getName());
+            eVisitorDay_Edit.setText(visitor.getDOB().getDay() + "");
+            eVisitorMonth_Edit.setText(visitor.getDOB().getMonth() + "");
+            eVisitorYear_Edit.setText(visitor.getDOB().getYear() + "");
+            eVisitorGender_Edit.setSelectedItem(visitor.getGender());
+            eVisitorIdNumber_Edit.setText(visitor.getID());
+            
+            prisonerID_Edit.setText(prisoner.getInmateID());
+            prisonerName_Edit.setText(prisoner.getName());
+            prisonerDay_Edit.setText(prisoner.getDOB().getDay() + "");
+            prisonerMonth_Edit.setText(prisoner.getDOB().getMonth() + "");
+            prisonerYear_Edit.setText(prisoner.getDOB().getYear() + "");
+            prisonerGender_Edit.setSelectedItem(prisoner.getGender());
+            prisonerIdNumber_Edit.setText(prisoner.getID());
+        }
+    }//GEN-LAST:event_visitationSearchActionPerformed
+
     private void initSettings() {
+        // Add Visitation
         addVisitation.setVisible(false);
         newVisitorPanel.setVisible(false);
         existingVisitorPanel.setVisible(false);
         finalTextPanel.setVisible(false);
+        
+        // Edit Visitation
+        editVisitation.setVisible(false);
+        newVisitorPanel_Edit.setVisible(false);
+        existingVisitorPanel_Edit.setVisible(false);
+        prisonerPanel_Edit.setVisible(false);
+        saveVisitation.setVisible(false);
+        finalTextPanel_Edit.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DoVLabel;
+    private javax.swing.JLabel DoVLabel_Edit;
     private javax.swing.JLabel ToVLabel;
+    private javax.swing.JLabel ToVLabel_Edit;
     private javax.swing.JComboBox<String> actionType;
     private javax.swing.JPanel addVisitation;
     private javax.swing.JButton createVisitation;
     private javax.swing.JTextField eVisitorDay;
+    private javax.swing.JTextField eVisitorDay_Edit;
     private javax.swing.JComboBox<String> eVisitorGender;
+    private javax.swing.JComboBox<String> eVisitorGender_Edit;
     private javax.swing.JTextField eVisitorID;
+    private javax.swing.JTextField eVisitorID_Edit;
     private javax.swing.JTextField eVisitorIdNumber;
+    private javax.swing.JTextField eVisitorIdNumber_Edit;
     private javax.swing.JTextField eVisitorMonth;
+    private javax.swing.JTextField eVisitorMonth_Edit;
     private javax.swing.JTextField eVisitorName;
+    private javax.swing.JTextField eVisitorName_Edit;
     private javax.swing.JButton eVisitorSearch;
+    private javax.swing.JButton eVisitorSearch_Edit;
     private javax.swing.JTextField eVisitorYear;
+    private javax.swing.JTextField eVisitorYear_Edit;
+    private javax.swing.JPanel editVisitation;
     private javax.swing.JRadioButton existingVisitor;
     private javax.swing.JPanel existingVisitorPanel;
+    private javax.swing.JPanel existingVisitorPanel_Edit;
+    private javax.swing.JRadioButton existingVisitor_Edit;
     private javax.swing.JTextArea finalText;
+    private javax.swing.JTextArea finalText1;
     private javax.swing.JScrollPane finalTextPanel;
+    private javax.swing.JScrollPane finalTextPanel_Edit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -674,40 +1249,82 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> nVisitorDay;
+    private javax.swing.JComboBox<String> nVisitorDay_Edit;
     private javax.swing.JComboBox<String> nVisitorGender;
+    private javax.swing.JComboBox<String> nVisitorGender_Edit;
     private javax.swing.JTextField nVisitorIdNumber;
+    private javax.swing.JTextField nVisitorIdNumber_Edit;
     private javax.swing.JComboBox<String> nVisitorMonth;
+    private javax.swing.JComboBox<String> nVisitorMonth_Edit;
     private javax.swing.JTextField nVisitorName;
+    private javax.swing.JTextField nVisitorName_Edit;
     private javax.swing.JTextField nVisitorYear;
+    private javax.swing.JTextField nVisitorYear_Edit;
     private javax.swing.JRadioButton newVisitor;
     private javax.swing.JPanel newVisitorPanel;
+    private javax.swing.JPanel newVisitorPanel_Edit;
+    private javax.swing.JRadioButton newVisitor_Edit;
     private javax.swing.JTextField prisonerDay;
+    private javax.swing.JTextField prisonerDay_Edit;
     private javax.swing.JComboBox<String> prisonerGender;
+    private javax.swing.JComboBox<String> prisonerGender_Edit;
     private javax.swing.JTextField prisonerID;
+    private javax.swing.JTextField prisonerID_Edit;
     private javax.swing.JLabel prisonerIdLabel;
+    private javax.swing.JLabel prisonerIdLabel_Edit;
     private javax.swing.JTextField prisonerIdNumber;
+    private javax.swing.JTextField prisonerIdNumber_Edit;
     private javax.swing.JTextField prisonerMonth;
+    private javax.swing.JTextField prisonerMonth_Edit;
     private javax.swing.JTextField prisonerName;
+    private javax.swing.JTextField prisonerName_Edit;
     private javax.swing.JPanel prisonerPanel;
+    private javax.swing.JPanel prisonerPanel_Edit;
     private javax.swing.JButton prisonerSearch;
+    private javax.swing.JButton prisonerSearch_Edit;
     private javax.swing.JLabel prisonerStatus;
+    private javax.swing.JLabel prisonerStatus_Edit;
     private javax.swing.JTextField prisonerYear;
+    private javax.swing.JTextField prisonerYear_Edit;
+    private javax.swing.JButton saveVisitation;
     private javax.swing.JComboBox<String> visitDay;
+    private javax.swing.JComboBox<String> visitDay_Edit;
     private javax.swing.JComboBox<String> visitHour;
+    private javax.swing.JComboBox<String> visitHour_Edit;
     private javax.swing.JComboBox<String> visitMonth;
+    private javax.swing.JComboBox<String> visitMonth_Edit;
     private javax.swing.JComboBox<String> visitTime;
+    private javax.swing.JComboBox<String> visitTime_Edit;
     private javax.swing.JTextField visitYear;
+    private javax.swing.JTextField visitYear_Edit;
     private javax.swing.JButton visitationGenerate1;
     private javax.swing.JTextField visitationId;
+    private javax.swing.JTextField visitationId_Edit;
+    private javax.swing.JLabel visitationSaveStatus;
+    private javax.swing.JButton visitationSearch;
     private javax.swing.JLabel visitationStatus;
     private javax.swing.JLabel visitorStatus;
+    private javax.swing.JLabel visitorStatus_Edit;
     // End of variables declaration//GEN-END:variables
 }
