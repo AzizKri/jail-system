@@ -4,6 +4,10 @@
  */
 package gui;
 
+import jail.*;
+//import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author husse
@@ -13,6 +17,8 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewPrisonerDetails
      */
+    Prisoner p;
+
     public ViewPrisonerDetails() {
         initComponents();
     }
@@ -27,19 +33,159 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cb1 = new javax.swing.JComboBox<>();
+        searchtf = new javax.swing.JTextField();
+        or = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        upperLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        tf1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tf2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tf3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        tf4 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tf5 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        tf6 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        tf7 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        tf8 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tf10 = new javax.swing.JTextField();
+        tf9 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        MainLabel = new javax.swing.JLabel();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("   View Prisoner Details");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        jLabel4.setText("Search with");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 40));
 
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+        cb1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select one....", "ID", "Inmate ID" }));
+        cb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, 40));
+
+        searchtf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchtfActionPerformed(evt);
+            }
+        });
+        jPanel1.add(searchtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 190, 40));
+
+        or.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jPanel1.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 140, 40));
+
+        jButton1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 100, 40));
+
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 840, 80));
+
+        upperLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        upperLabel.setText("   View Prisoner Details");
+        upperLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(upperLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Name");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 30));
+
+        tf1.setEditable(false);
+        jPanel1.add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 240, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("age");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, 30));
+
+        tf2.setEditable(false);
+        jPanel1.add(tf2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 290, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Gender");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 30));
+
+        tf3.setEditable(false);
+        jPanel1.add(tf3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 240, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("ID");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, 30));
+
+        tf4.setEditable(false);
+        jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 290, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setText("Offense");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
+
+        tf5.setEditable(false);
+        jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 240, 30));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setText("Inmate ID");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 30));
+
+        tf6.setEditable(false);
+        jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 290, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setText("Date Of Entry");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 30));
+
+        tf7.setEditable(false);
+        tf7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tf7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 240, 30));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setText("Duration");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 30));
+
+        tf8.setEditable(false);
+        jPanel1.add(tf8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 290, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setText("Cell Number");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setText("Remaining Time");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 30));
+
+        tf10.setEditable(false);
+        jPanel1.add(tf10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 290, 30));
+
+        tf9.setEditable(false);
+        jPanel1.add(tf9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 240, 30));
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 840, 380));
+
+        MainLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(MainLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,10 +211,83 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
+        if (cb1.getSelectedIndex() == 1) {
+            or.setText("Enter ID:");
+        } else if (cb1.getSelectedIndex() == 2) {
+            or.setText("Enter Inmate ID:");
+        }
+    }//GEN-LAST:event_cb1ActionPerformed
+
+    private void searchtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchtfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchtfActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (cb1.getSelectedIndex() == 2) {
+            p = Database.getPrisonerByInmateID(searchtf.getText());
+        } else if (cb1.getSelectedIndex() == 1) {
+            p = Database.getPrisonerByID(searchtf.getText());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please select search method");
+        }
+        if (p == null && cb1.getSelectedIndex() != 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please enter a valid ID");
+        } else if (cb1.getSelectedIndex() == 1 || cb1.getSelectedIndex() == 2) {
+            System.out.println(p);
+            tf1.setText(p.getName());
+            tf2.setText(p.getDOB().getAge() + "");
+            if (p.getGender() == 'M') {
+                tf3.setText("Male");
+            } else {
+                tf3.setText("Female");
+            }
+            tf4.setText(p.getID());
+            tf5.setText(p.getOffense());
+            tf6.setText(p.getInmateID());
+            tf7.setText(p.getEntry().toString());
+            tf8.setText(p.getDuration() + "");
+            tf9.setText(p.getCellNumber() + "");
+            tf10.setText(p.getEntry().releaseDate(p.getDuration()).remainingTime());
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tf7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel MainLabel;
+    private javax.swing.JComboBox<String> cb1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel or;
+    private javax.swing.JTextField searchtf;
+    private javax.swing.JTextField tf1;
+    private javax.swing.JTextField tf10;
+    private javax.swing.JTextField tf2;
+    private javax.swing.JTextField tf3;
+    private javax.swing.JTextField tf4;
+    private javax.swing.JTextField tf5;
+    private javax.swing.JTextField tf6;
+    private javax.swing.JTextField tf7;
+    private javax.swing.JTextField tf8;
+    private javax.swing.JTextField tf9;
+    private javax.swing.JLabel upperLabel;
     // End of variables declaration//GEN-END:variables
 }
