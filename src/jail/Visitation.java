@@ -86,6 +86,6 @@ public class Visitation {
 
     @Override
     public String toString() {
-        return visitationID + "," + visitor + "," + prisoner + "," + dateOfVisit + "," + time;
+        return visitationID + ";" + visitor + ";" + prisoner + ";" + dateOfVisit + ";" + time;
     }
 }
