@@ -10,18 +10,21 @@ public class Cell {
     
     public Cell() {
         this(new Officer(), new ArrayList<Prisoner>(), 0);
+        Database.addCell(this);
     }
     
     public Cell(Officer officer, ArrayList<Prisoner> prisoners, int cellNumber) {
-        this.officer = new Officer(officer);
+        this.officer = Database.getOfficer(officer.getBadgeNumber());
         copy(prisoners);
         this.cellNumber = cellNumber;
+        Database.addCell(this);
     }
     
     public Cell(Cell c1){
         this.officer = new Officer(c1.officer);
         copy(c1.prisoners);
         this.cellNumber = c1.cellNumber;
+        Database.addCell(this);
     }
 
     public Officer getOfficer() {
