@@ -14,8 +14,9 @@ public class testDate {
         Date dob = new Date(1999, 9, 2);
         Date releaseDate = new Date(2025, 12, 12);
         
-        System.out.println(d1.releaseDate(500));
-        System.out.println(dob.getAge());
-        System.out.println(releaseDate.remainingTime());
+//        System.out.println(d1.releaseDate(500));
+//        System.out.println(dob.getAge());
+//        System.out.println(releaseDate.remainingTime());
+        System.out.println(d1);
     }
 }
