@@ -29,12 +29,13 @@ public class Prisoner extends Person{
     }
     
     //Initializing concstructor using all attributes (including super class)
-    public Prisoner(String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID){
+    public Prisoner(String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID, int cellNumber){
         super(name, DOB, gender, ID);
         this.offense = offense;
         this.duration = duration;
         this.entry = entry;
         this.inmateID = inmateID;
+        this.cellNumber = cellNumber;
         Database.addPrisoner(this);
     }
     
