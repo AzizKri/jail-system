@@ -5,6 +5,10 @@
 package gui;
 
 import jail.*;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,11 +19,13 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddPrisner
      */
+    ArrayList<String> inmateIDS = new ArrayList<String>();
     public ReleasePrisoner() {
         initComponents();
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
-            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
-}
+            inmateIDS.add(Database.getPrisoners().get(i).getInmateID());
+        }
+        statusLBL.setForeground(Color.green);
     }
 
     /**
@@ -57,8 +63,9 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
         jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 190, 30));
 
-        statusLBL.setText("Status:");
-        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        statusLBL.setForeground(new java.awt.Color(0, 153, 0));
+        statusLBL.setText("Status: Working!");
+        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 490, -1));
 
         releaseBTN.setText("Release");
         releaseBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +92,27 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void releaseBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_releaseBTNActionPerformed
-
-        for (int i = 0; i < Database.getPrisoners().size(); i++) {
-            if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
-                Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
-                Database.getPrisoners().remove(i);
+        if (!inmateIDS.contains(TF2.getText())){
+            JFrame f = new JFrame("MSG");
+            JOptionPane.showMessageDialog(f, "Prisoner Not Found");
+            statusLBL.setText("Status: Prisoner Not Found");
+            statusLBL.setForeground(Color.red);
+        }
+        else if (inmateIDS.contains(TF2.getText()) && !Database.getPrisonerByInmateID(TF2.getText()).getName().equals(TF1.getText())){
+            JFrame f = new JFrame("MSG");
+                    JOptionPane.showMessageDialog(f, ("InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName()));
+            statusLBL.setText("Status: InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName());
+            statusLBL.setForeground(Color.red);
+        }
+        else{
+            for (int i = 0; i < Database.getPrisoners().size(); i++) {
+                if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
+                    Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+                    Database.getPrisoners().remove(i);
+                }
             }
+            statusLBL.setText("Status: Working!");
+            statusLBL.setForeground(Color.green);
         }
     }//GEN-LAST:event_releaseBTNActionPerformed
 

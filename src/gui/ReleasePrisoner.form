@@ -80,11 +80,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="statusLBL">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Status:"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Status: Working!"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="180" width="-1" height="-1"/>
+              <AbsoluteConstraints x="10" y="180" width="490" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

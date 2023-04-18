@@ -5,6 +5,10 @@
 package gui;
 
 import jail.*;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,11 +19,13 @@ public class Transfer extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddPrisner
      */
+    ArrayList<String> inmateIDS = new ArrayList<String>();
     public Transfer() {
         initComponents();
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
-            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
-}
+            inmateIDS.add(Database.getPrisoners().get(i).getInmateID());
+        }
+        statusLBL.setForeground(Color.green);
     }
 
     /**
@@ -52,8 +58,8 @@ public class Transfer extends javax.swing.JInternalFrame {
         CMB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 160, 20));
 
-        statusLBL.setText("Status:");
-        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        statusLBL.setText("Status: Working!");
+        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 190, -1));
 
         jLabel5.setText("Transfer to Cell:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
@@ -88,15 +94,27 @@ public class Transfer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void transferBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBTNActionPerformed
-        System.out.println(Database.getCells().get(5));
-        for (int i = 0; i < Database.getPrisoners().size(); i++) {
-            if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
-                Database.getCells().get((CMB.getSelectedIndex())).add_prisoner(Database.getPrisoners().get(i));
-                Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+        if (!inmateIDS.contains(TF2.getText())){
+            JFrame f = new JFrame("MSG");
+            JOptionPane.showMessageDialog(f, "Prisoner Not Found");
+            statusLBL.setText("Status: Prisoner Not Found");
+            statusLBL.setForeground(Color.red);
+        }
+        else if (inmateIDS.contains(TF2.getText()) && !Database.getPrisonerByInmateID(TF2.getText()).getName().equals(TF1.getText())){
+            JFrame f = new JFrame("MSG");
+                    JOptionPane.showMessageDialog(f, ("InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName()));
+            statusLBL.setText("Status: InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName());
+            statusLBL.setForeground(Color.red);
+        }
+        else{
+            for (int i = 0; i < Database.getPrisoners().size(); i++) {
+                if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
+                    Database.getPrisoners().get(i).setCellNumber(CMB.getSelectedIndex() + 1);
+                    Database.getCells().get((CMB.getSelectedIndex())).add_prisoner(Database.getPrisoners().get(i));
+                    Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+                }
             }
         }
-        System.out.println(Database.getCells().get(5));
-        System.out.println(Database.getCells().get(7));
     }//GEN-LAST:event_transferBTNActionPerformed
 
 

@@ -16,6 +16,9 @@ public class MainGUI extends javax.swing.JFrame {
     public MainGUI() {
         initComponents();
         Database d = new Database();
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+        }
     }
 
     /**
