@@ -41,6 +41,12 @@ public class Visitor extends Person {
         this.visitorID = visitorID;
     }
     
+    // public Methods
+    
+    public String display() {
+        return super.display() + "\nVisitor ID: " + visitorID;
+    }
+    
     // toString
     
     @Override

@@ -81,6 +81,14 @@ public class Visitation {
         this.time = time;
     }
     
+    public String display() {
+        return "Visitation: " + visitationID +
+                "\nVisitor: " + visitor.display() +
+                "\nPrisoner: " + prisoner + 
+                "\nDate of Visit: " + dateOfVisit +
+                "\nTime of Visit: " + time;
+    }
+    
     // toString
 
     @Override
