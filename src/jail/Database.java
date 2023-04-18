@@ -28,8 +28,8 @@ public class Database {
         try {
             prisonersFile = new Scanner(new File("src/files/Prisoners.txt"));
             while(prisonersFile.hasNextLine()) {
-                String[] line = prisonersFile.nextLine().split(";");
-                /*[Jake;18-4-1996;M;785-3248743;0058;Theft;5;2-6-2018;0008]*/
+                String[] line = prisonersFile.nextLine().split(",");
+                /*[Jake,18-4-1996,M,785-3248743,0058,Theft,5,2-6-2018,0008]*/
                 String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 String[] CrimeStr = line[7].split("-");
@@ -44,8 +44,8 @@ public class Database {
         try {
             officersFile = new Scanner(new File("src/files/Officers.txt"));
             while(officersFile.hasNextLine()) {
-                String[] line = officersFile.nextLine().split(";");
-                /*[Josh;4,8,1997;M;785-8465910;SN-845931562;Officer]*/
+                String[] line = officersFile.nextLine().split(",");
+                /*[Josh,4-8-1997,M,785-8465910,SN-845931562,Officer]*/
                 String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]);
@@ -54,12 +54,33 @@ public class Database {
         } catch(FileNotFoundException ex) {
             System.out.println("Officers File not found");
         }
+        // Cells
+        try {
+            cellsFile = new Scanner(new File("src/files/Cells.txt"));
+            while(cellsFile.hasNextLine()) {
+                String[] line = cellsFile.nextLine().split(";");
+                /*[Ali,01-01-2000,M,12354,12345,Officer;5;Ali,01-01-2000,M,12354,12345,Murder,2,01-01-2018;Ahmed,01-01-2000,M,12354,12345,Murder,2,01-01-2018]*/
+                /*officer + ";" + cellNumber + prisoners*/
+                String[] officerData = line[0].split(",");
+                Officer officer = Database.getOfficer(officerData[4]);
+                ArrayList<Prisoner> prisoners = new ArrayList();
+                for (int i = 2; i < line.length; i++) {
+                    String[] data = line[i].split(",");
+                    // Ali,01-01-2000,M,12354,12345,Murder,2,01-01-2018
+                    prisoners.add(Database.getPrisonerByInmateID(data[4]));
+                }
+                new Cell(officer, prisoners, Integer.parseInt(line[1]));
+                // Officer officer, ArrayList<Prisoner> prisoners, int cellNumber
+            }
+        } catch(FileNotFoundException ex) {
+            System.out.println("Cells File not found");
+        }
         // Visitors
         try {
             visitorsFile = new Scanner(new File("src/files/Visitors.txt"));
             while(visitorsFile.hasNextLine()) {
-                String[] line = visitorsFile.nextLine().split(";");
-                /*[John;12,5,1997;M;785-573257;0005]*/
+                String[] line = visitorsFile.nextLine().split(",");
+                /*[John,12-5-1997,M,785-573257,0005]*/
                 String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]);
@@ -73,9 +94,12 @@ public class Database {
             visitationsFile = new Scanner(new File("src/files/Visitations.txt"));
             while(visitationsFile.hasNextLine()) {
                 String[] line = visitationsFile.nextLine().split(";");
-                /*[0001;John;12,5,1997;M;785-573257;0005;Jake;18,4,1996;M;785-3248743;0058;Theft;5;2,6,2018;16,4,2023;5pm]*/
-                String[] dateStr = line[14].split("-");
-                new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[15], line[10], line[5]);
+                /* [0001;John,12-5-1997,M,785-573257,0005;Jake,18-4-1996,M,785-3248743,0058,Theft,5,2-6-2018;16-4-2023;5pm]*/
+                // visitationID + ";" + visitor + ";" + prisoner + ";" + dateOfVisit + ";" + time
+                String visitorId = line[1].split(",")[4];
+                String prisonerId = line[2].split(",")[4];
+                String[] dateStr = line[3].split("-");
+                new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[4], prisonerId, visitorId);
                 // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             }
         } catch(FileNotFoundException ex) {
@@ -100,6 +124,14 @@ public class Database {
     public static void addOfficer(Officer officer) {
         officers.add(officer);
     }
+
+    public static ArrayList<Cell> getCells() {
+        return cells;
+    }
+
+    public static void addCell(Cell cell) {
+        cells.add(cell);
+    }
     
     public static ArrayList<Visitor> getVisitors() {
         return visitors;
@@ -119,15 +151,6 @@ public class Database {
     
     // Public methods
     
-    public static Visitor getVisitor(String visitorID) {
-        for (Visitor visitor : visitors) {
-            if (visitor.getVisitorID().equals(visitorID)) {
-                return visitor;
-            }
-        }
-        return null;
-    }
-    
     public static Prisoner getPrisonerByInmateID(String prisonerID) {
         for (Prisoner prisoner : prisoners) {
             if (prisoner.getInmateID().equals(prisonerID)) {
@@ -141,6 +164,24 @@ public class Database {
         for (Prisoner prisoner : prisoners) {
             if (prisoner.getID().equals(ID)) {
                 return prisoner;
+            }
+        }
+        return null;
+    }
+    
+    public static Officer getOfficer(String badgeNumber) {
+        for (Officer officer : officers) {
+            if (officer.getBadgeNumber().equals(badgeNumber)) {
+                return officer;
+            }
+        }
+        return null;
+    }
+    
+    public static Visitor getVisitor(String visitorID) {
+        for (Visitor visitor : visitors) {
+            if (visitor.getVisitorID().equals(visitorID)) {
+                return visitor;
             }
         }
         return null;
