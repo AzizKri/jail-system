@@ -29,13 +29,13 @@ public class Database {
             prisonersFile = new Scanner(new File("src/files/Prisoners.txt"));
             while(prisonersFile.hasNextLine()) {
                 String[] line = prisonersFile.nextLine().split(";");
-                /*[Jake;18,4,1996;M;785-3248743;0058;Theft;5;2,6,2018]*/
-                String[] DOBStr = line[1].split(",");
+                /*[Jake;18-4-1996;M;785-3248743;0058;Theft;5;2-6-2018;0008]*/
+                String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
-                String[] CrimeStr = line[7].split(",");
+                String[] CrimeStr = line[7].split("-");
                 Date crimeDate = new Date(Integer.parseInt(CrimeStr[2]), Integer.parseInt(CrimeStr[1]), Integer.parseInt(CrimeStr[0]));
-                new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4]);
-                // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID
+                new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4], Integer.parseInt(line[8]));
+                // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID, int cellNumber
             }
         } catch(FileNotFoundException ex) {
             System.out.println("Prisoner File not found");
@@ -46,7 +46,7 @@ public class Database {
             while(officersFile.hasNextLine()) {
                 String[] line = officersFile.nextLine().split(";");
                 /*[Josh;4,8,1997;M;785-8465910;SN-845931562;Officer]*/
-                String[] DOBStr = line[1].split(",");
+                String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]);
                 // String name, Date dob, char gender, String id, String badgenumber, String rank
@@ -60,7 +60,7 @@ public class Database {
             while(visitorsFile.hasNextLine()) {
                 String[] line = visitorsFile.nextLine().split(";");
                 /*[John;12,5,1997;M;785-573257;0005]*/
-                String[] DOBStr = line[1].split(",");
+                String[] DOBStr = line[1].split("-");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]);
                 // String name, Date DOB, char gender, String personID, String visitorID
@@ -74,7 +74,7 @@ public class Database {
             while(visitationsFile.hasNextLine()) {
                 String[] line = visitationsFile.nextLine().split(";");
                 /*[0001;John;12,5,1997;M;785-573257;0005;Jake;18,4,1996;M;785-3248743;0058;Theft;5;2,6,2018;16,4,2023;5pm]*/
-                String[] dateStr = line[14].split(",");
+                String[] dateStr = line[14].split("-");
                 new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[15], line[10], line[5]);
                 // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             }
@@ -128,9 +128,18 @@ public class Database {
         return null;
     }
     
-    public static Prisoner getPrisoner(String prisonerID) {
+    public static Prisoner getPrisonerByInmateID(String prisonerID) {
         for (Prisoner prisoner : prisoners) {
             if (prisoner.getInmateID().equals(prisonerID)) {
+                return prisoner;
+            }
+        }
+        return null;
+    }
+    
+    public static Prisoner getPrisonerByID(String ID) {
+        for (Prisoner prisoner : prisoners) {
+            if (prisoner.getID().equals(ID)) {
                 return prisoner;
             }
         }
