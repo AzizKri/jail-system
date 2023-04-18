@@ -27,6 +27,14 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        TF3 = new javax.swing.JTextField();
+        TF2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        TF1 = new javax.swing.JTextField();
+        statusLBL = new javax.swing.JLabel();
+        releaseBTN = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -34,6 +42,24 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Reason For Release:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
+        jPanel1.add(TF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 200, 30));
+        jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 112, 190, 30));
+
+        jLabel3.setText("Prisoner Name:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 190, 30));
+
+        statusLBL.setText("Status:");
+        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        releaseBTN.setText("Release");
+        jPanel1.add(releaseBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 310, 40));
+
+        jLabel4.setText("Inmate ID:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   Release Prisoner");
@@ -50,8 +76,16 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TF1;
+    private javax.swing.JTextField TF2;
+    private javax.swing.JTextField TF3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton releaseBTN;
+    private javax.swing.JLabel statusLBL;
     // End of variables declaration//GEN-END:variables
 }
