@@ -43,7 +43,7 @@ public class Date {
         LocalDate curDate = LocalDate.now();
         return Period.between(date, curDate).getYears();
     }
-
+    // take the date of entry and get the period petween 
     public String remainingTime() {
         LocalDate curDate = LocalDate.now();
         Period rD = Period.between(curDate, date);
