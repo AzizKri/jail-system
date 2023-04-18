@@ -8,12 +8,12 @@ package gui;
  *
  * @author husse
  */
-public class AddOfficer extends javax.swing.JInternalFrame {
+public class ViewMedicalRecord extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AddPrisner
      */
-    public AddOfficer() {
+    public ViewMedicalRecord() {
         initComponents();
     }
 
@@ -36,7 +36,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("Add Officer");
+        jLabel1.setText("ViewMedicalRecord");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
 
