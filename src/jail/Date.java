@@ -10,7 +10,11 @@ public class Date {
         date = LocalDate.now();
     }
 
-    public Date(int year, int month, int day) {
+    public Date(LocalDate ld){
+        date = ld;
+    }
+    
+    public Date(int day, int month, int year) {
         date = LocalDate.of(year, month, day);
     }
 
@@ -30,8 +34,9 @@ public class Date {
         return date.getYear();
     }
 
-    public LocalDate releaseDate(long duration) {
-        return date.plusDays(duration);
+    public Date releaseDate(long duration) {
+        Date d = new Date(date.plusDays(duration));
+        return d;
     }
 
     public int getAge() {
@@ -49,6 +54,6 @@ public class Date {
     
     @Override
     public String toString() {
-        return date.toString();
+        return String.format("%d-%d-%d", getDay(), getMonth(), getYear());
     }
 }
