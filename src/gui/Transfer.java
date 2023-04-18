@@ -4,6 +4,8 @@
  */
 package gui;
 
+import jail.*;
+
 /**
  *
  * @author husse
@@ -15,6 +17,9 @@ public class Transfer extends javax.swing.JInternalFrame {
      */
     public Transfer() {
         initComponents();
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+}
     }
 
     /**
@@ -70,12 +75,29 @@ public class Transfer extends javax.swing.JInternalFrame {
         jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 210, -1));
 
         transferBTN.setText("Transfer");
+        transferBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void transferBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBTNActionPerformed
+        System.out.println(Database.getCells().get(5));
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
+                Database.getCells().get((CMB.getSelectedIndex())).add_prisoner(Database.getPrisoners().get(i));
+                Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+            }
+        }
+        System.out.println(Database.getCells().get(5));
+        System.out.println(Database.getCells().get(7));
+    }//GEN-LAST:event_transferBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

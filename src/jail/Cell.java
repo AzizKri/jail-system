@@ -61,14 +61,16 @@ public class Cell {
     }
     
     public void remove_prisoner(Prisoner p){
-        this.prisoners.remove(p);
+        for (int i = 0; i < prisoners.size(); i++) {
+            if (prisoners.get(i).getInmateID().equals(p.getInmateID())){
+                prisoners.remove(prisoners.get(i));
+            }
+        }
     }
     
     public void transfer(Prisoner p, Cell c){
-        if (this.prisoners.contains(p) && !c.prisoners.contains(p)){
             c.add_prisoner(p);
             this.remove_prisoner(p);
-        }
     }
     
     @Override

@@ -4,6 +4,8 @@
  */
 package gui;
 
+import jail.*;
+
 /**
  *
  * @author husse
@@ -15,6 +17,9 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
      */
     public ReleasePrisoner() {
         initComponents();
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+}
     }
 
     /**
@@ -56,6 +61,11 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
         jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         releaseBTN.setText("Release");
+        releaseBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                releaseBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(releaseBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 310, 40));
 
         jLabel4.setText("Inmate ID:");
@@ -73,6 +83,16 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void releaseBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_releaseBTNActionPerformed
+
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
+                Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+                Database.getPrisoners().remove(i);
+            }
+        }
+    }//GEN-LAST:event_releaseBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

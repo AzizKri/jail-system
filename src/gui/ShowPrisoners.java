@@ -15,10 +15,11 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddPrisner
      */
-    Database db;
     public ShowPrisoners() {
         initComponents();
-        db = new Database();
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+}
     }
 
     /**
@@ -86,10 +87,22 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void showBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showBTNActionPerformed
+        boolean add = true;
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
-            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+            for (int j = 0; j < Database.getCells().get(CMB.getSelectedIndex()).getPrisoners().size(); j++) {
+                    if (Database.getPrisoners().get(i).getInmateID().equals(Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).getPrisoners().get(j).getInmateID())){
+                        add = false;
+                        break;
+                    }
+                if (add){
+                Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+            }
+            }
         }
+//        Database.getCells().get((Database.getPrisoners().get(i)));
+        System.out.println(Database.getPrisoners().size());
         TA.setText((Database.getCells().get(CMB.getSelectedIndex())).display());
     }//GEN-LAST:event_showBTNActionPerformed
 
