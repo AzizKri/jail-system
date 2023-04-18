@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+@SuppressWarnings("unchecked")
 public class Database {
     private Scanner prisonersFile = null;
     private Scanner officersFile = null;
@@ -33,7 +34,7 @@ public class Database {
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
                 String[] CrimeStr = line[7].split(";");
                 Date crimeDate = new Date(Integer.parseInt(CrimeStr[2]), Integer.parseInt(CrimeStr[1]), Integer.parseInt(CrimeStr[0]));
-                prisoners.add(new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4]));
+                new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4]);
                 // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID
             }
         } catch(FileNotFoundException ex) {
@@ -47,7 +48,7 @@ public class Database {
                 /*[Josh,4;8;1997,M,785-8465910,SN-845931562,Officer]*/
                 String[] DOBStr = line[1].split(";");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
-                officers.add(new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]));
+                new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]);
                 // String name, Date dob, char gender, String id, String badgenumber, String rank
             }
         } catch(FileNotFoundException ex) {
@@ -61,7 +62,7 @@ public class Database {
                 /*[John,12;5;1997,M,785-573257,0005]*/
                 String[] DOBStr = line[1].split(";");
                 Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
-                visitors.add(new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]));
+                new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]);
                 // String name, Date DOB, char gender, String personID, String visitorID
             }
         } catch(FileNotFoundException ex) {
@@ -74,7 +75,7 @@ public class Database {
                 String[] line = visitationsFile.nextLine().split(",");
                 /*[0001,John,12;5;1997,M,785-573257,0005,Jake,18;4;1996,M,785-3248743,0058,Theft,5,2;6;2018,16;4;2023,5pm]*/
                 String[] dateStr = line[14].split(";");
-                visitations.add(new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[15], line[5], line[10]));
+                new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[15], line[10], line[5]);
                 // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             }
         } catch(FileNotFoundException ex) {
@@ -120,7 +121,7 @@ public class Database {
     
     public static Visitor getVisitor(String visitorID) {
         for (Visitor visitor : visitors) {
-            if (visitor.getID().equals(visitorID)) {
+            if (visitor.getVisitorID().equals(visitorID)) {
                 return visitor;
             }
         }
@@ -129,7 +130,7 @@ public class Database {
     
     public static Prisoner getPrisoner(String prisonerID) {
         for (Prisoner prisoner : prisoners) {
-            if (prisoner.getID().equals(prisonerID)) {
+            if (prisoner.getInmateID().equals(prisonerID)) {
                 return prisoner;
             }
         }

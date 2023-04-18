@@ -7,24 +7,28 @@ public class Officer extends Person{
     public Officer(){
         this.badgeNumber = null;
         this.rank = null;
+        Database.addOfficer(this);
     }
     
     public Officer(String name, Date dob, char gender, String id, String badgenumber, String rank){
         super(name, dob, gender, id);
         this.badgeNumber = badgenumber;
         this.rank = rank;
+        Database.addOfficer(this);
     }
     
     public Officer (Person per, String badgenumber, String rank){
         super(per);
         this.badgeNumber = badgenumber;
         this.rank = rank;
+        Database.addOfficer(this);
     }
     
     public Officer (Officer offi){
         super(offi.getName(), offi.getDOB(), offi.getGender(), offi.getID());
         this.badgeNumber = offi.badgeNumber;
         this.rank = offi.rank;
+        Database.addOfficer(this);
     }
 
     public String getBadgeNumber() {

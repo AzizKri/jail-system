@@ -3,6 +3,11 @@ package jail;
 public class Visitor extends Person {
     private String visitorID;
 
+    public Visitor() { // Create a new visitor and new person with basic Person details
+        this.visitorID = "null";
+        Database.addVisitor(this);
+    }
+
     public Visitor(String visitorID) { // Create a new visitor and new person with basic Person details
         this.visitorID = visitorID;
         Database.addVisitor(this);

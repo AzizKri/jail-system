@@ -1,7 +1,5 @@
 package jail;
 
-import java.util.ArrayList;
-
 public class Visitation {
     private String visitationID;    // Unique ID
     private Visitor visitor;         // Person visiting
@@ -11,12 +9,18 @@ public class Visitation {
 
     // Constructors
     
+    public Visitation() {
+        this("null", new Date(), "12AM", "0000", "0000");
+        Database.addVisitation(this);
+    }
+    
     public Visitation(String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID) { // Create a new visitation with one prisoner and one visitor
         this.visitationID = visitationID;
         this.dateOfVisit = dateOfVisit;
         this.time = time;
         this.prisoner = Database.getPrisoner(prisonerID);
         this.visitor = Database.getVisitor(visitorID);
+        Database.addVisitation(this);
     }
     
     public Visitation(Visitation visit) {                   // Copy constructor
@@ -25,6 +29,7 @@ public class Visitation {
         this.time = visit.time;
         this.visitor = visit.visitor;
         this.prisoner = visit.prisoner;
+        Database.addVisitation(this);
     }
 
     // Setters and getters

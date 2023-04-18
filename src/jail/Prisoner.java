@@ -11,6 +11,7 @@ public class Prisoner extends Person{
     
     public Prisoner() {  //Def. Constructor
         this(new Person(), "Null",0 ,  new Date(), "Null", 0);
+        Database.addPrisoner(this);
     }
   
     //Initializing constructor using the super class and Prisoner attributes
@@ -24,6 +25,7 @@ public class Prisoner extends Person{
         this.entry = entry;
         this.inmateID = inmateID;
         this.cellNumber = cellNumber;
+        Database.addPrisoner(this);
     }
     
     //Initializing concstructor using all attributes (including super class)
@@ -33,6 +35,7 @@ public class Prisoner extends Person{
         this.duration = duration;
         this.entry = entry;
         this.inmateID = inmateID;
+        Database.addPrisoner(this);
     }
     
     //Copy Constructor
@@ -45,6 +48,7 @@ public class Prisoner extends Person{
         this.duration = copy.duration;
         this.entry = new Date(copy.entry);
         this.inmateID = copy.inmateID + "COPY";
+        Database.addPrisoner(this);
     }
     
     //Setters
