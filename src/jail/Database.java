@@ -31,9 +31,9 @@ public class Database {
                 String[] line = prisonersFile.nextLine().split(",");
                 /*[Jake,18-4-1996,M,785-3248743,0058,Theft,5,2-6-2018,0008]*/
                 String[] DOBStr = line[1].split("-");
-                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                Date DOB = new Date(Integer.parseInt(DOBStr[0]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[2]));
                 String[] CrimeStr = line[7].split("-");
-                Date crimeDate = new Date(Integer.parseInt(CrimeStr[2]), Integer.parseInt(CrimeStr[1]), Integer.parseInt(CrimeStr[0]));
+                Date crimeDate = new Date(Integer.parseInt(CrimeStr[0]), Integer.parseInt(CrimeStr[1]), Integer.parseInt(CrimeStr[2]));
                 new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4], Integer.parseInt(line[8]));
                 // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID, int cellNumber
             }
@@ -47,7 +47,7 @@ public class Database {
                 String[] line = officersFile.nextLine().split(",");
                 /*[Josh,4-8-1997,M,785-8465910,SN-845931562,Officer]*/
                 String[] DOBStr = line[1].split("-");
-                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                Date DOB = new Date(Integer.parseInt(DOBStr[0]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[2]));
                 new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]);
                 // String name, Date dob, char gender, String id, String badgenumber, String rank
             }
@@ -84,9 +84,9 @@ public class Database {
                 /*recordID;InmateID;DOB;date;diagnosis;treatment*/
                 Prisoner prisoner = Database.getPrisonerByInmateID(line[1]);
                 String[] DOBStr = line[2].split("-");
-                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                Date DOB = new Date(Integer.parseInt(DOBStr[0]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[2]));
                 String[] DateStr = line[3].split("-");
-                Date date = new Date(Integer.parseInt(DateStr[2]), Integer.parseInt(DateStr[1]), Integer.parseInt(DateStr[0]));
+                Date date = new Date(Integer.parseInt(DateStr[0]), Integer.parseInt(DateStr[1]), Integer.parseInt(DateStr[2]));
                 new MedicalRecord(prisoner, date, line[0], line[4], line[5]);
                 // Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment
             }
@@ -100,7 +100,7 @@ public class Database {
                 String[] line = visitorsFile.nextLine().split(",");
                 /*[John,12-5-1997,M,785-573257,0005]*/
                 String[] DOBStr = line[1].split("-");
-                Date DOB = new Date(Integer.parseInt(DOBStr[2]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[0]));
+                Date DOB = new Date(Integer.parseInt(DOBStr[0]), Integer.parseInt(DOBStr[1]), Integer.parseInt(DOBStr[2]));
                 new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]);
                 // String name, Date DOB, char gender, String personID, String visitorID
             }
@@ -117,7 +117,8 @@ public class Database {
                 String visitorId = line[1].split(",")[4];
                 String prisonerId = line[2].split(",")[4];
                 String[] dateStr = line[3].split("-");
-                new Visitation(line[0], new Date(Integer.parseInt(dateStr[2]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[0])), line[4], prisonerId, visitorId);
+                Date DOV = new Date(Integer.parseInt(dateStr[0]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[2]));
+                new Visitation(line[0], DOV, line[4], prisonerId, visitorId);
                 // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
             }
         } catch(FileNotFoundException ex) {
