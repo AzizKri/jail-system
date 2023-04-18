@@ -63,13 +63,13 @@ public class Database {
                 /*officer + ";" + cellNumber + prisoners*/
                 String[] officerData = line[0].split(",");
                 Officer officer = Database.getOfficer(officerData[4]);
-                ArrayList<Prisoner> prisoners = new ArrayList();
+                ArrayList<Prisoner> cellPrisoners = new ArrayList();
                 for (int i = 2; i < line.length; i++) {
                     String[] data = line[i].split(",");
                     // Ali,01-01-2000,M,12354,12345,Murder,2,01-01-2018
-                    prisoners.add(Database.getPrisonerByInmateID(data[4]));
+                    cellPrisoners.add(Database.getPrisonerByInmateID(data[4]));
                 }
-                new Cell(officer, prisoners, Integer.parseInt(line[1]));
+                new Cell(officer, cellPrisoners, Integer.parseInt(line[1]));
                 // Officer officer, ArrayList<Prisoner> prisoners, int cellNumber
             }
         } catch(FileNotFoundException ex) {
