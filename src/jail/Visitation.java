@@ -18,7 +18,7 @@ public class Visitation {
         this.visitationID = visitationID;
         this.dateOfVisit = dateOfVisit;
         this.time = time;
-        this.prisoner = Database.getPrisoner(prisonerID);
+        this.prisoner = Database.getPrisonerByInmateID(prisonerID);
         this.visitor = Database.getVisitor(visitorID);
         Database.addVisitation(this);
     }
@@ -63,7 +63,7 @@ public class Visitation {
     }
 
     public void setPrisoner(String prisonerID) {
-        this.prisoner = Database.getPrisoner(prisonerID);
+        this.prisoner = Database.getPrisonerByInmateID(prisonerID);
     }
     
     public Date getDateOfVisit() {
