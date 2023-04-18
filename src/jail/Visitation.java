@@ -83,10 +83,10 @@ public class Visitation {
     
     public String display() {
         return "Visitation: " + visitationID +
-                "\nVisitor: " + visitor.display() +
-                "\nPrisoner: " + prisoner + 
-                "\nDate of Visit: " + dateOfVisit +
-                "\nTime of Visit: " + time;
+                "\n----\nVisitor " + visitor.display() +
+                "\n----\nPrisoner " + prisoner.display() + 
+                "\n----\nDate of Visit: " + dateOfVisit +
+                "\n----\nTime of Visit: " + time;
     }
     
     // toString
