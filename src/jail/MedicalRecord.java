@@ -61,6 +61,10 @@ public class MedicalRecord {
         this.treatment = treatment;
     }
     
+    public String toFile(){
+        return recordID + "," + prisoner.getInmateID() + "," + prisoner.getDOB() + "," + date + "," + diagnosis;
+    }
+    
     @Override
     public String toString(){
         return "Medical Record:" +

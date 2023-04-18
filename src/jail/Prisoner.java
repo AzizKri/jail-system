@@ -89,7 +89,9 @@ public class Prisoner extends Person{
         this.cellNumber = cellNumber;
     }
     
-    
+    public String toFile(){
+        return inmateID + "," + offense + "," + duration + "," + entry;
+    } 
     
     @Override
     public String toString(){
