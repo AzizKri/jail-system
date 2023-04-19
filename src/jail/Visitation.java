@@ -61,7 +61,7 @@ public class Visitation {
         this.prisoner = prisoner;
     }
 
-    public void setPrisoner(String prisonerID) {
+    public void setPrisoner(String prisonerID) {        // Set prisoner by InmateID
         this.prisoner = Database.getPrisonerByInmateID(prisonerID);
     }
     
@@ -80,6 +80,8 @@ public class Visitation {
     public void setTime(String time) {
         this.time = time;
     }
+    
+    // Public methods
     
     public String display() {
         return "Visitation: " + visitationID +
