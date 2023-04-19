@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package gui;
 
 import jail.Database;
@@ -11,10 +7,6 @@ import jail.Date;
 import jail.Visitation;
 import java.util.ArrayList;
 
-/**
- *
- * @author husse
- */
 public class VisitationGui extends javax.swing.JInternalFrame {
 
     /**
