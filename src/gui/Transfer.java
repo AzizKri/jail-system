@@ -22,8 +22,17 @@ public class Transfer extends javax.swing.JInternalFrame {
     ArrayList<String> inmateIDS = new ArrayList<String>();
     public Transfer() {
         initComponents();
+        inmateIDS = new ArrayList<String>();
+        for (int i = 0; i < Database.getCells().size(); i++) {
+            Database.getCells().get(i).getPrisoners().clear();
+        }
+        
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+        }
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
             inmateIDS.add(Database.getPrisoners().get(i).getInmateID());
+            CMB1.addItem(Database.getPrisoners().get(i).getName() + " - " + Database.getPrisoners().get(i).getInmateID());
         }
         statusLBL.setForeground(Color.green);
     }
@@ -38,6 +47,9 @@ public class Transfer extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        CMB1 = new javax.swing.JComboBox<>();
+        transferBTN = new javax.swing.JButton();
         CMB = new javax.swing.JComboBox<>();
         statusLBL = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -47,16 +59,29 @@ public class Transfer extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         TF1 = new javax.swing.JTextField();
         TF2 = new javax.swing.JTextField();
-        transferBTN = new javax.swing.JButton();
+        CB = new javax.swing.JCheckBox();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setText("Prisoners:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+
+        jPanel1.add(CMB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 180, 30));
+
+        transferBTN.setText("Transfer");
+        transferBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 250, 30));
+
         CMB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         CMB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 160, 20));
+        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 170, 20));
 
         statusLBL.setText("Status: Working!");
         jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 190, -1));
@@ -77,16 +102,20 @@ public class Transfer extends javax.swing.JInternalFrame {
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+
+        TF1.setEnabled(false);
         jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, -1));
+
+        TF2.setEnabled(false);
         jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 210, -1));
 
-        transferBTN.setText("Transfer");
-        transferBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                transferBTNActionPerformed(evt);
+        CB.setText("Enter Manually");
+        CB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CBMouseClicked(evt);
             }
         });
-        jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 30));
+        jPanel1.add(CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
@@ -94,32 +123,64 @@ public class Transfer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void transferBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBTNActionPerformed
-        if (!inmateIDS.contains(TF2.getText())){
-            JFrame f = new JFrame("MSG");
-            JOptionPane.showMessageDialog(f, "Prisoner Not Found");
-            statusLBL.setText("Status: Prisoner Not Found");
-            statusLBL.setForeground(Color.red);
-        }
-        else if (inmateIDS.contains(TF2.getText()) && !Database.getPrisonerByInmateID(TF2.getText()).getName().equals(TF1.getText())){
-            JFrame f = new JFrame("MSG");
-                    JOptionPane.showMessageDialog(f, ("InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName()));
-            statusLBL.setText("Status: InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName());
-            statusLBL.setForeground(Color.red);
+        if (CB.isSelected()){
+            if (!inmateIDS.contains(TF2.getText())){
+                JFrame f = new JFrame("MSG");
+                JOptionPane.showMessageDialog(f, "Prisoner Not Found");
+                statusLBL.setText("Status: Prisoner Not Found");
+                statusLBL.setForeground(Color.red);
+            }
+            else if (inmateIDS.contains(TF2.getText()) && !Database.getPrisonerByInmateID(TF2.getText()).getName().equals(TF1.getText())){
+                JFrame f = new JFrame("MSG");
+                        JOptionPane.showMessageDialog(f, ("InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName()));
+                statusLBL.setText("Status: InmateID and name dont match did you mean to search for " + Database.getPrisonerByInmateID(TF2.getText()).getName());
+                statusLBL.setForeground(Color.red);
+            }
+            else{
+                for (int i = 0; i < Database.getPrisoners().size(); i++) {
+                    if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
+                        Database.getPrisoners().get(i).setCellNumber(CMB.getSelectedIndex() + 1);
+                        Database.getCells().get((CMB.getSelectedIndex())).add_prisoner(Database.getPrisoners().get(i));
+                        Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+                    }
+                }
+                JFrame f = new JFrame("MSG");
+                JOptionPane.showMessageDialog(f, "Prisoner Has Been Transfered");
+                statusLBL.setText("Status: Working!");
+                statusLBL.setForeground(Color.green);
+            }
         }
         else{
-            for (int i = 0; i < Database.getPrisoners().size(); i++) {
-                if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
-                    Database.getPrisoners().get(i).setCellNumber(CMB.getSelectedIndex() + 1);
-                    Database.getCells().get((CMB.getSelectedIndex())).add_prisoner(Database.getPrisoners().get(i));
-                    Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
-                }
-            }
+            int index = CMB1.getSelectedIndex();
+            int cell_number = Database.getPrisoners().get(index).getCellNumber() - 1;
+            Database.getCells().get(cell_number).remove_prisoner(Database.getPrisoners().get(index));
+            Database.getCells().get(CMB.getSelectedIndex()).add_prisoner(Database.getPrisoners().get(index));
+            Database.getPrisoners().get(index).setCellNumber(CMB.getSelectedIndex() + 1);
+            JFrame f = new JFrame("MSG");
+            JOptionPane.showMessageDialog(f, "Prisoner Has Been Transfered");
+            statusLBL.setText("Status: Working!");
+            statusLBL.setForeground(Color.green);
         }
     }//GEN-LAST:event_transferBTNActionPerformed
 
+    private void CBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CBMouseClicked
+        if (CB.isSelected()){
+            TF1.setEnabled(true);
+            TF2.setEnabled(true);
+            CMB1.setEnabled(false);
+        }
+        else{
+            TF1.setEnabled(false);
+            TF2.setEnabled(false);
+            CMB1.setEnabled(true);
+        }
+    }//GEN-LAST:event_CBMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CB;
     private javax.swing.JComboBox<String> CMB;
+    private javax.swing.JComboBox<String> CMB1;
     private javax.swing.JTextField TF1;
     private javax.swing.JTextField TF2;
     private javax.swing.JLabel jLabel1;
@@ -127,6 +188,7 @@ public class Transfer extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel statusLBL;
     private javax.swing.JButton transferBTN;
