@@ -162,7 +162,7 @@ public class MainGUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(mainDesktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 880, 570));
+        jPanel1.add(mainDesktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 870, 560));
         mainDesktop.getAccessibleContext().setAccessibleName("");
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
