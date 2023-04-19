@@ -175,12 +175,12 @@ public class Database {
     
     // File writer. ONLY CALL THIS WHEN THE PROGRAM IS CLOSED!!!
     
-    public static void close() {
+    public static void save() {
         // Check if there's anything to write. We don't want to clear our data.
         if (prisoners.size() + officers.size() + visitors.size() + visitations.size() + cells.size() + medicalRecords.size() > 0) {
             /*
             
-            We start each writer by defining the FileWriter as null in order to make sure it's closed while catching any exceptions
+            We start each writer by defining the FileWriter as null in order to make sure it's closed while catching any exceptions.
             Each writer will append its objects to an empty string, then overwrite the file mentioned.
             
             */
