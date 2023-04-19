@@ -222,4 +222,13 @@ public class Database {
         }
         return null;
     }
+    
+    public static Visitor getVisitorByNID(String visitorIdNumber) {
+        for (Visitor visitor : visitors) {
+            if (visitor.getID().equals(visitorIdNumber)) {
+                return visitor;
+            }
+        }
+        return null;
+    }
 }
