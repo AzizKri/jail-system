@@ -4,6 +4,8 @@
  */
 package gui;
 
+import jail.*;
+
 /**
  *
  * @author husse
@@ -26,32 +28,154 @@ public class AddOfficer extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        namein = new javax.swing.JTextField();
+        IDin = new javax.swing.JTextField();
+        badgenumin = new javax.swing.JTextField();
+        Rankinn = new javax.swing.JTextField();
+        genderin = new javax.swing.JComboBox<>();
+        dobdayin = new javax.swing.JComboBox<>();
+        dobmonthin = new javax.swing.JComboBox<>();
+        dobyearin = new javax.swing.JComboBox<>();
+        add = new javax.swing.JButton();
+        reportt = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel3.setText("Officer Name");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel4.setText("Officer ID");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, -1));
+
+        jLabel5.setText("Date Of Birth");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        jLabel6.setText("Gender");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        jLabel7.setText("Badge Number");
+        jLabel7.setPreferredSize(new java.awt.Dimension(40, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, -1));
+
+        jLabel8.setText("Rank");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        getContentPane().add(namein, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, -1));
+        getContentPane().add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 160, -1));
+        getContentPane().add(badgenumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, -1));
+        getContentPane().add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 160, -1));
+
+        genderin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "M", "F" }));
+        getContentPane().add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
+        dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        getContentPane().add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+
+        dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
+        getContentPane().add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
+
+        dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
+        getContentPane().add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+
+        add.setText("ADD OFFICER");
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
+        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        getContentPane().add(reportt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 390, 30));
+
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 860, 550));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   Add Officer");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 70));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        String name = namein.getText();
+        String id = IDin.getText();
+        
+        if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0){
+            reportt.setText("Please enter the day of birth");}
+
+        else{
+        int dayDOB = Integer.parseInt((String) dobdayin.getSelectedItem());
+        
+        int monthDOB = dobmonthin.getSelectedIndex();
+        
+        
+        int yearDOB = Integer.parseInt((String) dobyearin.getSelectedItem());
+        
+        
+        char gender = 'A';
+        if (genderin.getSelectedItem() == "M"){
+            gender = 'M';
+        }
+        else{
+            gender = 'F';
+        }
+        
+        Date dobDate = new Date(dayDOB, monthDOB, yearDOB);
+        
+        String badgenumber = badgenumin.getText();
+        
+        String rank = Rankinn.getText();
+        
+
+        Officer o1 = new Officer(name , dobDate , gender, id, badgenumber, rank);
+
+        namein.setText("");
+        IDin.setText("");
+        Rankinn.setText("");
+        badgenumin.setText("");
+        
+        reportt.setText(o1.toString());}
+
+    }//GEN-LAST:event_addActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IDin;
+    private javax.swing.JTextField Rankinn;
+    private javax.swing.JButton add;
+    private javax.swing.JTextField badgenumin;
+    private javax.swing.JComboBox<String> dobdayin;
+    private javax.swing.JComboBox<String> dobmonthin;
+    private javax.swing.JComboBox<String> dobyearin;
+    private javax.swing.JComboBox<String> genderin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField namein;
+    private javax.swing.JLabel reportt;
     // End of variables declaration//GEN-END:variables
 }

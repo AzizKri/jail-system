@@ -1,5 +1,7 @@
 package jail;
 
+import java.util.Random;
+
 
 public class Prisoner extends Person{
     private String offense;
@@ -34,6 +36,26 @@ public class Prisoner extends Person{
         this.duration = duration;
         this.entry = entry;
         this.inmateID = inmateID;
+        this.cellNumber = cellNumber;
+        Database.addPrisoner(this);
+    }
+    
+    public Prisoner(String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, int cellNumber){
+        super(name, DOB, gender, ID);
+        int checker = 1;
+        Random random = new Random();
+        this.offense = offense;
+        this.duration = duration;
+        this.entry = entry;
+        this.inmateID = Integer.toString(random.nextInt(9999));
+        do {
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+                if(Database.getPrisoners().get(i).inmateID.equals( this.inmateID)){
+                    this.inmateID = Integer.toString(random.nextInt(9999));
+                    checker = 0;
+                    break;
+                }}}while(checker == 0);
+        
         this.cellNumber = cellNumber;
         Database.addPrisoner(this);
     }
