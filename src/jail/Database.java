@@ -2,6 +2,8 @@ package jail;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -60,6 +62,7 @@ public class Database {
                     new Prisoner(line[0], DOB, line[2].charAt(0), line[3], line[5], Integer.parseInt(line[6]), crimeDate, line[4], Integer.parseInt(line[8]));
                     // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID, int cellNumber
                 }
+                prisonersFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Prisoner File not found");
             }
@@ -77,6 +80,7 @@ public class Database {
                     new Officer(line[0], DOB, line[2].charAt(0), line[3], line[4], line[5]);
                     // String name, Date dob, char gender, String id, String badgenumber, String rank
                 }
+                officersFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Officers File not found");
             }
@@ -98,6 +102,7 @@ public class Database {
                     new Cell(officer, cellPrisoners, Integer.parseInt(line[1]));
                     // Officer officer, ArrayList<Prisoner> prisoners, int cellNumber
                 }
+                cellsFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Cells File not found");
             }
@@ -121,6 +126,7 @@ public class Database {
                     new MedicalRecord(prisoner, date, line[0], line[4], line[5]);
                     // Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment
                 }
+                medicalRecordsFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Cells File not found");
             }
@@ -138,6 +144,7 @@ public class Database {
                     new Visitor(line[0], DOB, line[2].charAt(0), line[3], line[4]);
                     // String name, Date DOB, char gender, String personID, String visitorID
                 }
+                visitorsFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Visitors File not found");
             }
@@ -146,25 +153,97 @@ public class Database {
                 visitationsFile = new Scanner(new File("src/files/Visitations.txt"));
                 while(visitationsFile.hasNextLine()) {
                     String[] line = visitationsFile.nextLine().split(";");
-                    /* [0001;John,12-5-1997,M,785-573257,0005;Jake,18-4-1996,M,785-3248743,0058,Theft,5,2-6-2018;16-4-2023;5pm]*/
-                    // visitationID + ";" + visitor + ";" + prisoner + ";" + dateOfVisit + ";" + time
-                    
-                    String visitorId = line[1].split(",")[4];
-                    String prisonerId = line[2].split(",")[4];
+                    /* [Visit-5921;Vs-0005;0058;16-4-2023;5pm]*/
+                    // visitationID + ";" + visitorId + ";" + prisonerId + ";" + dateOfVisit + ";" + time
                     
                     // Create Date objects from the string
                     String[] dateStr = line[3].split("-");
                     Date DOV = new Date(Integer.parseInt(dateStr[0]), Integer.parseInt(dateStr[1]), Integer.parseInt(dateStr[2]));
                     
-                    new Visitation(line[0], DOV, line[4], prisonerId, visitorId);
+                    new Visitation(line[0], DOV, line[4], line[2], line[1]);
                     // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
                 }
+                visitationsFile.close();
             } catch(FileNotFoundException ex) {
                 System.out.println("Visitation File not found");
             }
         } else {
             // In case a database was re-initialized by mistake, the following will be printed and no changes will take effect.
             System.out.println("ATTEMPTED DATABASE RE-INITIALIZATION. NO CHANGES MADE.");
+        }
+    }
+    
+    // File writer. ONLY CALL THIS WHEN THE PROGRAM IS CLOSED!!!
+    
+    public static void close() {
+        // Check if there's anything to write. We don't want to clear our data.
+        if (prisoners.size() + officers.size() + visitors.size() + visitations.size() + cells.size() + medicalRecords.size() > 0) {
+            /*
+            
+            We start each writer by defining the FileWriter as null in order to make sure it's closed while catching any exceptions
+            Each writer will append its objects to an empty string, then overwrite the file mentioned.
+            
+            */
+            
+            // Prisoner
+            FileWriter prisonerWriter = null;
+            try {
+                prisonerWriter = new FileWriter("src/files/Prisoners.txt");
+                String data = "";
+                for (Prisoner prisoner : prisoners) {
+                    data += prisoner + "\n";
+                }
+                prisonerWriter.write(data);
+                prisonerWriter.close();
+            } catch(IOException ex) {
+                System.out.println("Prisoners.txt Not found in FileWriter");
+            } finally {
+                try {
+                    prisonerWriter.close();
+                } catch(IOException ex) {
+                System.out.println("Prisoners.txt Not found in FileWriter");
+                }
+            }
+            
+            // Visitor
+            FileWriter visitorWriter = null;
+            try {
+                visitorWriter = new FileWriter("src/files/Visitors.txt");
+                String data = "";
+                for (Visitor visitor : visitors) {
+                    data += visitor + "\n";
+                }
+                visitorWriter.write(data);
+                visitorWriter.close();
+            } catch(IOException ex) {
+                System.out.println("Visitors.txt Not found in FileWriter");
+            } finally {
+                try {
+                    visitorWriter.close();
+                } catch(IOException ex) {
+                System.out.println("Visitors.txt Not found in FileWriter");
+                }
+            }
+            
+            // Visitation
+            FileWriter visitationWriter = null;
+            try {
+                visitationWriter = new FileWriter("src/files/Visitations.txt");
+                String data = "";
+                for (Visitation visit : visitations) {
+                    data += visit + "\n";
+                }
+                visitationWriter.write(data);
+                visitationWriter.close();
+            } catch(IOException ex) {
+                System.out.println("Visitations.txt Not found in FileWriter");
+            } finally {
+                try {
+                    visitationWriter.close();
+                } catch(IOException ex) {
+                System.out.println("Visitations.txt Not found in FileWriter");
+                }
+            }
         }
     }
 
