@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package gui;
 
 import jail.*;
-//import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author husse
+ * @author Hussain
  */
 public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
 
@@ -18,9 +14,13 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
      * Creates new form ViewPrisonerDetails
      */
     Prisoner p;
+    private DefaultListModel mod;
 
     public ViewPrisonerDetails() {
         initComponents();
+        menu.add(panel);
+        mod = new DefaultListModel();
+        list.setModel(mod);
     }
 
     /**
@@ -32,6 +32,10 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list = new javax.swing.JList<>();
+        menu = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cb1 = new javax.swing.JComboBox<>();
@@ -46,22 +50,44 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         tf2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         tf3 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        tf4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tf5 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        tf6 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        tf7 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        tf8 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         tf10 = new javax.swing.JTextField();
         tf9 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         MainLabel = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        MainLabel2 = new javax.swing.JLabel();
+        tf7 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        tf4 = new javax.swing.JTextField();
+        tf8 = new javax.swing.JTextField();
+        tf6 = new javax.swing.JTextField();
+        tf5 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        MainLabel1 = new javax.swing.JLabel();
+
+        list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(list);
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+        );
+
+        menu.setFocusable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,7 +97,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 40));
 
         cb1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select one....", "ID", "Inmate ID" }));
+        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select one....", "Name", "ID", "Inmate ID" }));
         cb1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb1ActionPerformed(evt);
@@ -82,6 +108,11 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         searchtf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchtfActionPerformed(evt);
+            }
+        });
+        searchtf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchtfKeyReleased(evt);
             }
         });
         jPanel1.add(searchtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 190, 40));
@@ -127,53 +158,9 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         tf3.setEditable(false);
         jPanel1.add(tf3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 240, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("ID");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, 30));
-
-        tf4.setEditable(false);
-        jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 290, 30));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("Offense");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
-
-        tf5.setEditable(false);
-        jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 240, 30));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setText("Inmate ID");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 30));
-
-        tf6.setEditable(false);
-        jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 290, 30));
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Date Of Entry");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 30));
-
-        tf7.setEditable(false);
-        tf7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf7ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(tf7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 240, 30));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("Duration");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 30));
-
-        tf8.setEditable(false);
-        jPanel1.add(tf8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 290, 30));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setText("Cell Number");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setText("Remaining Time");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 30));
 
         tf10.setEditable(false);
         jPanel1.add(tf10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 290, 30));
@@ -186,6 +173,56 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
 
         MainLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(MainLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel23.setText("Duration");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 30));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel24.setText("Inmate ID");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 30));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel25.setText("ID");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, 30));
+
+        MainLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(MainLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+
+        tf7.setEditable(false);
+        tf7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tf7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 240, 30));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel26.setText("Remaining Time");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 30));
+
+        tf4.setEditable(false);
+        jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 290, 30));
+
+        tf8.setEditable(false);
+        jPanel1.add(tf8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 290, 30));
+
+        tf6.setEditable(false);
+        jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 290, 30));
+
+        tf5.setEditable(false);
+        jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 240, 30));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel28.setText("Offense");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel29.setText("Cell Number");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
+
+        MainLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(MainLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,10 +249,8 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
-        if (cb1.getSelectedIndex() == 1) {
-            or.setText("Enter ID:");
-        } else if (cb1.getSelectedIndex() == 2) {
-            or.setText("Enter Inmate ID:");
+        if(cb1.getSelectedIndex() != 0){
+            or.setText("Enter " + cb1.getSelectedItem() + ":");
         }
     }//GEN-LAST:event_cb1ActionPerformed
 
@@ -224,17 +259,23 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchtfActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (cb1.getSelectedIndex() == 2) {
+        if (cb1.getSelectedIndex() == 3) {
             p = Database.getPrisonerByInmateID(searchtf.getText());
-        } else if (cb1.getSelectedIndex() == 1) {
+        } else if (cb1.getSelectedIndex() == 2) {
             p = Database.getPrisonerByID(searchtf.getText());
-        } else {
+        } else if (cb1.getSelectedIndex() == 1){
+            String[] s = searchtf.getText().split(" ");
+            if (s.length != 2) {
+                JOptionPane.showMessageDialog(rootPane, "Please select name from the list");
+            } else {
+                p = Database.getPrisonerByID(s[1]);
+            }
+        }else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
         if (p == null && cb1.getSelectedIndex() != 0) {
             JOptionPane.showMessageDialog(rootPane, "Please enter a valid ID");
-        } else if (cb1.getSelectedIndex() == 1 || cb1.getSelectedIndex() == 2) {
-            System.out.println(p);
+        } else if (cb1.getSelectedIndex() != 0) {
             tf1.setText(p.getName());
             tf2.setText(p.getDOB().getAge() + "");
             if (p.getGender() == 'M') {
@@ -248,7 +289,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
             tf7.setText(p.getEntry().toString());
             tf8.setText(p.getDuration() + "");
             tf9.setText(p.getCellNumber() + "");
-            tf10.setText(p.getEntry().releaseDate(p.getDuration()).remainingTime());
+            tf10.setText(p.getEntry().releaseDate(p.getDuration()).remainingTime() + "w");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -257,26 +298,52 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf7ActionPerformed
 
+    private void listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMouseClicked
+        searchtf.setText(list.getSelectedValue());
+        menu.setVisible(false);
+    }//GEN-LAST:event_listMouseClicked
+
+    private void searchtfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtfKeyReleased
+        if (cb1.getSelectedIndex() == 1) {
+            String search = searchtf.getText().trim().toLowerCase();
+            if (!search.equals("")) {
+                mod.removeAllElements();
+                for (Prisoner p : Database.getPrisoners()) {
+                    if (p.getName().toLowerCase().startsWith(search)) {
+                        mod.addElement(p.getName() + " " + p.getID());
+                    }
+                }
+                menu.show(searchtf, 0, searchtf.getHeight());
+            }
+        }
+    }//GEN-LAST:event_searchtfKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MainLabel;
+    private javax.swing.JLabel MainLabel1;
+    private javax.swing.JLabel MainLabel2;
     private javax.swing.JComboBox<String> cb1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> list;
+    private javax.swing.JPopupMenu menu;
     private javax.swing.JLabel or;
+    private javax.swing.JPanel panel;
     private javax.swing.JTextField searchtf;
     private javax.swing.JTextField tf1;
     private javax.swing.JTextField tf10;
