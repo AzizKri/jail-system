@@ -94,6 +94,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         saveVisitation = new javax.swing.JButton();
         visitationSaveStatus = new javax.swing.JLabel();
         visitationSearch = new javax.swing.JButton();
+        visitationSearchStatus = new javax.swing.JLabel();
         finalTextPanel_Edit = new javax.swing.JScrollPane();
         finalText1 = new javax.swing.JTextArea();
         addVisitation = new javax.swing.JPanel();
@@ -507,6 +508,10 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             }
         });
         editVisitation.add(visitationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, -1));
+
+        visitationSearchStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        visitationSearchStatus.setForeground(new java.awt.Color(255, 0, 0));
+        editVisitation.add(visitationSearchStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 250, 30));
 
         finalText1.setColumns(20);
         finalText1.setRows(5);
@@ -1027,7 +1032,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             prisonerDay.setText(prisoner.getDOB().getDay() + "");
             prisonerMonth.setText(prisoner.getDOB().getMonth() + "");
             prisonerYear.setText(prisoner.getDOB().getYear() + "");
-            prisonerGender.setSelectedIndex((prisoner.getGender() == 'M')? 1 : 2);
+            prisonerGender.setSelectedItem((prisoner.getGender() == 'M')? 1 : 2);
             prisonerIdNumber.setText(prisoner.getID());
             prisonerStatus.setText("");
             createVisitation.setEnabled(true);
@@ -1068,11 +1073,15 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_visitTime_EditActionPerformed
 
     private void existingVisitor_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingVisitor_EditActionPerformed
-        // TODO add your handling code here:
+        existingVisitorPanel_Edit.setVisible(true);
+        newVisitorPanel_Edit.setVisible(false);
+        newVisitor_Edit.setSelected(false);
     }//GEN-LAST:event_existingVisitor_EditActionPerformed
 
     private void newVisitor_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newVisitor_EditActionPerformed
-        // TODO add your handling code here:
+        existingVisitorPanel_Edit.setVisible(false);
+        newVisitorPanel_Edit.setVisible(true);
+        existingVisitor_Edit.setSelected(false);
     }//GEN-LAST:event_newVisitor_EditActionPerformed
 
     private void prisonerName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerName_EditActionPerformed
@@ -1096,7 +1105,26 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_prisonerDay_EditActionPerformed
 
     private void prisonerSearch_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonerSearch_EditActionPerformed
-        // TODO add your handling code here:
+        Prisoner prisoner = Database.getPrisonerByInmateID(prisonerID_Edit.getText());
+        if (!(prisoner == null)) {
+            prisonerName_Edit.setText(prisoner.getName());
+            prisonerDay_Edit.setText(prisoner.getDOB().getDay() + "");
+            prisonerMonth_Edit.setText(prisoner.getDOB().getMonth() + "");
+            prisonerYear_Edit.setText(prisoner.getDOB().getYear() + "");
+            prisonerGender_Edit.setSelectedItem((prisoner.getGender() == 'M')? 1 : 2);
+            prisonerIdNumber_Edit.setText(prisoner.getID());
+            prisonerStatus_Edit.setText("");
+            saveVisitation.setEnabled(true);
+        } else {
+            prisonerName_Edit.setText("");
+            prisonerDay_Edit.setText("");
+            prisonerMonth_Edit.setText("");
+            prisonerYear_Edit.setText("");
+            prisonerGender_Edit.setSelectedIndex(0);
+            prisonerIdNumber_Edit.setText("");
+            prisonerStatus_Edit.setText("Invalid Inmate ID");
+            saveVisitation.setEnabled(false);
+        }
     }//GEN-LAST:event_prisonerSearch_EditActionPerformed
 
     private void eVisitorName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorName_EditActionPerformed
@@ -1116,7 +1144,26 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_eVisitorID_EditActionPerformed
 
     private void eVisitorSearch_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorSearch_EditActionPerformed
-        // TODO add your handling code here:
+        Visitor visitor = Database.getVisitor(eVisitorID_Edit.getText());
+        if (!(visitor == null)) {
+            eVisitorName_Edit.setText(visitor.getName());
+            eVisitorDay_Edit.setText(visitor.getDOB().getDay() + "");
+            eVisitorMonth_Edit.setText(visitor.getDOB().getMonth() + "");
+            eVisitorYear_Edit.setText(visitor.getDOB().getYear() + "");
+            eVisitorGender_Edit.setSelectedIndex((visitor.getGender() == 'M')? 1 : 2);
+            eVisitorIdNumber_Edit.setText(visitor.getID());
+            visitorStatus_Edit.setText("");
+            saveVisitation.setEnabled(true);
+        } else {
+            eVisitorName_Edit.setText("");
+            eVisitorDay_Edit.setText("");
+            eVisitorMonth_Edit.setText("");
+            eVisitorYear_Edit.setText("");
+            eVisitorGender_Edit.setSelectedIndex(0);
+            eVisitorIdNumber_Edit.setText("");
+            visitorStatus_Edit.setText("Invalid Visitor ID");
+            saveVisitation.setEnabled(false);
+        }
     }//GEN-LAST:event_eVisitorSearch_EditActionPerformed
 
     private void nVisitorName_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nVisitorName_EditActionPerformed
@@ -1140,12 +1187,31 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_nVisitorIdNumber_EditActionPerformed
 
     private void saveVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveVisitationActionPerformed
+        Visitation visit = Database.getVisitation(visitationId_Edit.getText());
+        // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
+        if (visitYear_Edit.getText() != null) {
+            Date DoV = new Date(Integer.parseInt(visitDay_Edit.getSelectedItem().toString()), Integer.parseInt(visitMonth_Edit.getSelectedItem().toString()), Integer.parseInt(visitYear_Edit.getText()));
+            String ToV = visitHour_Edit.getSelectedItem() + "" + visitTime_Edit.getSelectedItem();
+            if (existingVisitor_Edit.isSelected() && eVisitorName_Edit.getText() != null && prisonerName_Edit.getText() != null) {
+                Visitor vst = Database.getVisitorByNID(eVisitorIdNumber_Edit.getText());
+                Prisoner prs = Database.getPrisonerByID(prisonerIdNumber_Edit.getText());
+                visit.setDateOfVisit(DoV);
+                visit.setTime(ToV);
+                visit.setVisitor(vst);
+                visit.setPrisoner(prs);
+                // Continue
+            } else if (newVisitor_Edit.isSelected() && nVisitorName_Edit.getText() != null && nVisitorYear_Edit.getText() != null && nVisitorIdNumber_Edit.getText() != null && prisonerName_Edit.getText() != null) {
+                // Continue
+            }
+            // Continue else's
+        }
         finalTextPanel_Edit.setVisible(true);
     }//GEN-LAST:event_saveVisitationActionPerformed
 
     private void visitationSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitationSearchActionPerformed
         Visitation visit = Database.getVisitation(visitationId_Edit.getText());
         if (visit != null) {
+            visitationSearchStatus.setText("");
             visitHour_Edit.setEnabled(true);
             DoVLabel_Edit.setEnabled(true);
             visitMonth_Edit.setEnabled(true);
@@ -1175,7 +1241,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             eVisitorDay_Edit.setText(visitor.getDOB().getDay() + "");
             eVisitorMonth_Edit.setText(visitor.getDOB().getMonth() + "");
             eVisitorYear_Edit.setText(visitor.getDOB().getYear() + "");
-            eVisitorGender_Edit.setSelectedItem(visitor.getGender());
+            eVisitorGender_Edit.setSelectedIndex((visitor.getGender() == 'M')? 1 : 2);
             eVisitorIdNumber_Edit.setText(visitor.getID());
             
             prisonerID_Edit.setText(prisoner.getInmateID());
@@ -1183,8 +1249,10 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             prisonerDay_Edit.setText(prisoner.getDOB().getDay() + "");
             prisonerMonth_Edit.setText(prisoner.getDOB().getMonth() + "");
             prisonerYear_Edit.setText(prisoner.getDOB().getYear() + "");
-            prisonerGender_Edit.setSelectedItem(prisoner.getGender());
+            prisonerGender_Edit.setSelectedIndex((prisoner.getGender() == 'M')? 1 : 2);
             prisonerIdNumber_Edit.setText(prisoner.getID());
+        } else {
+            visitationSearchStatus.setText("Invalid Visitation ID");
         }
     }//GEN-LAST:event_visitationSearchActionPerformed
 
@@ -1323,6 +1391,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     private javax.swing.JTextField visitationId_Edit;
     private javax.swing.JLabel visitationSaveStatus;
     private javax.swing.JButton visitationSearch;
+    private javax.swing.JLabel visitationSearchStatus;
     private javax.swing.JLabel visitationStatus;
     private javax.swing.JLabel visitorStatus;
     private javax.swing.JLabel visitorStatus_Edit;
