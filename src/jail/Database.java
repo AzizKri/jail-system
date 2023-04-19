@@ -46,7 +46,7 @@ public class Database {
             In case any file is not found, an exception will be thrown with the Class name whose file was not found
             */
             
-            // Prisoner
+            //<editor-fold defaultstate="collapsed" desc=" Prisoner Reader ">
             try {
                 prisonersFile = new Scanner(new File("src/files/Prisoners.txt"));   // Set the file to the scanner
                 while(prisonersFile.hasNextLine()) {
@@ -66,7 +66,9 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Prisoner File not found");
             }
-            // Officers
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Officer Reader ">
             try {
                 officersFile = new Scanner(new File("src/files/Officers.txt"));
                 while(officersFile.hasNextLine()) {
@@ -84,7 +86,9 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Officers File not found");
             }
-            // Cells
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Cell Reader ">
             try {
                 cellsFile = new Scanner(new File("src/files/Cells.txt"));
                 while(cellsFile.hasNextLine()) {
@@ -106,7 +110,9 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Cells File not found");
             }
-            // Medical Records
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Medical Records ">
             try {
                 medicalRecordsFile = new Scanner(new File("src/files/MedicalRecords.txt"));
                 while(medicalRecordsFile.hasNextLine()) {
@@ -130,7 +136,9 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Cells File not found");
             }
-            // Visitors
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Visitors Reader ">
             try {
                 visitorsFile = new Scanner(new File("src/files/Visitors.txt"));
                 while(visitorsFile.hasNextLine()) {
@@ -148,7 +156,9 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Visitors File not found");
             }
-            // Visitations
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Visitations Reader ">
             try {
                 visitationsFile = new Scanner(new File("src/files/Visitations.txt"));
                 while(visitationsFile.hasNextLine()) {
@@ -167,6 +177,8 @@ public class Database {
             } catch(FileNotFoundException ex) {
                 System.out.println("Visitation File not found");
             }
+            //</editor-fold>
+            
         } else {
             // In case a database was re-initialized by mistake, the following will be printed and no changes will take effect.
             System.out.println("ATTEMPTED DATABASE RE-INITIALIZATION. NO CHANGES MADE.");
@@ -185,7 +197,7 @@ public class Database {
             
             */
             
-            // Prisoner
+            //<editor-fold defaultstate="collapsed" desc=" Prisoner Writer ">
             FileWriter prisonerWriter = null;
             try {
                 prisonerWriter = new FileWriter("src/files/Prisoners.txt");
@@ -204,8 +216,9 @@ public class Database {
                 System.out.println("Prisoners.txt Not found in FileWriter");
                 }
             }
+            //</editor-fold>
             
-            // Visitor
+            //<editor-fold defaultstate="collapsed" desc=" Visitor Writer ">
             FileWriter visitorWriter = null;
             try {
                 visitorWriter = new FileWriter("src/files/Visitors.txt");
@@ -224,8 +237,9 @@ public class Database {
                 System.out.println("Visitors.txt Not found in FileWriter");
                 }
             }
+            //</editor-fold>
             
-            // Visitation
+            //<editor-fold defaultstate="collapsed" desc=" Visitation Writer ">
             FileWriter visitationWriter = null;
             try {
                 visitationWriter = new FileWriter("src/files/Visitations.txt");
@@ -244,6 +258,7 @@ public class Database {
                 System.out.println("Visitations.txt Not found in FileWriter");
                 }
             }
+            //</editor-fold>
         }
     }
 
