@@ -1288,7 +1288,6 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             visitor = null;
             visitationStatus.setText("Missing Visitor Information");
         }
-        Database.close();
     }//GEN-LAST:event_createVisitationActionPerformed
 
     private void eVisitorSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eVisitorSearchActionPerformed
