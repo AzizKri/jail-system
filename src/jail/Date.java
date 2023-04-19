@@ -35,7 +35,7 @@ public class Date {
     }
 
     public Date releaseDate(long duration) {
-        Date d = new Date(date.plusDays(duration));
+        Date d = new Date(date.plusYears(duration));
         return d;
     }
 
