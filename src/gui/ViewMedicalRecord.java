@@ -4,6 +4,11 @@
  */
 package gui;
 
+import jail.Database;
+import jail.Date;
+import jail.MedicalRecord;
+import jail.Prisoner;
+
 /**
  *
  * @author husse
@@ -15,6 +20,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
      */
     public ViewMedicalRecord() {
         initComponents();
+        initialize();
     }
 
     /**
@@ -27,97 +33,144 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        RecordID = new javax.swing.JTextField();
+        Year = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        InmateName = new javax.swing.JTextField();
+        DAYCB = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        InmateID = new javax.swing.JTextField();
+        Treatment = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        Diagnosis = new javax.swing.JTextField();
+        MONTHCB = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        Treatment_view = new javax.swing.JTextField();
+        Diagnosis_view = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        Year2 = new javax.swing.JTextField();
+        InmateName_view = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        InmateID_view = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        RecordID_view = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        DAY_view = new javax.swing.JTextField();
+        MONTH_view = new javax.swing.JTextField();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setText("Record ID:");
+        jLabel16.setEnabled(false);
+        jLabel16.setMaximumSize(new java.awt.Dimension(78, 20));
+        jLabel16.setMinimumSize(new java.awt.Dimension(78, 20));
+        jLabel16.setPreferredSize(new java.awt.Dimension(78, 20));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jButton1.setText("Add New");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setText("Date of Visit:");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        RecordID.setEnabled(false);
+        jPanel3.add(RecordID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, -1));
+        jPanel3.add(Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("Treatment:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Diagnosis:");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        InmateName.setEnabled(false);
+        InmateName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InmateNameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(InmateName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 120, -1));
+
+        DAYCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jPanel3.add(DAYCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 50, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("Inmate's ID:");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        jButton3.setText("Search");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 70, -1));
+
+        InmateID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InmateIDActionPerformed(evt);
+            }
+        });
+        jPanel3.add(InmateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 120, -1));
+        jPanel3.add(Treatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 120, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Inmate Name: ");
+        jLabel4.setEnabled(false);
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        Diagnosis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiagnosisActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Diagnosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 120, -1));
+
+        MONTHCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jPanel3.add(MONTHCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 50, -1));
+
+        jButton4.setText("New");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 70, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 330, 360));
+
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   View Medical Record");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Inmate's ID:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Record ID:");
-        jLabel6.setMaximumSize(new java.awt.Dimension(78, 20));
-        jLabel6.setMinimumSize(new java.awt.Dimension(78, 20));
-        jLabel6.setPreferredSize(new java.awt.Dimension(78, 20));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Diagnosis:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, 20));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Treatment:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Date of Visit:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 120, -1));
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 120, -1));
-
-        jTextField5.setText("2023");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, -1, -1));
-
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 120, -1));
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 120, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 50, -1));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 50, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel10.setText("Select your action:");
@@ -130,131 +183,224 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
                 jComboBox5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 150, 30));
+        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 190, 30));
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jLabel2.setEnabled(false);
+        jLabel2.addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                jLabel2HierarchyChanged(evt);
+            }
+        });
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Treatment:");
+        jLabel8.setEnabled(false);
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        Treatment_view.setEnabled(false);
+        jPanel2.add(Treatment_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
+
+        Diagnosis_view.setEnabled(false);
+        Diagnosis_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Diagnosis_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Diagnosis_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("Diagnosis:");
+        jLabel7.setEnabled(false);
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Date of Visit:");
+        jLabel9.setEnabled(false);
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        Year2.setEnabled(false);
+        jPanel2.add(Year2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+
+        InmateName_view.setEnabled(false);
+        InmateName_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InmateName_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(InmateName_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Inmate Name: ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+        jLabel3.setEnabled(false);
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        InmateID_view.setEnabled(false);
+        InmateID_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                InmateID_viewActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 120, -1));
+        jPanel2.add(InmateID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
 
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 120, -1));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Inmate's ID:");
+        jLabel5.setEnabled(false);
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("Treatment:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("Diagnosis:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 20));
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("View");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 120, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        jPanel2.add(RecordID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 50, -1));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("Record ID:");
+        jLabel6.setMaximumSize(new java.awt.Dimension(78, 20));
+        jLabel6.setMinimumSize(new java.awt.Dimension(78, 20));
+        jLabel6.setPreferredSize(new java.awt.Dimension(78, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 50, -1));
+        DAY_view.setEnabled(false);
+        jPanel2.add(DAY_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 40, -1));
 
-        jTextField10.setText("2023");
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("Date of Visit:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Inmate Name: ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        MONTH_view.setEnabled(false);
+        MONTH_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                MONTH_viewActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 120, -1));
+        jPanel2.add(MONTH_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 40, -1));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Inmate's ID:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 120, -1));
-
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("Record ID:");
-        jLabel16.setMaximumSize(new java.awt.Dimension(78, 20));
-        jLabel16.setMinimumSize(new java.awt.Dimension(78, 20));
-        jLabel16.setPreferredSize(new java.awt.Dimension(78, 20));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 120, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 380, 260));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void Diagnosis_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diagnosis_viewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_Diagnosis_viewActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void InmateID_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmateID_viewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_InmateID_viewActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
-        
+        if(jComboBox5.getSelectedIndex() == 1){
+            jPanel3.setVisible(true);
+            jPanel2.setVisible(false);
+        }
+        if(jComboBox5.getSelectedIndex() == 2){
+            jPanel3.setVisible(false);
+            jPanel2.setVisible(true);
+        }
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void InmateName_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmateName_viewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_InmateName_viewActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void DiagnosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiagnosisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_DiagnosisActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void InmateNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmateNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_InmateNameActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void InmateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmateIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_InmateIDActionPerformed
 
+    private void jLabel2HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_jLabel2HierarchyChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2HierarchyChanged
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        Prisoner p = Database.getPrisonerByInmateID(InmateID.getText());
+        InmateName.setText(p.getName());
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(Year.getText()));
+        MedicalRecord MR = new MedicalRecord(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
+        RecordID.setText("");
+        InmateID.setText("");
+        InmateName.setText("");
+        Diagnosis.setText("");
+        Treatment.setText("");
+        Year.setText("");
+        DAYCB.setSelectedIndex(0);
+        MONTHCB.setSelectedIndex(0);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        String recordID = "Mr-" + (int)(Math.random() * 10000);
+        RecordID.setText(recordID);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MedicalRecord MR = Database.getMedicalRecord(RecordID_view.getText());
+        InmateID_view.setText(MR.getPrisoner().getInmateID());
+        InmateName_view.setText(MR.getPrisoner().getName());
+        Diagnosis_view.setText(MR.getDiagnosis());
+        Treatment_view.setText(MR.getTreatment());
+        DAY_view.setText(MR.getDate().getDay() + "");
+        MONTH_view.setText(MR.getDate().getMonth() + "");
+        Year2.setText(MR.getDate().getYear() + "");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void MONTH_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MONTH_viewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MONTH_viewActionPerformed
+
+    private void initialize(){
+        jPanel3.setVisible(false);
+        jPanel2.setVisible(false);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> DAYCB;
+    private javax.swing.JTextField DAY_view;
+    private javax.swing.JTextField Diagnosis;
+    private javax.swing.JTextField Diagnosis_view;
+    private javax.swing.JTextField InmateID;
+    private javax.swing.JTextField InmateID_view;
+    private javax.swing.JTextField InmateName;
+    private javax.swing.JTextField InmateName_view;
+    private javax.swing.JComboBox<String> MONTHCB;
+    private javax.swing.JTextField MONTH_view;
+    private javax.swing.JTextField RecordID;
+    private javax.swing.JTextField RecordID_view;
+    private javax.swing.JTextField Treatment;
+    private javax.swing.JTextField Treatment_view;
+    private javax.swing.JTextField Year;
+    private javax.swing.JTextField Year2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -265,17 +411,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
