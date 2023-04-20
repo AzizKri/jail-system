@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package gui;
 
 import jail.Database;
@@ -11,14 +7,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author husse
+ * @author Hussain
  */
 public class ViewOfficerDetails extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ViewOfficerDetails
      */
-    private DefaultListModel mod;
+    private final DefaultListModel mod;
     private Officer p;
 
     public ViewOfficerDetails() {
@@ -63,7 +59,6 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         tf1 = new javax.swing.JTextField();
         tf6 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        backLabel1 = new javax.swing.JLabel();
         backLabel = new javax.swing.JLabel();
 
         list.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -172,13 +167,10 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 330, 30));
 
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 840, 410));
-
-        backLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(backLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 570));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 840, 400));
 
         backLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(backLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 570));
+        jPanel1.add(backLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 860, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,6 +204,13 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             enter.setText("Badge number:");
         }
+            tf1.setText("");
+            tf2.setText("");
+            tf3.setText("");
+            tf4.setText("");
+            tf5.setText("");
+            tf6.setText("");
+            searchtf.setText("");
     }//GEN-LAST:event_cb1ActionPerformed
 
     private void searchtfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtfKeyReleased
@@ -252,6 +251,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         if (p == null && cb1.getSelectedIndex() != 0) {
             JOptionPane.showMessageDialog(rootPane, "Please enter a valid Officer");
         } else if (cb1.getSelectedIndex() != 0) {
+            searchtf.setText("");
             tf1.setText(p.getName());
             tf2.setText(p.getDOB().getAge() + "");
             if (p.getGender() == 'M') {
@@ -272,7 +272,6 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
     private javax.swing.JLabel adfa;
     private javax.swing.JLabel adfad;
     private javax.swing.JLabel backLabel;
-    private javax.swing.JLabel backLabel1;
     private javax.swing.JComboBox<String> cb1;
     private javax.swing.JLabel enter;
     private javax.swing.JLabel fd;
