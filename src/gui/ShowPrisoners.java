@@ -19,6 +19,14 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
     boolean show;
     public ShowPrisoners() {
         initComponents();
+        inmateIDS = new ArrayList<String>();
+        for (int i = 0; i < Database.getCells().size(); i++) {
+            Database.getCells().get(i).getPrisoners().clear();
+        }
+        
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).add_prisoner(Database.getPrisoners().get(i));
+        }
         for (int i = 0; i < Database.getPrisoners().size(); i++) {
             inmateIDS.add(Database.getPrisoners().get(i).getInmateID());
         }
