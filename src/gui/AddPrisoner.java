@@ -7,6 +7,7 @@ package gui;
 import jail.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,7 +53,6 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
         dobmonthin = new javax.swing.JComboBox<>();
         dobyearin = new javax.swing.JComboBox<>();
         add = new javax.swing.JButton();
-        reportt = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -61,73 +61,86 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Prisoner Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, 30));
 
+        jLabel4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel4.setText("Prisoner ID");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 100, 30));
 
+        jLabel5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel5.setText("Date Of Birth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, 30));
 
+        jLabel6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel6.setText("Gender");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 80, 30));
 
+        jLabel7.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel7.setText("offense");
         jLabel7.setPreferredSize(new java.awt.Dimension(40, 20));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, 30));
 
+        jLabel8.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel8.setText("Cell number");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 100, 30));
 
+        jLabel9.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel9.setText("Duration");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 90, 30));
 
+        jLabel10.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel10.setText("Entry Date:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
-        jPanel1.add(namein, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, -1));
-        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 160, -1));
-        jPanel1.add(offensein, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, -1));
-        jPanel1.add(cellnumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 160, -1));
-        jPanel1.add(durationin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 160, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, 30));
+        jPanel1.add(namein, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 220, 30));
+        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 220, 30));
+        jPanel1.add(offensein, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 220, 30));
+        jPanel1.add(cellnumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 220, 30));
+        jPanel1.add(durationin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 220, 30));
 
         entrydayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(entrydayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
+        jPanel1.add(entrydayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, 30));
 
         entrymonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
-        jPanel1.add(entrymonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, -1, -1));
+        jPanel1.add(entrymonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, 30));
 
         entryyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
-        jPanel1.add(entryyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+        jPanel1.add(entryyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, 30));
 
         genderin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
-        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
 
         dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 70, 30));
 
         dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
-        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
+        dobmonthin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dobmonthinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 100, 30));
 
         dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
-        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 70, 30));
 
-        add.setText("ADD PRISONER");
+        add.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        add.setText("ADD");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
             }
         });
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
-        jPanel1.add(reportt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 390, 30));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 180, 40));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 860, 550));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   Add Prisoner");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
@@ -136,8 +149,9 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0 
-                || genderin.getSelectedItem() == "Gender"){
-            reportt.setText("please enter all the information");}
+                || genderin.getSelectedItem() == "Gender" || entrydayin.getSelectedIndex() == 0 || entrymonthin.getSelectedIndex() == 0 
+                || entryyearin.getSelectedIndex() == 0 ){
+            JOptionPane.showMessageDialog(rootPane, "please enter all the information");}
         else{
         String name = namein.getText();
         
@@ -181,13 +195,23 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
         cellnumin.setText("");
         offensein.setText("");
         durationin.setText("");
+        dobdayin.setSelectedIndex(0);
+        dobmonthin.setSelectedIndex(0);
+        dobyearin.setSelectedIndex(0);
+        entrydayin.setSelectedIndex(0);
+        entrymonthin.setSelectedIndex(0);
+        entryyearin.setSelectedIndex(0);
 
-        
+        JOptionPane.showMessageDialog(rootPane, "Added successfully");
         
         }
         
         
     }//GEN-LAST:event_addActionPerformed
+
+    private void dobmonthinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dobmonthinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dobmonthinActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,6 +239,5 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField namein;
     private javax.swing.JTextField offensein;
-    private javax.swing.JLabel reportt;
     // End of variables declaration//GEN-END:variables
 }
