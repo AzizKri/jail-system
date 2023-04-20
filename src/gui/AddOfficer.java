@@ -152,7 +152,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         Rankinn.setText("");
         badgenumin.setText("");
         
-        reportt.setText(o1.toString());}
+        }
 
     }//GEN-LAST:event_addActionPerformed
 
