@@ -117,8 +117,9 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         String name = namein.getText();
         String id = IDin.getText();
         
-        if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0){
-            reportt.setText("Please enter the day of birth");}
+        if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0 
+                || genderin.getSelectedItem() == "Gender"){
+            reportt.setText("please enter all the information");}
 
         else{
         int dayDOB = Integer.parseInt((String) dobdayin.getSelectedItem());

@@ -52,6 +52,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
         dobmonthin = new javax.swing.JComboBox<>();
         dobyearin = new javax.swing.JComboBox<>();
         add = new javax.swing.JButton();
+        reportt = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -118,6 +119,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        jPanel1.add(reportt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 390, 30));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 860, 550));
@@ -133,6 +135,10 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0 
+                || genderin.getSelectedItem() == "Gender"){
+            reportt.setText("please enter all the information");}
+        else{
         String name = namein.getText();
         
         String id = IDin.getText();
@@ -178,7 +184,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
 
         
         
-    
+        }
         
         
     }//GEN-LAST:event_addActionPerformed
@@ -209,5 +215,6 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField namein;
     private javax.swing.JTextField offensein;
+    private javax.swing.JLabel reportt;
     // End of variables declaration//GEN-END:variables
 }
