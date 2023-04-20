@@ -350,6 +350,15 @@ public class Database {
         return null;
     }
     
+    public static MedicalRecord getMedicalRecord(String medicalRecordID) {
+        for (MedicalRecord medicalRecord : medicalRecords) {
+            if (medicalRecord.getRecordID().equals(medicalRecordID)) {
+                return medicalRecord;
+            }
+        }
+        return null;
+    }
+    
     public static Visitation getVisitation(String visitationID) {
         for (Visitation visitation : visitations) {
             if (visitation.getVisitationID().equals(visitationID)) {
