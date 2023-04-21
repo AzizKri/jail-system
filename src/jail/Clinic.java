@@ -1,18 +1,18 @@
 package jail;
 
-public class MedicalRecord {
+public class Clinic {
     private Prisoner prisoner;
     private Date date;
     private String recordID;
     private String diagnosis;
     private String treatment;
     
-    public MedicalRecord(){ //Def. constructor
+    public Clinic(){ //Def. constructor
         this(new Prisoner(), new Date(), "No Record", "No Diagnosis", "No Treatment");
     }
 
     //Initializing constructor
-    public MedicalRecord(Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment) {
+    public Clinic(Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment) {
         this.prisoner = prisoner;
         this.date = date;
         this.recordID = recordID;

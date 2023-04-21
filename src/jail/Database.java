@@ -23,7 +23,7 @@ public class Database {
     private static final ArrayList<Visitor> visitors = new ArrayList();
     private static final ArrayList<Visitation> visitations = new ArrayList();
     private static final ArrayList<Cell> cells = new ArrayList();
-    private static final ArrayList<MedicalRecord> medicalRecords = new ArrayList();
+    private static final ArrayList<Clinic> medicalRecords = new ArrayList();
 
     // Constructors
     
@@ -129,7 +129,7 @@ public class Database {
                     String[] DateStr = line[3].split("-");
                     Date date = new Date(Integer.parseInt(DateStr[0]), Integer.parseInt(DateStr[1]), Integer.parseInt(DateStr[2]));
                     
-                    new MedicalRecord(prisoner, date, line[0], line[4], line[5]);
+                    new Clinic(prisoner, date, line[0], line[4], line[5]);
                     // Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment
                 }
                 medicalRecordsFile.close();
@@ -288,12 +288,22 @@ public class Database {
         cells.add(cell);
     }
 
-    public static ArrayList<MedicalRecord> getMedicalRecords() {
+    public static ArrayList<Clinic> getMedicalRecords() {
         return medicalRecords;
     }
 
-    public static void addMedicalRecord(MedicalRecord medicalRecord) {
+    public static void addMedicalRecord(Clinic medicalRecord) {
         medicalRecords.add(medicalRecord);
+    }
+    
+        
+    public static Clinic getMedicalRecord(String medicalRecordID) {
+        for (Clinic medicalRecord : medicalRecords) {
+            if (medicalRecord.getRecordID().equals(medicalRecordID)) {
+                return medicalRecord;
+            }
+        }
+        return null;
     }
     
     public static ArrayList<Visitor> getVisitors() {
@@ -345,15 +355,6 @@ public class Database {
         for (Officer officer : officers) {
             if (officer.getID().equals(ID)) {
                 return officer;
-            }
-        }
-        return null;
-    }
-    
-    public static MedicalRecord getMedicalRecord(String medicalRecordID) {
-        for (MedicalRecord medicalRecord : medicalRecords) {
-            if (medicalRecord.getRecordID().equals(medicalRecordID)) {
-                return medicalRecord;
             }
         }
         return null;

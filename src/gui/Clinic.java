@@ -6,19 +6,18 @@ package gui;
 
 import jail.Database;
 import jail.Date;
-import jail.Clinic;
 import jail.Prisoner;
 
 /**
  *
  * @author husse
  */
-public class ViewMedicalRecord extends javax.swing.JInternalFrame {
+public class Clinic extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AddPrisner
      */
-    public ViewMedicalRecord() {
+    public Clinic() {
         initComponents();
         initialize();
     }
@@ -168,9 +167,9 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 330, 360));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("   Clinic");
+        jLabel1.setText("   View Medical Record");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 860, 60));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel10.setText("Select your action:");
@@ -192,7 +191,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
                 jLabel2HierarchyChanged(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -333,7 +332,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(Year.getText()));
-        Clinic MR = new Clinic(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
+        jail.Clinic MR = new jail.Clinic(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
         RecordID.setText("");
         InmateID.setText("");
         InmateName.setText("");
@@ -353,7 +352,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Clinic MR = Database.getMedicalRecord(RecordID_view.getText());
+        jail.Clinic MR = Database.getMedicalRecord(RecordID_view.getText());
         InmateID_view.setText(MR.getPrisoner().getInmateID());
         InmateName_view.setText(MR.getPrisoner().getName());
         Diagnosis_view.setText(MR.getDiagnosis());
