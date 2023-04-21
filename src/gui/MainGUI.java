@@ -42,7 +42,6 @@ public class MainGUI extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         sideLabel = new javax.swing.JLabel();
         mainDesktop = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -53,7 +52,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
         jLabel3.setText("Jail System");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 50));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 50));
 
         upperLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(upperLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1100, 80));
@@ -74,7 +73,7 @@ public class MainGUI extends javax.swing.JFrame {
                 b2ActionPerformed(evt);
             }
         });
-        jPanel1.add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 170, 40));
+        jPanel1.add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 170, 40));
 
         b3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b3.setText("Visitation");
@@ -83,7 +82,7 @@ public class MainGUI extends javax.swing.JFrame {
                 b3ActionPerformed(evt);
             }
         });
-        jPanel1.add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 170, 40));
+        jPanel1.add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 170, 40));
 
         b4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b4.setText("Transfer");
@@ -92,7 +91,7 @@ public class MainGUI extends javax.swing.JFrame {
                 b4ActionPerformed(evt);
             }
         });
-        jPanel1.add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 170, 40));
+        jPanel1.add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, 40));
 
         b5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b5.setText("Release Prisoner");
@@ -101,7 +100,7 @@ public class MainGUI extends javax.swing.JFrame {
                 b5ActionPerformed(evt);
             }
         });
-        jPanel1.add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 40));
+        jPanel1.add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 170, 40));
 
         b6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         b6.setText("Show Prisoners");
@@ -110,7 +109,7 @@ public class MainGUI extends javax.swing.JFrame {
                 b6ActionPerformed(evt);
             }
         });
-        jPanel1.add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 170, 40));
+        jPanel1.add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 170, 40));
 
         jButton7.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jButton7.setText("View Prisoner Details");
@@ -119,7 +118,7 @@ public class MainGUI extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 170, 40));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 170, 40));
 
         jButton8.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jButton8.setText("View Officer Details");
@@ -128,25 +127,16 @@ public class MainGUI extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 170, 40));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 170, 40));
 
         jButton9.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
-        jButton9.setText("View Medical Record");
+        jButton9.setText("Clinic");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 170, 40));
-
-        jButton10.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jButton10.setText("Treat Prisoner");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 170, 40));
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 170, 40));
 
         sideLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(sideLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 76, 220, 570));
@@ -180,6 +170,7 @@ public class MainGUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -236,12 +227,6 @@ public class MainGUI extends javax.swing.JFrame {
         mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        mainDesktop.removeAll();
-        TreatPrisoner ap = new TreatPrisoner();
-        mainDesktop.add(ap).setVisible(true);
-    }//GEN-LAST:event_jButton10ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -284,7 +269,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton b4;
     private javax.swing.JButton b5;
     private javax.swing.JButton b6;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
