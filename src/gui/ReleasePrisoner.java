@@ -54,66 +54,74 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
         TF2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         TF1 = new javax.swing.JTextField();
+        CB = new javax.swing.JCheckBox();
         statusLBL = new javax.swing.JLabel();
+        CMB = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        CB = new javax.swing.JCheckBox();
-        CMB = new javax.swing.JComboBox<>();
 
+        setToolTipText("");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         jLabel6.setText("Prisoners:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, 30));
 
+        releaseBTN.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         releaseBTN.setText("Release");
         releaseBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 releaseBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(releaseBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 310, 40));
+        jPanel1.add(releaseBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 200, 40));
 
+        jLabel5.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         jLabel5.setText("Reason For Release:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
-        jPanel1.add(TF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 200, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, 30));
+        jPanel1.add(TF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 200, 30));
 
         TF2.setEnabled(false);
-        jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 112, 190, 30));
+        jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 200, 30));
 
+        jLabel3.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         jLabel3.setText("Prisoner Name:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
 
         TF1.setEnabled(false);
-        jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 190, 30));
+        jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 200, 30));
 
-        statusLBL.setForeground(new java.awt.Color(0, 153, 0));
-        statusLBL.setText("Status: Working!");
-        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 490, -1));
-
-        jLabel4.setText("Inmate ID:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("   Release Prisoner");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
-
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
-
+        CB.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         CB.setText("Enter Manually");
         CB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CBMouseClicked(evt);
             }
         });
-        jPanel1.add(CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        jPanel1.add(CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, 40));
 
-        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 200, 30));
+        statusLBL.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
+        statusLBL.setForeground(new java.awt.Color(51, 153, 0));
+        statusLBL.setText("Status: Working!");
+        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 490, 40));
+
+        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 200, 30));
+
+        jLabel4.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
+        jLabel4.setText("Inmate ID:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("   Release Prisoner");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 860, 70));
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
