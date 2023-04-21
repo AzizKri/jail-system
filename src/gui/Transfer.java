@@ -56,66 +56,74 @@ public class Transfer extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         TF1 = new javax.swing.JTextField();
         TF2 = new javax.swing.JTextField();
         CB = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel6.setText("Prisoners:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, 30));
 
-        jPanel1.add(CMB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 180, 30));
+        jPanel1.add(CMB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 180, 30));
 
+        transferBTN.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         transferBTN.setText("Transfer");
         transferBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transferBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 250, 30));
+        jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 220, 40));
 
         CMB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         CMB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 170, 20));
+        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 180, 30));
 
+        statusLBL.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         statusLBL.setText("Status: Working!");
-        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 190, -1));
+        statusLBL.setToolTipText("");
+        jPanel1.add(statusLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 190, 30));
 
+        jLabel5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel5.setText("Transfer to Cell:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, 30));
 
+        jLabel4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel4.setText("Inmate ID:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 30));
 
+        jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Prisoner Name:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 30));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   Transfer Prisoner");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
-
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 860, 60));
 
         TF1.setEnabled(false);
-        jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, -1));
+        jPanel1.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 240, 30));
 
         TF2.setEnabled(false);
-        jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 210, -1));
+        jPanel1.add(TF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 240, 30));
 
+        CB.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         CB.setText("Enter Manually");
         CB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CBMouseClicked(evt);
             }
         });
-        jPanel1.add(CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel1.add(CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 

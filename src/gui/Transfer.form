@@ -39,11 +39,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Prisoners:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="110" width="-1" height="-1"/>
+              <AbsoluteConstraints x="490" y="150" width="-1" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -58,12 +61,15 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="100" width="180" height="30"/>
+              <AbsoluteConstraints x="630" y="150" width="180" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="transferBTN">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Transfer"/>
           </Properties>
           <Events>
@@ -71,7 +77,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="150" width="250" height="30"/>
+              <AbsoluteConstraints x="590" y="220" width="220" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -102,47 +108,60 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="620" y="70" width="170" height="20"/>
+              <AbsoluteConstraints x="630" y="80" width="180" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="statusLBL">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Status: Working!"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="170" width="190" height="-1"/>
+              <AbsoluteConstraints x="20" y="280" width="190" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Transfer to Cell:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="70" width="-1" height="-1"/>
+              <AbsoluteConstraints x="490" y="80" width="-1" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Inmate ID:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="110" width="-1" height="-1"/>
+              <AbsoluteConstraints x="20" y="150" width="-1" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Prisoner Name:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="70" width="110" height="-1"/>
+              <AbsoluteConstraints x="20" y="80" width="130" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -160,7 +179,43 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="860" height="56"/>
+              <AbsoluteConstraints x="0" y="-4" width="860" height="60"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TF1">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="170" y="80" width="240" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TF2">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="170" y="150" width="240" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="CB">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Enter Manually"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CBMouseClicked"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="230" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -174,40 +229,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="3" width="860" height="600"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JTextField" name="TF1">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="70" width="210" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JTextField" name="TF2">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="110" width="210" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="CB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Enter Manually"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CBMouseClicked"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="140" width="-1" height="-1"/>
+              <AbsoluteConstraints x="0" y="0" width="860" height="540"/>
             </Constraint>
           </Constraints>
         </Component>

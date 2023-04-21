@@ -91,7 +91,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Georgia", 3, 30)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel4.setText("   View Prisoner Details");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
@@ -133,54 +133,54 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 100, 40));
 
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 840, 80));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 830, 80));
 
         upperLabel.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         upperLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(upperLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 50));
+        jPanel1.add(upperLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 50));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel2.setText("Name");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 30));
 
         tf1.setEditable(false);
-        jPanel1.add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 240, 30));
+        jPanel1.add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 240, 30));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel5.setText("age");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
 
         tf2.setEditable(false);
-        jPanel1.add(tf2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 290, 30));
+        jPanel1.add(tf2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 290, 30));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel6.setText("Gender");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 30));
 
         tf3.setEditable(false);
-        jPanel1.add(tf3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 240, 30));
+        jPanel1.add(tf3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 240, 30));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel10.setText("Date Of Entry");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 30));
 
         tf10.setEditable(false);
-        jPanel1.add(tf10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 290, 30));
+        jPanel1.add(tf10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 290, 30));
 
         tf9.setEditable(false);
-        jPanel1.add(tf9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 240, 30));
+        jPanel1.add(tf9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 240, 30));
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel23.setText("Duration");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 30));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, 30));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel24.setText("Inmate ID");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 30));
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 30));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel25.setText("ID");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, 30));
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, -1, 30));
 
         tf7.setEditable(false);
         tf7.addActionListener(new java.awt.event.ActionListener() {
@@ -188,37 +188,37 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
                 tf7ActionPerformed(evt);
             }
         });
-        jPanel1.add(tf7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 240, 30));
+        jPanel1.add(tf7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 240, 30));
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel26.setText("Remaining Time");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, 30));
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, 30));
 
         tf4.setEditable(false);
-        jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 290, 30));
+        jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 290, 30));
 
         tf8.setEditable(false);
-        jPanel1.add(tf8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 290, 30));
+        jPanel1.add(tf8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 290, 30));
 
         tf6.setEditable(false);
-        jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 290, 30));
+        jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 290, 30));
 
         tf5.setEditable(false);
-        jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 240, 30));
+        jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 240, 30));
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel28.setText("Offense");
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel9.setText("Cell Number");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 840, 380));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 830, 370));
 
         MainLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(MainLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -7, 860, 610));
+        jPanel1.add(MainLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

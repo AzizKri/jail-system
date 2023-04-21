@@ -785,11 +785,11 @@ public class VisitationGui extends javax.swing.JInternalFrame {
 
         visitationId1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         visitationId1.setText("Visit-0000");
-        visitationTemplate.add(visitationId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        visitationTemplate.add(visitationId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
 
         viewVisitation1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewVisitation1.setText("View");
-        visitationTemplate.add(viewVisitation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        visitationTemplate.add(viewVisitation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         visitationsList.add(visitationTemplate);
 
@@ -1141,7 +1141,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         jPanel1.add(editVisitation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 820, 410));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 

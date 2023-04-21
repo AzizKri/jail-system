@@ -168,9 +168,9 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 330, 360));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("   View Medical Record");
+        jLabel1.setText("   Clinic");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 860, 60));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel10.setText("Select your action:");
@@ -192,7 +192,7 @@ public class ViewMedicalRecord extends javax.swing.JInternalFrame {
                 jLabel2HierarchyChanged(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

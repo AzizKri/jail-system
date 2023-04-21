@@ -44,13 +44,13 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         CMB = new javax.swing.JComboBox<>();
+        showBTN = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TA = new javax.swing.JTextArea();
+        clearBTN = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TA = new javax.swing.JTextArea();
-        showBTN = new javax.swing.JButton();
-        clearBTN = new javax.swing.JButton();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,10 +58,35 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CMB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 170, 30));
+        jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 170, 30));
 
+        showBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        showBTN.setText("Show Prisoners");
+        showBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(showBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 210, 30));
+
+        TA.setColumns(20);
+        TA.setRows(5);
+        jScrollPane1.setViewportView(TA);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 790, 350));
+
+        clearBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        clearBTN.setText("Clear");
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clearBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 160, 30));
+
+        jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Choose the Cell:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   Show Prisoners in a cell");
@@ -69,29 +94,7 @@ public class ShowPrisoners extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 56));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
-
-        TA.setColumns(20);
-        TA.setRows(5);
-        jScrollPane1.setViewportView(TA);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 740, 350));
-
-        showBTN.setText("Show Prisoners");
-        showBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showBTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(showBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 200, 30));
-
-        clearBTN.setText("Clear");
-        clearBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clearBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
