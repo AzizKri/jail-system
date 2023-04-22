@@ -79,11 +79,11 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
 
         menu.setFocusable(false);
@@ -118,7 +118,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
                 searchtfKeyReleased(evt);
             }
         });
-        jPanel1.add(searchtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 190, 40));
+        jPanel1.add(searchtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 210, 40));
 
         or.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jPanel1.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 140, 40));
@@ -270,12 +270,12 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 2) {
             p = Database.getPrisonerByID(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1){
-            p = Database.getPrisonerByName(searchtf.getText());
+            p = Database.getPrisonerByName(searchtf.getText().split(" ")[0]);
         }else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
         if (p == null && cb1.getSelectedIndex() != 0) {
-            JOptionPane.showMessageDialog(rootPane, "Please enter a valid ID");
+            JOptionPane.showMessageDialog(rootPane, "Please enter a valid " + cb1.getSelectedItem());
         } else if (cb1.getSelectedIndex() != 0) {
             searchtf.setText("");
             tf1.setText(p.getName());

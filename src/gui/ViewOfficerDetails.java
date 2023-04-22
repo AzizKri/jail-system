@@ -76,7 +76,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,27 +151,27 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         jPanel1.add(adfad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 120, 30));
 
         tf5.setEditable(false);
-        tf5.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 330, 30));
 
         tf4.setEditable(false);
-        tf4.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 330, 30));
 
         tf3.setEditable(false);
-        tf3.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 330, 30));
 
         tf2.setEditable(false);
-        tf2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 330, 30));
 
         tf1.setEditable(false);
-        tf1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 330, 30));
 
         tf6.setEditable(false);
-        tf6.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tf6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(tf6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 330, 30));
 
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -247,14 +247,13 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             p = Database.getOfficer(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1) {
-            p = Database.getOfficerByName(searchtf.getText());
+            p = Database.getOfficerByName(searchtf.getText().split(" ")[0]);
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
         if (p == null && cb1.getSelectedIndex() != 0) {
-            JOptionPane.showMessageDialog(rootPane, "Please enter a valid Officer");
+            JOptionPane.showMessageDialog(rootPane, "Please enter a valid " + cb1.getSelectedItem());
         } else if (cb1.getSelectedIndex() != 0) {
-            searchtf.setText("");
             tf1.setText(p.getName());
             tf2.setText(p.getDOB().getAge() + "");
             if (p.getGender() == 'M') {
@@ -265,6 +264,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
             tf4.setText(p.getID());
             tf5.setText(p.getBadgeNumber());
             tf6.setText(p.getRank());
+            searchtf.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
