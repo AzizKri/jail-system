@@ -270,12 +270,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 2) {
             p = Database.getPrisonerByID(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1){
-            String[] s = searchtf.getText().split(" ");
-            if (s.length != 2) {
-                JOptionPane.showMessageDialog(rootPane, "Please select name from the list");
-            } else {
-                p = Database.getPrisonerByID(s[1]);
-            }
+            p = Database.getPrisonerByName(searchtf.getText());
         }else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }

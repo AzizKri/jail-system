@@ -342,9 +342,27 @@ public class Database {
         return null;
     }
     
+    public static Prisoner getPrisonerByName(String name) {
+        for (Prisoner prisoner : prisoners) {
+            if (prisoner.getName().toLowerCase().equals(name.toLowerCase())) {
+                return prisoner;
+            }
+        }
+        return null;
+    }
+    
     public static Officer getOfficer(String badgeNumber) {
         for (Officer officer : officers) {
             if (officer.getBadgeNumber().equals(badgeNumber)) {
+                return officer;
+            }
+        }
+        return null;
+    }
+    
+    public static Officer getOfficerByName(String name) {
+        for (Officer officer : officers) {
+            if (officer.getName().toLowerCase().equals(name.toLowerCase())) {
                 return officer;
             }
         }

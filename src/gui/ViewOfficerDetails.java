@@ -247,12 +247,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             p = Database.getOfficer(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1) {
-            String[] s = searchtf.getText().split(" ");
-            if (s.length != 2) {
-                JOptionPane.showMessageDialog(rootPane, "Please select name from the list");
-            } else {
-                p = Database.getOfficerByID(s[1]);
-            }
+            p = Database.getOfficerByName(searchtf.getText());
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
