@@ -34,10 +34,10 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menu = new javax.swing.JPopupMenu();
         panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         list = new javax.swing.JList<>();
-        menu = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         upperLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -61,6 +61,10 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         backLabel = new javax.swing.JLabel();
 
+        menu.setFocusable(false);
+
+        panel.setFocusable(false);
+
         list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listMouseClicked(evt);
@@ -72,14 +76,12 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
-
-        menu.setFocusable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,7 +105,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         jPanel1.add(cb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 170, 40));
 
         enter.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jPanel1.add(enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 120, 40));
+        jPanel1.add(enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 120, 40));
 
         searchtf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
