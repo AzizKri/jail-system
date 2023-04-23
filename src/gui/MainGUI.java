@@ -1,11 +1,9 @@
 package gui;
 
 import jail.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-/**
- *
- * @author Hussian
- */
 public class MainGUI extends javax.swing.JFrame {
 
     /**
@@ -224,7 +222,7 @@ public class MainGUI extends javax.swing.JFrame {
         ViewOfficerDetails ap = new ViewOfficerDetails();
         mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -255,7 +253,20 @@ public class MainGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainGUI().setVisible(true);
+                // Create the main GUI
+                MainGUI gui = new MainGUI();
+                
+                // Add an event listener to call the Database save() method on close
+                gui.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        Database.save();
+                        System.exit(0);
+                    }
+                });
+                
+                // Show the GUI
+                gui.setVisible(true);
             }
         });
     }
