@@ -76,10 +76,10 @@ public class Cell {
     @Override
     public String toString(){
         String s = "";
-        for (int i = 0; i < prisoners.size(); i++) {
-            s += ";" + prisoners.get(i);
+        for (Prisoner prisoner : prisoners) {
+            s += ";" + prisoner.getInmateID();
         }
-        return officer + ";" + cellNumber + s;
+        return officer + ";" + cellNumber;
     }
     
     public String display(){
