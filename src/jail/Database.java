@@ -218,6 +218,69 @@ public class Database {
             }
             //</editor-fold>
             
+            //<editor-fold defaultstate="collapsed" desc=" Officer Writer ">
+            FileWriter officerWriter = null;
+            try {
+                officerWriter = new FileWriter("src/files/Officers.txt");
+                String data = "";
+                for (Officer officer : officers) {
+                    data += officer + "\n";
+                }
+                officerWriter.write(data);
+                officerWriter.close();
+            } catch(IOException ex) {
+                System.out.println("Officers.txt Not found in FileWriter");
+            } finally {
+                try {
+                    officerWriter.close();
+                } catch(IOException ex) {
+                System.out.println("Officers.txt Not found in FileWriter");
+                }
+            }
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Cells Writer ">
+            FileWriter cellsWriter = null;
+            try {
+                cellsWriter = new FileWriter("src/files/Cells.txt");
+                String data = "";
+                for (Cell cell : cells) {
+                    data += cell + "\n";
+                }
+                cellsWriter.write(data);
+                cellsWriter.close();
+            } catch(IOException ex) {
+                System.out.println("Cells.txt Not found in FileWriter");
+            } finally {
+                try {
+                    cellsWriter.close();
+                } catch(IOException ex) {
+                System.out.println("Cells.txt Not found in FileWriter");
+                }
+            }
+            //</editor-fold>
+            
+            //<editor-fold defaultstate="collapsed" desc=" Medical Record Writer ">
+            FileWriter medicalRecordsWriter = null;
+            try {
+                medicalRecordsWriter = new FileWriter("src/files/MedicalRecords.txt");
+                String data = "";
+                for (Clinic medicalRecord : medicalRecords) {
+                    data += medicalRecord + "\n";
+                }
+                medicalRecordsWriter.write(data);
+                medicalRecordsWriter.close();
+            } catch(IOException ex) {
+                System.out.println("MedicalRecords.txt Not found in FileWriter");
+            } finally {
+                try {
+                    medicalRecordsWriter.close();
+                } catch(IOException ex) {
+                System.out.println("MedicalRecords.txt Not found in FileWriter");
+                }
+            }
+            //</editor-fold>
+            
             //<editor-fold defaultstate="collapsed" desc=" Visitor Writer ">
             FileWriter visitorWriter = null;
             try {
@@ -262,7 +325,7 @@ public class Database {
         }
     }
 
-    // Getters and Adders (Setters are unneeded, replaced with Adders instead, which are also unneeded since objects are automatically added)
+    // Getters and Adders (Setters are unneeded, replaced with Adders instead)
 
     public static ArrayList<Prisoner> getPrisoners() {
         return prisoners;
