@@ -5,6 +5,7 @@
 package gui;
 
 import jail.*;
+import java.time.DateTimeException;
 import javax.swing.JOptionPane;
 
 /**
@@ -121,6 +122,8 @@ public class AddOfficer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        
+        try{
         String name = namein.getText();
         String id = IDin.getText();
         
@@ -165,6 +168,9 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         
         JOptionPane.showMessageDialog(rootPane, "Added successfully");
         
+        }
+        }catch(DateTimeException dte){
+            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
         }
 
     }//GEN-LAST:event_addActionPerformed

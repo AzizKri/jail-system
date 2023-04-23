@@ -7,6 +7,7 @@ package gui;
 import jail.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.DateTimeException;
 import javax.swing.JOptionPane;
 
 /**
@@ -148,65 +149,73 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0 
-                || genderin.getSelectedItem() == "Gender" || entrydayin.getSelectedIndex() == 0 || entrymonthin.getSelectedIndex() == 0 
-                || entryyearin.getSelectedIndex() == 0 ){
-            JOptionPane.showMessageDialog(rootPane, "please enter all the information");}
-        else{
-        String name = namein.getText();
-        
-        String id = IDin.getText();
-        
-        int dayDOB = Integer.parseInt((String) dobdayin.getSelectedItem());
-        
-        int monthDOB = dobmonthin.getSelectedIndex();
-        
-        int yearDOB = Integer.parseInt((String) dobyearin.getSelectedItem());
-        
-        String offense = offensein.getText();
-        
-        int cellnumber = Integer.parseInt(cellnumin.getText());
-        
-        int duration = Integer.parseInt(durationin.getText());
-        
-        char gender = 'A';
-        
-        if (genderin.getSelectedItem() == "M"){
-            gender = 'M';
-        }
-        else{
-            gender = 'F';
-        }
-        
-        int dayEntry = Integer.parseInt((String) entrydayin.getSelectedItem());
-        
-        int monthEntry = entrymonthin.getSelectedIndex()+2;
-        
-        int yearEntry = Integer.parseInt((String) entryyearin.getSelectedItem());
-        
-        Date dobDate = new Date(dayDOB, monthDOB, yearDOB);
-        
-        Date entryDate = new Date(dayEntry, monthEntry, yearEntry);
-        
-        Prisoner p1 = new Prisoner(name , dobDate , gender, id, offense, duration, entryDate, cellnumber);
-        
-        namein.setText("");
-        IDin.setText("");
-        cellnumin.setText("");
-        offensein.setText("");
-        durationin.setText("");
-        dobdayin.setSelectedIndex(0);
-        dobmonthin.setSelectedIndex(0);
-        dobyearin.setSelectedIndex(0);
-        entrydayin.setSelectedIndex(0);
-        entrymonthin.setSelectedIndex(0);
-        entryyearin.setSelectedIndex(0);
 
-        JOptionPane.showMessageDialog(rootPane, "Added successfully");
-        
+        try {
+            if (dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0
+                    || genderin.getSelectedItem() == "Gender" || entrydayin.getSelectedIndex() == 0 || entrymonthin.getSelectedIndex() == 0
+                    || entryyearin.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(rootPane, "please enter all the information");
+            } else {
+                String name = namein.getText();
+
+                String id = IDin.getText();
+
+                int dayDOB = Integer.parseInt((String) dobdayin.getSelectedItem());
+
+                int monthDOB = dobmonthin.getSelectedIndex();
+
+                int yearDOB = Integer.parseInt((String) dobyearin.getSelectedItem());
+
+                String offense = offensein.getText();
+
+                int cellnumber = Integer.parseInt(cellnumin.getText());
+
+                int duration = Integer.parseInt(durationin.getText());
+
+                char gender = 'A';
+
+                if (genderin.getSelectedItem() == "M") {
+                    gender = 'M';
+                } else {
+                    gender = 'F';
+                }
+
+                int dayEntry = Integer.parseInt((String) entrydayin.getSelectedItem());
+
+                int monthEntry = entrymonthin.getSelectedIndex() + 2;
+
+                int yearEntry = Integer.parseInt((String) entryyearin.getSelectedItem());
+
+                Date dobDate = new Date(dayDOB, monthDOB, yearDOB);
+
+                Date entryDate = new Date(dayEntry, monthEntry, yearEntry);
+
+                if (dobDate.isAfter(entryDate)) {
+                    JOptionPane.showMessageDialog(rootPane, "You cannot go to jail before being born!\nPlease check the dates again");
+
+                } else {
+                    Prisoner p1 = new Prisoner(name, dobDate, gender, id, offense, duration, entryDate, cellnumber);
+
+                    namein.setText("");
+                    IDin.setText("");
+                    cellnumin.setText("");
+                    offensein.setText("");
+                    durationin.setText("");
+                    dobdayin.setSelectedIndex(0);
+                    dobmonthin.setSelectedIndex(0);
+                    dobyearin.setSelectedIndex(0);
+                    entrydayin.setSelectedIndex(0);
+                    entrymonthin.setSelectedIndex(0);
+                    entryyearin.setSelectedIndex(0);
+
+                    JOptionPane.showMessageDialog(rootPane, "Added successfully");
+
+                }
+            }
+        } catch (DateTimeException dte) {
+            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
         }
-        
-        
+
     }//GEN-LAST:event_addActionPerformed
 
     private void dobmonthinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dobmonthinActionPerformed

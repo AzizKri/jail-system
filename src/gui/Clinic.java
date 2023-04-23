@@ -100,7 +100,7 @@ public class Clinic extends javax.swing.JInternalFrame {
 
         RecordID.setEnabled(false);
         jPanel3.add(RecordID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, -1));
-        jPanel3.add(Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        jPanel3.add(Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 90, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Treatment:");
