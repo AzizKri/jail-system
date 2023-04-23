@@ -5,7 +5,9 @@ import jail.Prisoner;
 import jail.Visitor;
 import jail.Date;
 import jail.Visitation;
+import java.time.DateTimeException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class VisitationGui extends javax.swing.JInternalFrame {
 
@@ -1259,6 +1261,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_actionTypeActionPerformed
 
     private void createVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVisitationActionPerformed
+        try{
         Visitor visitor;
         Date DoV = new Date(Integer.parseInt(visitDay.getSelectedItem().toString()), Integer.parseInt(visitMonth.getSelectedItem().toString()), Integer.parseInt(visitYear.getText()));
         if (newVisitor.isSelected() && !nVisitorName.getText().equals("") && !nVisitorYear.getText().equals("") && !nVisitorIdNumber.getText().equals("")) {
@@ -1279,6 +1282,9 @@ public class VisitationGui extends javax.swing.JInternalFrame {
         } else {
             visitor = null;
             visitationStatus.setText("Missing Visitor Information");
+        }
+        }catch(DateTimeException dte){
+            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
         }
     }//GEN-LAST:event_createVisitationActionPerformed
 
@@ -1484,6 +1490,7 @@ public class VisitationGui extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_nVisitorIdNumber_EditActionPerformed
 
     private void saveVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveVisitationActionPerformed
+        try{
         Visitation visit = Database.getVisitation(visitationId_Edit.getText());
         // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
         if (visitYear_Edit.getText() != null) {
@@ -1522,6 +1529,9 @@ public class VisitationGui extends javax.swing.JInternalFrame {
             // Continue else's
         } else {
             visitationSaveStatus.setText("Missing Visitation Information");
+        }
+        }catch(DateTimeException dte){
+            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
         }
     }//GEN-LAST:event_saveVisitationActionPerformed
 

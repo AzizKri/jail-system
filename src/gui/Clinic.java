@@ -7,6 +7,8 @@ package gui;
 import jail.Database;
 import jail.Date;
 import jail.Prisoner;
+import java.time.DateTimeException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -331,6 +333,8 @@ public class Clinic extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try{
         Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(Year.getText()));
         jail.Clinic MR = new jail.Clinic(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
         RecordID.setText("");
@@ -341,7 +345,9 @@ public class Clinic extends javax.swing.JInternalFrame {
         Year.setText("");
         DAYCB.setSelectedIndex(0);
         MONTHCB.setSelectedIndex(0);
-        
+        }catch(DateTimeException dte){
+            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

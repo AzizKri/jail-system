@@ -82,7 +82,7 @@ public class Transfer extends javax.swing.JInternalFrame {
         jPanel1.add(transferBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 220, 40));
 
         CMB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        CMB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CMB.setBorder(null);
         jPanel1.add(CMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 180, 30));
 
         statusLBL.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
