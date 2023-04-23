@@ -50,7 +50,9 @@ public class Date {
         return String.format("%d years, %d months, %d days", rD.getYears(), rD.getMonths(), rD.getDays());
     }
     
-    
+    public boolean isAfter(Date d){
+        return this.date.isAfter(d.date);
+    }
     
     @Override
     public String toString() {
