@@ -41,8 +41,6 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         dobyearin = new javax.swing.JComboBox<>();
         genderin = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        badgenumin = new javax.swing.JTextField();
         Rankinn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
@@ -59,38 +57,38 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         jLabel1.setText("   Add Officer");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 70));
-        jPanel1.add(namein, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 320, 30));
+
+        namein.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(namein, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jLabel4.setText("Officer ID");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 90, 30));
-        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 320, 30));
+        jLabel4.setText(" ID");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 90, 30));
+        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 320, 30));
 
         jLabel5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel5.setText("Date Of Birth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 30));
 
         dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 60, 30));
+        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 60, 30));
 
         dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
-        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 90, 30));
+        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 90, 30));
 
         dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
-        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, 30));
+        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, 30));
 
         genderin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "M", "F" }));
-        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, 30));
+        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel6.setText("Gender");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, 30));
-
-        jLabel7.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jLabel7.setText("Badge Number");
-        jLabel7.setPreferredSize(new java.awt.Dimension(40, 20));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 120, 30));
-        jPanel1.add(badgenumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 320, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, 30));
         jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 320, 30));
 
         jLabel8.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
@@ -108,7 +106,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Officer Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, 30));
 
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 840, 450));
@@ -151,17 +149,15 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         
         Date dobDate = new Date(dayDOB, monthDOB, yearDOB);
         
-        String badgenumber = badgenumin.getText();
         
         String rank = Rankinn.getText();
         
 
-        Officer o1 = new Officer(name , dobDate , gender, id, badgenumber, rank);
+        Officer o1 = new Officer(name , dobDate , gender, id, "0", rank);
 
         namein.setText("");
         IDin.setText("");
         Rankinn.setText("");
-        badgenumin.setText("");
         dobdayin.setSelectedIndex(0);
         dobmonthin.setSelectedIndex(0);
         dobyearin.setSelectedIndex(0);
@@ -175,12 +171,15 @@ public class AddOfficer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_addActionPerformed
 
+    private void nameinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameinActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IDin;
     private javax.swing.JTextField Rankinn;
     private javax.swing.JButton add;
-    private javax.swing.JTextField badgenumin;
     private javax.swing.JComboBox<String> dobdayin;
     private javax.swing.JComboBox<String> dobmonthin;
     private javax.swing.JComboBox<String> dobyearin;
@@ -191,7 +190,6 @@ public class AddOfficer extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
