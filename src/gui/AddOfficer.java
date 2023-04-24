@@ -32,7 +32,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                offId.setText("Officer ID: "+offID);
+                offId.setText(offID);
     }
 
     /**
@@ -57,6 +57,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         add = new javax.swing.JButton();
         offId = new javax.swing.JLabel();
         Rankinn = new javax.swing.JComboBox<>();
+        inIDDD = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -114,10 +115,14 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 120, 40));
 
         offId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jPanel1.add(offId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 260, 30));
+        jPanel1.add(offId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 260, 30));
 
         Rankinn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rank", "Officer", "Corporal", "Sergeant", "Lieutenant", "Captain", " Chief", "Sheriff" }));
         jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, 30));
+
+        inIDDD.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
+        inIDDD.setText("Officer ID");
+        jPanel1.add(inIDDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 30));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Officer Name");
@@ -189,7 +194,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                offId.setText("Officer ID: "+offID);
+                offId.setText(offID);
         
         }
         }catch(DateTimeException dte){
@@ -215,6 +220,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> dobmonthin;
     private javax.swing.JComboBox<String> dobyearin;
     private javax.swing.JComboBox<String> genderin;
+    private javax.swing.JLabel inIDDD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
