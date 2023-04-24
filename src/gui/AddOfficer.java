@@ -28,7 +28,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                 do {
             for (int i = 0; i < Database.getOfficers().size(); i++) {
                 if(Database.getOfficers().get(i).getBadgeNumber().equals( offID)){
-                offID = Integer.toString(random.nextInt(9999));
+                offID = Integer.toString(random.nextInt(1000,9999));
                     checker = 0;
                     break;
                 }}}while(checker == 0);
@@ -181,7 +181,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         
         int checker = 1;
         Random random = new Random();
-        offID = Integer.toString(random.nextInt(9999));
+        offID = Integer.toString(random.nextInt(1000,9999));
         do {
             for (int i = 0; i < Database.getOfficers().size(); i++) {
                 if(Database.getOfficers().get(i).getBadgeNumber().equals( offID)){
