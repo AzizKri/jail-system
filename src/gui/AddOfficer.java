@@ -88,10 +88,10 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 30));
 
         dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 60, 30));
+        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 30));
 
         dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
-        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 90, 30));
+        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, 30));
 
         dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
         jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, 30));
@@ -117,7 +117,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         jPanel1.add(offId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 260, 30));
 
         Rankinn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rank", "Officer", "Corporal", "Sergeant", "Lieutenant", "Captain", " Chief", "Sheriff" }));
-        jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 120, 40));
+        jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Officer Name");

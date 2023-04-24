@@ -105,7 +105,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                 IDinActionPerformed(evt);
             }
         });
-        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 220, 30));
+        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 220, 30));
         jPanel1.add(offensein, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 220, 30));
 
         durationin.addActionListener(new java.awt.event.ActionListener() {
@@ -130,10 +130,11 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                 genderinActionPerformed(evt);
             }
         });
-        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 30));
+        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 30));
 
         dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 70, 30));
+        dobdayin.setPreferredSize(new java.awt.Dimension(72, 28));
+        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, 30));
 
         dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
         dobmonthin.addActionListener(new java.awt.event.ActionListener() {
@@ -141,10 +142,10 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                 dobmonthinActionPerformed(evt);
             }
         });
-        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 100, 30));
+        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, 30));
 
         dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
-        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 70, 30));
+        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 30));
 
         cellnumin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cell Number", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cellnumin.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +153,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                 cellnuminActionPerformed(evt);
             }
         });
-        jPanel1.add(cellnumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 120, 30));
+        jPanel1.add(cellnumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, 30));
 
         inID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         inID.setEnabled(false);
