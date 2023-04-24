@@ -1262,29 +1262,29 @@ public class VisitationGui extends javax.swing.JInternalFrame {
 
     private void createVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVisitationActionPerformed
         try{
-        Visitor visitor;
-        Date DoV = new Date(Integer.parseInt(visitDay.getSelectedItem().toString()), Integer.parseInt(visitMonth.getSelectedItem().toString()), Integer.parseInt(visitYear.getText()));
-        if (newVisitor.isSelected() && !nVisitorName.getText().equals("") && !nVisitorYear.getText().equals("") && !nVisitorIdNumber.getText().equals("")) {
-            Date DOB = new Date(Integer.parseInt(nVisitorDay.getSelectedItem().toString()), Integer.parseInt(nVisitorMonth.getSelectedItem().toString()), Integer.parseInt(nVisitorYear.getText()));
-            String VID = "Vs-" + (int)(Math.random() * 10000);
-            visitor = new Visitor(nVisitorName.getText(), DOB, nVisitorGender.getSelectedItem().toString().charAt(0), nVisitorIdNumber.getText(), VID);
-            // String name, Date DOB, char gender, String personID, String visitorID
-            Visitation visit = new Visitation(visitationId.getText(), DoV, visitHour.getSelectedItem().toString() + visitTime.getSelectedItem().toString(), prisonerID.getText(), VID);
-            // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
-            finalText.setText(visit.display());
-            finalTextPanel.setVisible(true);
-        } else if (existingVisitor.isSelected() && !eVisitorName.getText().equals("")) {
-            visitor = Database.getVisitor(eVisitorID.getText());
-            Visitation visit = new Visitation(visitationId.getText(), DoV, visitHour.getSelectedItem().toString() + visitTime.getSelectedItem().toString(), prisonerID.getText(), visitor.getVisitorID());
-            // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
-            finalText.setText(visit.display());
-            finalTextPanel.setVisible(true);
-        } else {
-            visitor = null;
-            visitationStatus.setText("Missing Visitor Information");
-        }
-        }catch(DateTimeException dte){
-            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
+            Visitor visitor;
+            Date DoV = new Date(Integer.parseInt(visitDay.getSelectedItem().toString()), Integer.parseInt(visitMonth.getSelectedItem().toString()), Integer.parseInt(visitYear.getText()));
+            if (newVisitor.isSelected() && !nVisitorName.getText().equals("") && !nVisitorYear.getText().equals("") && !nVisitorIdNumber.getText().equals("")) {
+                Date DOB = new Date(Integer.parseInt(nVisitorDay.getSelectedItem().toString()), Integer.parseInt(nVisitorMonth.getSelectedItem().toString()), Integer.parseInt(nVisitorYear.getText()));
+                String VID = "Vs-" + (int)(Math.random() * 10000);
+                visitor = new Visitor(nVisitorName.getText(), DOB, nVisitorGender.getSelectedItem().toString().charAt(0), nVisitorIdNumber.getText(), VID);
+                // String name, Date DOB, char gender, String personID, String visitorID
+                Visitation visit = new Visitation(visitationId.getText(), DoV, visitHour.getSelectedItem().toString() + visitTime.getSelectedItem().toString(), prisonerID.getText(), VID);
+                // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
+                finalText.setText(visit.display());
+                finalTextPanel.setVisible(true);
+            } else if (existingVisitor.isSelected() && !eVisitorName.getText().equals("")) {
+                visitor = Database.getVisitor(eVisitorID.getText());
+                Visitation visit = new Visitation(visitationId.getText(), DoV, visitHour.getSelectedItem().toString() + visitTime.getSelectedItem().toString(), prisonerID.getText(), visitor.getVisitorID());
+                // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
+                finalText.setText(visit.display());
+                finalTextPanel.setVisible(true);
+            } else {
+                visitor = null;
+                visitationStatus.setText("Missing Visitor Information");
+            }
+        }catch(DateTimeException | NumberFormatException dte){
+            visitationStatus.setText( "Incorrect Date entered");
         }
     }//GEN-LAST:event_createVisitationActionPerformed
 
@@ -1491,47 +1491,47 @@ public class VisitationGui extends javax.swing.JInternalFrame {
 
     private void saveVisitationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveVisitationActionPerformed
         try{
-        Visitation visit = Database.getVisitation(visitationId_Edit.getText());
-        // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
-        if (visitYear_Edit.getText() != null) {
-            visitationSaveStatus.setText("");
-            Date DoV = new Date(Integer.parseInt(visitDay_Edit.getSelectedItem().toString()), Integer.parseInt(visitMonth_Edit.getSelectedItem().toString()), Integer.parseInt(visitYear_Edit.getText()));
-            String ToV = visitHour_Edit.getSelectedItem() + "" + visitTime_Edit.getSelectedItem();
-            if (prisonerName_Edit.getText() != null) {
+            Visitation visit = Database.getVisitation(visitationId_Edit.getText());
+            // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
+            if (visitYear_Edit.getText() != null) {
                 visitationSaveStatus.setText("");
-                Prisoner prs = Database.getPrisonerByID(prisonerIdNumber_Edit.getText());
-                if (existingVisitor_Edit.isSelected() && eVisitorName_Edit.getText() != null) {
+                Date DoV = new Date(Integer.parseInt(visitDay_Edit.getSelectedItem().toString()), Integer.parseInt(visitMonth_Edit.getSelectedItem().toString()), Integer.parseInt(visitYear_Edit.getText()));
+                String ToV = visitHour_Edit.getSelectedItem() + "" + visitTime_Edit.getSelectedItem();
+                if (prisonerName_Edit.getText() != null) {
                     visitationSaveStatus.setText("");
-                    Visitor vst = Database.getVisitorByNID(eVisitorIdNumber_Edit.getText());
-                    visit.setDateOfVisit(DoV);
-                    visit.setTime(ToV);
-                    visit.setVisitor(vst);
-                    visit.setPrisoner(prs);
-                    finalTextPanel_Edit.setVisible(true);
-                    finalText_Edit.setText(visit.display());
-                } else if (newVisitor_Edit.isSelected() && nVisitorName_Edit.getText() != null && nVisitorYear_Edit.getText() != null && nVisitorIdNumber_Edit.getText() != null) {
-                    visitationSaveStatus.setText("");
-                    Date DOB = new Date(Integer.parseInt(nVisitorDay_Edit.getSelectedItem().toString()), Integer.parseInt(nVisitorMonth_Edit.getSelectedItem().toString()), Integer.parseInt(nVisitorYear_Edit.getText()));
-                    String VID = "Vs-" + (int)(Math.random() * 10000);
-                    Visitor vst = new Visitor(nVisitorName_Edit.getText(), DOB, nVisitorGender_Edit.getSelectedItem().toString().charAt(0), nVisitorIdNumber_Edit.getText(), VID);
-                    visit.setDateOfVisit(DoV);
-                    visit.setTime(ToV);
-                    visit.setVisitor(vst);
-                    visit.setPrisoner(prs);
-                    finalTextPanel_Edit.setVisible(true);
-                    finalText_Edit.setText(visit.display());
+                    Prisoner prs = Database.getPrisonerByID(prisonerIdNumber_Edit.getText());
+                    if (existingVisitor_Edit.isSelected() && eVisitorName_Edit.getText() != null) {
+                        visitationSaveStatus.setText("");
+                        Visitor vst = Database.getVisitorByNID(eVisitorIdNumber_Edit.getText());
+                        visit.setDateOfVisit(DoV);
+                        visit.setTime(ToV);
+                        visit.setVisitor(vst);
+                        visit.setPrisoner(prs);
+                        finalTextPanel_Edit.setVisible(true);
+                        finalText_Edit.setText(visit.display());
+                    } else if (newVisitor_Edit.isSelected() && nVisitorName_Edit.getText() != null && nVisitorYear_Edit.getText() != null && nVisitorIdNumber_Edit.getText() != null) {
+                        visitationSaveStatus.setText("");
+                        Date DOB = new Date(Integer.parseInt(nVisitorDay_Edit.getSelectedItem().toString()), Integer.parseInt(nVisitorMonth_Edit.getSelectedItem().toString()), Integer.parseInt(nVisitorYear_Edit.getText()));
+                        String VID = "Vs-" + (int)(Math.random() * 10000);
+                        Visitor vst = new Visitor(nVisitorName_Edit.getText(), DOB, nVisitorGender_Edit.getSelectedItem().toString().charAt(0), nVisitorIdNumber_Edit.getText(), VID);
+                        visit.setDateOfVisit(DoV);
+                        visit.setTime(ToV);
+                        visit.setVisitor(vst);
+                        visit.setPrisoner(prs);
+                        finalTextPanel_Edit.setVisible(true);
+                        finalText_Edit.setText(visit.display());
+                    } else {
+                        visitationSaveStatus.setText("Missing Visitor Information");
+                    }
                 } else {
-                    visitationSaveStatus.setText("Missing Visitor Information");
+                    visitationSaveStatus.setText("Missing Prisoner Information");
                 }
+                // Continue else's
             } else {
-                visitationSaveStatus.setText("Missing Prisoner Information");
+                visitationSaveStatus.setText("Missing Visitation Information");
             }
-            // Continue else's
-        } else {
-            visitationSaveStatus.setText("Missing Visitation Information");
-        }
-        }catch(DateTimeException dte){
-            JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
+        }catch(DateTimeException | NumberFormatException dte){
+            visitationSaveStatus.setText("Incorrect Date entered");
         }
     }//GEN-LAST:event_saveVisitationActionPerformed
 
