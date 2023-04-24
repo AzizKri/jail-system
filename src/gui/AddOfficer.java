@@ -6,19 +6,33 @@ package gui;
 
 import jail.*;
 import java.time.DateTimeException;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author husse
  */
+
 public class AddOfficer extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AddPrisner
      */
+    String offID;
     public AddOfficer() {
         initComponents();
+        int checker = 1;
+                Random random = new Random();
+                offID = Integer.toString(random.nextInt(9999));
+                do {
+            for (int i = 0; i < Database.getOfficers().size(); i++) {
+                if(Database.getOfficers().get(i).getBadgeNumber().equals( offID)){
+                offID = Integer.toString(random.nextInt(9999));
+                    checker = 0;
+                    break;
+                }}}while(checker == 0);
+                offId.setText("Officer ID: "+offID);
     }
 
     /**
@@ -40,10 +54,9 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         dobmonthin = new javax.swing.JComboBox<>();
         dobyearin = new javax.swing.JComboBox<>();
         genderin = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        Rankinn = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
+        offId = new javax.swing.JLabel();
+        Rankinn = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,33 +80,29 @@ public class AddOfficer extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel4.setText(" ID");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 90, 30));
-        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 320, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 90, 30));
+        jPanel1.add(IDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 320, 30));
 
         jLabel5.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel5.setText("Date Of Birth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 30));
 
         dobdayin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 60, 30));
+        jPanel1.add(dobdayin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 60, 30));
 
         dobmonthin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novembver", "December" }));
-        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 90, 30));
+        jPanel1.add(dobmonthin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 90, 30));
 
         dobyearin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005" }));
-        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, 30));
+        jPanel1.add(dobyearin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, 30));
 
         genderin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "M", "F" }));
-        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, 30));
-
-        jLabel6.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jLabel6.setText("Gender");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, 30));
-        jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 320, 30));
-
-        jLabel8.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jLabel8.setText("Rank");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, 30));
+        genderin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genderinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(genderin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, 30));
 
         add.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         add.setText("ADD");
@@ -102,7 +111,13 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                 addActionPerformed(evt);
             }
         });
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 120, 40));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 120, 40));
+
+        offId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jPanel1.add(offId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 260, 30));
+
+        Rankinn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rank", "Officer", "Corporal", "Sergeant", "Lieutenant", "Captain", " Chief", "Sheriff" }));
+        jPanel1.add(Rankinn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 120, 40));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel3.setText("Officer Name");
@@ -126,7 +141,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         String id = IDin.getText();
         
         if(dobdayin.getSelectedIndex() == 0 || dobmonthin.getSelectedIndex() == 0 || dobyearin.getSelectedIndex() == 0 
-                || genderin.getSelectedItem() == "Gender"){
+                || genderin.getSelectedItem() == "Gender" || Rankinn.getSelectedIndex()== 0){
             JOptionPane.showMessageDialog(rootPane, "please enter all the information");
         }
 
@@ -150,19 +165,31 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         Date dobDate = new Date(dayDOB, monthDOB, yearDOB);
         
         
-        String rank = Rankinn.getText();
+        String rank = (String)Rankinn.getSelectedItem();
         
 
-        Officer o1 = new Officer(name , dobDate , gender, id, "0", rank);
+        Officer o1 = new Officer(name , dobDate , gender, id, offID, rank);
 
         namein.setText("");
         IDin.setText("");
-        Rankinn.setText("");
+        Rankinn.setSelectedIndex(0);
         dobdayin.setSelectedIndex(0);
         dobmonthin.setSelectedIndex(0);
         dobyearin.setSelectedIndex(0);
         
         JOptionPane.showMessageDialog(rootPane, "Added successfully");
+        
+        int checker = 1;
+        Random random = new Random();
+        offID = Integer.toString(random.nextInt(9999));
+        do {
+            for (int i = 0; i < Database.getOfficers().size(); i++) {
+                if(Database.getOfficers().get(i).getBadgeNumber().equals( offID)){
+                offID = Integer.toString(random.nextInt(9999));
+                    checker = 0;
+                    break;
+                }}}while(checker == 0);
+                offId.setText("Officer ID: "+offID);
         
         }
         }catch(DateTimeException dte){
@@ -175,10 +202,14 @@ public class AddOfficer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameinActionPerformed
 
+    private void genderinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_genderinActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IDin;
-    private javax.swing.JTextField Rankinn;
+    private javax.swing.JComboBox<String> Rankinn;
     private javax.swing.JButton add;
     private javax.swing.JComboBox<String> dobdayin;
     private javax.swing.JComboBox<String> dobmonthin;
@@ -189,10 +220,9 @@ public class AddOfficer extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField namein;
+    private javax.swing.JLabel offId;
     // End of variables declaration//GEN-END:variables
 }
