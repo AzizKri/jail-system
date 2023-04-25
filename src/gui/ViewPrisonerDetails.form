@@ -51,6 +51,9 @@
       </Layout>
     </Container>
   </NonVisualComponents>
+  <Properties>
+    <Property name="toolTipText" type="java.lang.String" value=""/>
+  </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>

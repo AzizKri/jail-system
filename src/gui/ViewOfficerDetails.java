@@ -107,6 +107,11 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         enter.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jPanel1.add(enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 120, 40));
 
+        searchtf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchtfActionPerformed(evt);
+            }
+        });
         searchtf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchtfKeyReleased(evt);
@@ -212,13 +217,13 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             enter.setText("Badge number:");
         }
-            tf1.setText("");
-            tf2.setText("");
-            tf3.setText("");
-            tf4.setText("");
-            tf5.setText("");
-            tf6.setText("");
-            searchtf.setText("");
+        tf1.setText("");
+        tf2.setText("");
+        tf3.setText("");
+        tf4.setText("");
+        tf5.setText("");
+        tf6.setText("");
+        searchtf.setText("");
     }//GEN-LAST:event_cb1ActionPerformed
 
     private void searchtfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtfKeyReleased
@@ -228,7 +233,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
                 mod.removeAllElements();
                 for (Officer p : Database.getOfficers()) {
                     if (p.getName().toLowerCase().startsWith(search)) {
-                        mod.addElement(p.getName() + " " + p.getID());
+                        mod.addElement(p.getName() + "-" + p.getID());
                     }
                 }
                 menu.show(searchtf, 0, searchtf.getHeight());
@@ -247,7 +252,12 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             p = Database.getOfficer(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1) {
-            p = Database.getOfficerByName(searchtf.getText().split(" ")[0]);
+            String[] search = searchtf.getText().split("-");
+            if (search.length == 2) {
+                p = Database.getOfficerByID(search[1]);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Please select from the given list");
+            }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
@@ -267,6 +277,10 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
             searchtf.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void searchtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchtfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchtfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

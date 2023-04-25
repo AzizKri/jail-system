@@ -88,6 +88,8 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
 
         menu.setFocusable(false);
 
+        setToolTipText("");
+
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -244,7 +246,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
-        if(cb1.getSelectedIndex() != 0){
+        if (cb1.getSelectedIndex() != 0) {
             or.setText("Enter " + cb1.getSelectedItem() + ":");
             tf1.setText("");
             tf2.setText("");
@@ -269,9 +271,14 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
             p = Database.getPrisonerByInmateID(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 2) {
             p = Database.getPrisonerByID(searchtf.getText());
-        } else if (cb1.getSelectedIndex() == 1){
-            p = Database.getPrisonerByName(searchtf.getText().split(" ")[0]);
-        }else {
+        } else if (cb1.getSelectedIndex() == 1) {
+            String[] search = searchtf.getText().split("-");
+            if (search.length == 2) {
+                p = Database.getPrisonerByID(search[1]);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Please select from the given list");
+            }
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Please select search method");
         }
         if (p == null && cb1.getSelectedIndex() != 0) {
@@ -291,7 +298,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
             tf7.setText(p.getEntry().toString());
             tf8.setText(p.getDuration() + "");
             tf9.setText(p.getCellNumber() + "");
-            tf10.setText(p.getEntry().releaseDate(p.getDuration()).remainingTime() + "w");
+            tf10.setText(p.getEntry().releaseDate(p.getDuration()).remainingTime());
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -312,7 +319,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
                 mod.removeAllElements();
                 for (Prisoner p : Database.getPrisoners()) {
                     if (p.getName().toLowerCase().startsWith(search)) {
-                        mod.addElement(p.getName() + " " + p.getID());
+                        mod.addElement(p.getName() + "-" + p.getID());
                     }
                 }
                 menu.show(searchtf, 0, searchtf.getHeight());
