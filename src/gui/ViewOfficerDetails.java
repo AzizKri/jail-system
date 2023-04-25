@@ -233,7 +233,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
                 mod.removeAllElements();
                 for (Officer p : Database.getOfficers()) {
                     if (p.getName().toLowerCase().startsWith(search)) {
-                        mod.addElement(p.getName() + "-" + p.getID());
+                        mod.addElement(p.getName() + " - " + p.getID());
                     }
                 }
                 menu.show(searchtf, 0, searchtf.getHeight());
@@ -252,7 +252,7 @@ public class ViewOfficerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 3) {
             p = Database.getOfficer(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1) {
-            String[] search = searchtf.getText().split("-");
+            String[] search = searchtf.getText().split(" - ");
             if (search.length == 2) {
                 p = Database.getOfficerByID(search[1]);
             } else {

@@ -272,7 +272,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
         } else if (cb1.getSelectedIndex() == 2) {
             p = Database.getPrisonerByID(searchtf.getText());
         } else if (cb1.getSelectedIndex() == 1) {
-            String[] search = searchtf.getText().split("-");
+            String[] search = searchtf.getText().split(" - ");
             if (search.length == 2) {
                 p = Database.getPrisonerByID(search[1]);
             } else {
@@ -319,7 +319,7 @@ public class ViewPrisonerDetails extends javax.swing.JInternalFrame {
                 mod.removeAllElements();
                 for (Prisoner p : Database.getPrisoners()) {
                     if (p.getName().toLowerCase().startsWith(search)) {
-                        mod.addElement(p.getName() + "-" + p.getID());
+                        mod.addElement(p.getName() + " - " + p.getID());
                     }
                 }
                 menu.show(searchtf, 0, searchtf.getHeight());
