@@ -407,7 +407,6 @@ public class Database {
         medicalRecords.add(medicalRecord);
     }
     
-        
     public static Clinic getMedicalRecord(String medicalRecordID) {
         for (Clinic medicalRecord : medicalRecords) {
             if (medicalRecord.getRecordID().equals(medicalRecordID)) {
@@ -489,6 +488,16 @@ public class Database {
         return null;
     }
     
+    public static ArrayList<Integer> getMedicalRecordIndexesForPrisoner(String inmateID) {
+        ArrayList<Integer> medicalRecordIndexes = new ArrayList();
+        for (Clinic medicalRecord : medicalRecords) {
+            if (medicalRecord.getPrisoner().getInmateID().equals(inmateID)) {
+                medicalRecordIndexes.add(medicalRecords.indexOf(medicalRecord));
+            }
+        }
+        return medicalRecordIndexes;
+    }
+    
     public static Visitation getVisitation(String visitationID) {
         for (Visitation visitation : visitations) {
             if (visitation.getVisitationID().equals(visitationID)) {
@@ -496,6 +505,16 @@ public class Database {
             }
         }
         return null;
+    }
+    
+    public static ArrayList<Integer> getVisitationIndexesForPrisoner(String inmateID) {
+        ArrayList<Integer> visitationIndexes = new ArrayList();
+        for (Visitation visitation : visitations) {
+            if (visitation.getPrisonerId().equals(inmateID)) {
+                visitationIndexes.add(visitations.indexOf(visitation));
+            }
+        }
+        return visitationIndexes;
     }
     
     public static Visitor getVisitor(String visitorID) {
