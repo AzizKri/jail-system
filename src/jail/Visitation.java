@@ -45,6 +45,10 @@ public class Visitation {
         return visitor;
     }
 
+    public String getVisitorId() {
+        return visitor.getVisitorID();
+    }
+
     public void setVisitor(Visitor visitor) {
         this.visitor = visitor;
     }
@@ -55,6 +59,10 @@ public class Visitation {
 
     public Prisoner getPrisoner() {
         return prisoner;
+    }
+
+    public String getPrisonerId() {
+        return prisoner.getInmateID();
     }
 
     public void setPrisoner(Prisoner prisoner) {
