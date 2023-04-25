@@ -7,7 +7,9 @@ package gui;
 import jail.Database;
 import jail.Date;
 import jail.Prisoner;
+import java.awt.Dimension;
 import java.time.DateTimeException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +21,17 @@ public class Clinic extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddPrisner
      */
+    ArrayList<String> inmateIDS = new ArrayList<String>();
+    ArrayList<String> recordIDS = new ArrayList<String>();
     public Clinic() {
         initComponents();
         initialize();
+        for (int i = 0; i < Database.getPrisoners().size(); i++) {
+            inmateIDS.add(Database.getPrisoners().get(i).getInmateID());
+        }
+        for (int i = 0; i < Database.getMedicalRecords().size(); i++) {
+            recordIDS.add(Database.getMedicalRecords().get(i).getRecordID());
+        }
     }
 
     /**
@@ -60,14 +70,14 @@ public class Clinic extends javax.swing.JInternalFrame {
         InmateName = new javax.swing.JTextField();
         DAYCB = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        search = new javax.swing.JButton();
         InmateID = new javax.swing.JTextField();
         Treatment = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         Diagnosis = new javax.swing.JTextField();
         MONTHCB = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
-        year_write = new javax.swing.JTextField();
+        year_write = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
@@ -139,6 +149,12 @@ public class Clinic extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+
+        RecordID_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecordID_viewActionPerformed(evt);
+            }
+        });
         jPanel2.add(RecordID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -212,13 +228,13 @@ public class Clinic extends javax.swing.JInternalFrame {
         jLabel14.setText("Inmate's ID:");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        jButton3.setText("Search");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        search.setText("Search");
+        search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                searchActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 70, -1));
+        jPanel3.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 70, -1));
 
         InmateID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,12 +267,13 @@ public class Clinic extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 70, -1));
 
+        year_write.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
         year_write.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 year_writeActionPerformed(evt);
             }
         });
-        jPanel3.add(year_write, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 80, -1));
+        jPanel3.add(year_write, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 780, 400));
 
@@ -331,26 +348,40 @@ public class Clinic extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2HierarchyChanged
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         
-        Prisoner p = Database.getPrisonerByInmateID(InmateID.getText());
-        InmateName.setText(p.getName());
+//        Prisoner p = Database.getPrisonerByInmateID(InmateID.getText());
+//        if () {
+//            JOptionPane.showMessageDialog(this, "Please Insert a Valid ID");
+//        }
+//        else{
+//            InmateName.setText(p.getName());
+//        }
+          if(inmateIDS.contains(InmateID.getText()) == false){
+              JOptionPane.showMessageDialog(this, "Please Insert a Valid ID");
+          }
+          else{
+              Prisoner p = Database.getPrisonerByInmateID(InmateID.getText());
+              InmateName.setText(p.getName());
+          }
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_searchActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try{
-        Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(year_write.getText()));
+        Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(year_write.getSelectedItem().toString()));
         jail.Clinic MR = new jail.Clinic(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
+        recordIDS.add(RecordID.getText());
         RecordID.setText("");
         InmateID.setText("");
         InmateName.setText("");
         Diagnosis.setText("");
         Treatment.setText("");
-        year_write.setText("");
+        year_write.setSelectedIndex(0);
         DAYCB.setSelectedIndex(0);
         MONTHCB.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(rootPane, "Added Successfully");
         }catch(DateTimeException dte){
             JOptionPane.showMessageDialog(rootPane, "the Date is not correct");
         }
@@ -364,14 +395,19 @@ public class Clinic extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jail.Clinic MR = Database.getMedicalRecord(RecordID_view.getText());
-        InmateID_view.setText(MR.getPrisoner().getInmateID());
-        InmateName_view.setText(MR.getPrisoner().getName());
-        Diagnosis_view.setText(MR.getDiagnosis());
-        Treatment_view.setText(MR.getTreatment());
-        DAY_view.setText(MR.getDate().getDay() + "");
-        MONTH_view.setText(MR.getDate().getMonth() + "");
-        year_view.setText(MR.getDate().getYear() + "");
+        if(recordIDS.contains(RecordID_view.getText()) == false){
+              JOptionPane.showMessageDialog(this, "Please Insert a Valid ID");
+          }
+          else{
+              jail.Clinic MR = Database.getMedicalRecord(RecordID_view.getText());
+              InmateID_view.setText(MR.getPrisoner().getInmateID());
+              InmateName_view.setText(MR.getPrisoner().getName());
+              Diagnosis_view.setText(MR.getDiagnosis());
+              Treatment_view.setText(MR.getTreatment());
+              DAY_view.setText(MR.getDate().getDay() + "");
+              MONTH_view.setText(MR.getDate().getMonth() + "");
+              year_view.setText(MR.getDate().getYear() + "");
+          }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void MONTH_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MONTH_viewActionPerformed
@@ -381,6 +417,10 @@ public class Clinic extends javax.swing.JInternalFrame {
     private void year_writeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_year_writeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_year_writeActionPerformed
+
+    private void RecordID_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecordID_viewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RecordID_viewActionPerformed
 
     private void initialize(){
         jPanel3.setVisible(false);
@@ -405,7 +445,6 @@ public class Clinic extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Treatment_view;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -426,7 +465,8 @@ public class Clinic extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton search;
     private javax.swing.JTextField year_view;
-    private javax.swing.JTextField year_write;
+    private javax.swing.JComboBox<String> year_write;
     // End of variables declaration//GEN-END:variables
 }

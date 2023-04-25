@@ -171,7 +171,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         mainDesktop.removeAll();
-        ViewMedicalRecord ap = new ViewMedicalRecord();
+        Clinic ap = new Clinic();
         mainDesktop.add(ap).setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
