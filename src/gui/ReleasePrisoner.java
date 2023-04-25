@@ -146,9 +146,18 @@ public class ReleasePrisoner extends javax.swing.JInternalFrame {
                 for (int i = 0; i < Database.getPrisoners().size(); i++) {
                     if (Database.getPrisoners().get(i).getInmateID().equals(TF2.getText())){
                         Database.getCells().get((Database.getPrisoners().get(i).getCellNumber())-1).remove_prisoner(Database.getPrisoners().get(i));
+                        ArrayList<Integer> mr = Database.getMedicalRecordIndexesForPrisoner((Database.getPrisoners().get(i).getInmateID()));
+                        ArrayList<Integer> vs = Database.getVisitationIndexesForPrisoner((Database.getPrisoners().get(i).getInmateID()));
+                        for (int j = 0; j < mr.size(); i++) {
+                            Database.getMedicalRecords().remove((int)mr.get(i));
+                        }
+                        for (int k = 0; k < vs.size(); i++) {
+                            Database.getVisitations().remove((int)vs.get(i));
+                        }
                         Database.getPrisoners().remove(i);
                         CMB.removeItemAt(i);
                         inmateIDS.remove(i);
+                        break;
                     }
                 }
                 JFrame f = new JFrame("MSG");
