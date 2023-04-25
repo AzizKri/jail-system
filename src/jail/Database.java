@@ -1,9 +1,7 @@
 package jail;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,6 +22,14 @@ public class Database {
     private static final ArrayList<Visitation> visitations = new ArrayList();
     private static final ArrayList<Cell> cells = new ArrayList();
     private static final ArrayList<Clinic> medicalRecords = new ArrayList();
+    
+    // Backup existing data in case of FileWrite errors
+    private static String prisonersBackup;
+    private static String officersBackup;
+    private static String visitorsBackup;
+    private static String visitationsBackup;
+    private static String cellsBackup;
+    private static String medicalRecordsBackup;
 
     // Constructors
     
@@ -49,6 +55,8 @@ public class Database {
             //<editor-fold defaultstate="collapsed" desc=" Prisoner Reader ">
             try {
                 prisonersFile = new Scanner(new File("src/files/Prisoners.txt"));   // Set the file to the scanner
+                
+                prisonersBackup = (new Scanner(new File("src/files/Prisoners.txt")).useDelimiter("\\Z").next());
                 while(prisonersFile.hasNextLine()) {
                     String[] line = prisonersFile.nextLine().split(",");
                     /*[Jake,18-4-1996,M,785-3248743,0058,Theft,5,2-6-2018,0008] (Example of a line) */
@@ -63,14 +71,16 @@ public class Database {
                     // String name, Date DOB, char gender, String ID, String offense, int duration, Date entry, String inmateID, int cellNumber
                 }
                 prisonersFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Prisoner File not found");
+            } catch(Exception ex) {
+                System.out.println("Prisoner Reader encountered an error");
             }
             //</editor-fold>
             
             //<editor-fold defaultstate="collapsed" desc=" Officer Reader ">
             try {
                 officersFile = new Scanner(new File("src/files/Officers.txt"));
+                
+                officersBackup = (new Scanner(new File("src/files/Officers.txt")).useDelimiter("\\Z").next());
                 while(officersFile.hasNextLine()) {
                     String[] line = officersFile.nextLine().split(",");
                     /*[Josh,4-8-1997,M,785-8465910,SN-845931562,Officer]*/
@@ -83,14 +93,16 @@ public class Database {
                     // String name, Date dob, char gender, String id, String badgenumber, String rank
                 }
                 officersFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Officers File not found");
+            } catch(Exception ex) {
+                System.out.println("Officers Reader encountered an error");
             }
             //</editor-fold>
             
             //<editor-fold defaultstate="collapsed" desc=" Cell Reader ">
             try {
                 cellsFile = new Scanner(new File("src/files/Cells.txt"));
+                
+                cellsBackup = (new Scanner(new File("src/files/Cells.txt")).useDelimiter("\\Z").next());
                 while(cellsFile.hasNextLine()) {
                     String[] line = cellsFile.nextLine().split(";");
                     /*[Ali,01-01-2000,M,12354,12345,Officer;5;Ali,01-01-2000,M,12354,12345,Murder,2,01-01-2018;Ahmed,01-01-2000,M,12354,12345,Murder,2,01-01-2018]*/
@@ -107,14 +119,16 @@ public class Database {
                     // Officer officer, ArrayList<Prisoner> prisoners, int cellNumber
                 }
                 cellsFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Cells File not found");
+            } catch(Exception ex) {
+                System.out.println("Cells Reader encountered an error");
             }
             //</editor-fold>
             
             //<editor-fold defaultstate="collapsed" desc=" Medical Records ">
             try {
                 medicalRecordsFile = new Scanner(new File("src/files/MedicalRecords.txt"));
+                
+                medicalRecordsBackup = (new Scanner(new File("src/files/MedicalRecords.txt")).useDelimiter("\\Z").next());
                 while(medicalRecordsFile.hasNextLine()) {
                     String[] line = medicalRecordsFile.nextLine().split(";");
                     /*[541684;0058;18-4-1996;12-9-2022;Cancer;Public execution]*/
@@ -133,14 +147,16 @@ public class Database {
                     // Prisoner prisoner, Date date, String recordID, String diagnosis, String treatment
                 }
                 medicalRecordsFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Cells File not found");
+            } catch(Exception ex) {
+                System.out.println("MedicalRecords Reader encountered an error");
             }
             //</editor-fold>
             
             //<editor-fold defaultstate="collapsed" desc=" Visitors Reader ">
             try {
                 visitorsFile = new Scanner(new File("src/files/Visitors.txt"));
+                
+                visitorsBackup = (new Scanner(new File("src/files/Visitors.txt")).useDelimiter("\\Z").next());
                 while(visitorsFile.hasNextLine()) {
                     String[] line = visitorsFile.nextLine().split(",");
                     /*[John,12-5-1997,M,785-573257,0005]*/
@@ -153,14 +169,16 @@ public class Database {
                     // String name, Date DOB, char gender, String personID, String visitorID
                 }
                 visitorsFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Visitors File not found");
+            } catch(Exception ex) {
+                System.out.println("Visitors Reader encountered an error");
             }
             //</editor-fold>
             
             //<editor-fold defaultstate="collapsed" desc=" Visitations Reader ">
             try {
                 visitationsFile = new Scanner(new File("src/files/Visitations.txt"));
+                
+                visitationsBackup = (new Scanner(new File("src/files/Visitations.txt")).useDelimiter("\\Z").next());
                 while(visitationsFile.hasNextLine()) {
                     String[] line = visitationsFile.nextLine().split(";");
                     /* [Visit-5921;Vs-0005;0058;16-4-2023;5pm]*/
@@ -174,8 +192,8 @@ public class Database {
                     // String visitationID, Date dateOfVisit, String time, String prisonerID, String visitorID
                 }
                 visitationsFile.close();
-            } catch(FileNotFoundException ex) {
-                System.out.println("Visitation File not found");
+            } catch(Exception ex) {
+                System.out.println("Visitation Reader encountered an error");
             }
             //</editor-fold>
             
@@ -207,13 +225,18 @@ public class Database {
                 }
                 prisonerWriter.write(data);
                 prisonerWriter.close();
-            } catch(IOException ex) {
-                System.out.println("Prisoners.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("Prisoners Writer encountered an error");
+                try {
+                    prisonerWriter.write(prisonersBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("Prisoners Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     prisonerWriter.close();
-                } catch(IOException ex) {
-                System.out.println("Prisoners.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("Prisoners Writer encountered an error");
                 }
             }
             //</editor-fold>
@@ -228,13 +251,18 @@ public class Database {
                 }
                 officerWriter.write(data);
                 officerWriter.close();
-            } catch(IOException ex) {
-                System.out.println("Officers.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("Officers Writer encountered an error");
+                try {
+                    officerWriter.write(officersBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("Officers Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     officerWriter.close();
-                } catch(IOException ex) {
-                System.out.println("Officers.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("Officers Writer encountered an error");
                 }
             }
             //</editor-fold>
@@ -249,13 +277,18 @@ public class Database {
                 }
                 cellsWriter.write(data);
                 cellsWriter.close();
-            } catch(IOException ex) {
-                System.out.println("Cells.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("Cells Writer encountered an error");
+                try {
+                    cellsWriter.write(cellsBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("Cells Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     cellsWriter.close();
-                } catch(IOException ex) {
-                System.out.println("Cells.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("Cells Writer encountered an error");
                 }
             }
             //</editor-fold>
@@ -270,13 +303,18 @@ public class Database {
                 }
                 medicalRecordsWriter.write(data);
                 medicalRecordsWriter.close();
-            } catch(IOException ex) {
-                System.out.println("MedicalRecords.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("MedicalRecords Writer encountered an error");
+                try {
+                    medicalRecordsWriter.write(medicalRecordsBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("MedicalRecords Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     medicalRecordsWriter.close();
-                } catch(IOException ex) {
-                System.out.println("MedicalRecords.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("MedicalRecords Writer encountered an error");
                 }
             }
             //</editor-fold>
@@ -291,13 +329,18 @@ public class Database {
                 }
                 visitorWriter.write(data);
                 visitorWriter.close();
-            } catch(IOException ex) {
-                System.out.println("Visitors.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("Visitors Writer encountered an error");
+                try {
+                    visitorWriter.write(visitorsBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("Visitors Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     visitorWriter.close();
-                } catch(IOException ex) {
-                System.out.println("Visitors.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("Visitors Writer encountered an error");
                 }
             }
             //</editor-fold>
@@ -312,13 +355,18 @@ public class Database {
                 }
                 visitationWriter.write(data);
                 visitationWriter.close();
-            } catch(IOException ex) {
-                System.out.println("Visitations.txt Not found in FileWriter");
+            } catch(Exception ex) {
+                System.out.println("Visitations Writer encountered an error");
+                try {
+                    visitationWriter.write(visitationsBackup);
+                } catch(Exception backupEx) {
+                    System.out.println("Visitations Backup Writer encountered an error");
+                }
             } finally {
                 try {
                     visitationWriter.close();
-                } catch(IOException ex) {
-                System.out.println("Visitations.txt Not found in FileWriter");
+                } catch(Exception ex) {
+                System.out.println("Visitations Writer encountered an error");
                 }
             }
             //</editor-fold>
