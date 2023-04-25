@@ -6,7 +6,7 @@ Object-Oriented Programming Group Project, made by:
 - Ayman Abdelbagi         700039950
 - Hussain El Emam         700039146
 - Khalid Quzli            700036883
-- Mohammed Mohammed       700040840
+- Mohammad Mohammad       700040840
 
 # How to install
 
