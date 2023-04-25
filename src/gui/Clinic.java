@@ -34,12 +34,27 @@ public class Clinic extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        Treatment_view = new javax.swing.JTextField();
+        Diagnosis_view = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        InmateName_view = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        InmateID_view = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        RecordID_view = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        DAY_view = new javax.swing.JTextField();
+        MONTH_view = new javax.swing.JTextField();
+        year_view = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         RecordID = new javax.swing.JTextField();
-        Year = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         InmateName = new javax.swing.JTextField();
@@ -52,31 +67,102 @@ public class Clinic extends javax.swing.JInternalFrame {
         Diagnosis = new javax.swing.JTextField();
         MONTHCB = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
+        year_write = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        Treatment_view = new javax.swing.JTextField();
-        Diagnosis_view = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        Year2 = new javax.swing.JTextField();
-        InmateName_view = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        InmateID_view = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        RecordID_view = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        DAY_view = new javax.swing.JTextField();
-        MONTH_view = new javax.swing.JTextField();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Treatment:");
+        jLabel8.setEnabled(false);
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        Treatment_view.setEnabled(false);
+        jPanel2.add(Treatment_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
+
+        Diagnosis_view.setEnabled(false);
+        Diagnosis_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Diagnosis_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Diagnosis_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("Diagnosis:");
+        jLabel7.setEnabled(false);
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Date of Visit:");
+        jLabel9.setEnabled(false);
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        InmateName_view.setEnabled(false);
+        InmateName_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InmateName_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(InmateName_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Inmate Name: ");
+        jLabel3.setEnabled(false);
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        InmateID_view.setEnabled(false);
+        InmateID_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InmateID_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(InmateID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Inmate's ID:");
+        jLabel5.setEnabled(false);
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+
+        jButton2.setText("View");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        jPanel2.add(RecordID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("Record ID:");
+        jLabel6.setMaximumSize(new java.awt.Dimension(78, 20));
+        jLabel6.setMinimumSize(new java.awt.Dimension(78, 20));
+        jLabel6.setPreferredSize(new java.awt.Dimension(78, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        DAY_view.setEnabled(false);
+        jPanel2.add(DAY_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 40, -1));
+
+        MONTH_view.setEnabled(false);
+        MONTH_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MONTH_viewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(MONTH_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 40, -1));
+
+        year_view.setEnabled(false);
+        jPanel2.add(year_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 40, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 800, 400));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -102,7 +188,6 @@ public class Clinic extends javax.swing.JInternalFrame {
 
         RecordID.setEnabled(false);
         jPanel3.add(RecordID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, -1));
-        jPanel3.add(Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 90, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Treatment:");
@@ -166,7 +251,14 @@ public class Clinic extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 70, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 330, 360));
+        year_write.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                year_writeActionPerformed(evt);
+            }
+        });
+        jPanel3.add(year_write, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 80, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 780, 400));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("   View Medical Record");
@@ -194,92 +286,6 @@ public class Clinic extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 860, 600));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Treatment:");
-        jLabel8.setEnabled(false);
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        Treatment_view.setEnabled(false);
-        jPanel2.add(Treatment_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
-
-        Diagnosis_view.setEnabled(false);
-        Diagnosis_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Diagnosis_viewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Diagnosis_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Diagnosis:");
-        jLabel7.setEnabled(false);
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Date of Visit:");
-        jLabel9.setEnabled(false);
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
-
-        Year2.setEnabled(false);
-        jPanel2.add(Year2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
-
-        InmateName_view.setEnabled(false);
-        InmateName_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InmateName_viewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(InmateName_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Inmate Name: ");
-        jLabel3.setEnabled(false);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
-
-        InmateID_view.setEnabled(false);
-        InmateID_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InmateID_viewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(InmateID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Inmate's ID:");
-        jLabel5.setEnabled(false);
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        jButton2.setText("View");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
-        jPanel2.add(RecordID_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Record ID:");
-        jLabel6.setMaximumSize(new java.awt.Dimension(78, 20));
-        jLabel6.setMinimumSize(new java.awt.Dimension(78, 20));
-        jLabel6.setPreferredSize(new java.awt.Dimension(78, 20));
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        DAY_view.setEnabled(false);
-        jPanel2.add(DAY_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 40, -1));
-
-        MONTH_view.setEnabled(false);
-        MONTH_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MONTH_viewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(MONTH_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 40, -1));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 380, 260));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
@@ -335,14 +341,14 @@ public class Clinic extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try{
-        Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(Year.getText()));
+        Date d = new Date(Integer.parseInt(DAYCB.getSelectedItem() + ""), Integer.parseInt(MONTHCB.getSelectedItem() + ""), Integer.parseInt(year_write.getText()));
         jail.Clinic MR = new jail.Clinic(Database.getPrisonerByInmateID(InmateID.getText()), d, RecordID.getText(), Diagnosis.getText(), Treatment.getText());
         RecordID.setText("");
         InmateID.setText("");
         InmateName.setText("");
         Diagnosis.setText("");
         Treatment.setText("");
-        Year.setText("");
+        year_write.setText("");
         DAYCB.setSelectedIndex(0);
         MONTHCB.setSelectedIndex(0);
         }catch(DateTimeException dte){
@@ -365,12 +371,16 @@ public class Clinic extends javax.swing.JInternalFrame {
         Treatment_view.setText(MR.getTreatment());
         DAY_view.setText(MR.getDate().getDay() + "");
         MONTH_view.setText(MR.getDate().getMonth() + "");
-        Year2.setText(MR.getDate().getYear() + "");
+        year_view.setText(MR.getDate().getYear() + "");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void MONTH_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MONTH_viewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MONTH_viewActionPerformed
+
+    private void year_writeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_year_writeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_year_writeActionPerformed
 
     private void initialize(){
         jPanel3.setVisible(false);
@@ -393,8 +403,6 @@ public class Clinic extends javax.swing.JInternalFrame {
     private javax.swing.JTextField RecordID_view;
     private javax.swing.JTextField Treatment;
     private javax.swing.JTextField Treatment_view;
-    private javax.swing.JTextField Year;
-    private javax.swing.JTextField Year2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -418,5 +426,7 @@ public class Clinic extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField year_view;
+    private javax.swing.JTextField year_write;
     // End of variables declaration//GEN-END:variables
 }
