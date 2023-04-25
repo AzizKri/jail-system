@@ -32,7 +32,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                offId.setText(offID);
+                offId.setText("Of-" + offID);
     }
 
     /**
@@ -194,7 +194,7 @@ public class AddOfficer extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                offId.setText(offID);
+                offId.setText("Of-" + offID);
         
         }
         }catch(DateTimeException dte){
