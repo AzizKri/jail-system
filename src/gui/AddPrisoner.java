@@ -32,7 +32,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                inID.setText(inmateID);
+                inID.setText("Pr-" + inmateID);
     }
 
     /**
@@ -259,7 +259,7 @@ public class AddPrisoner extends javax.swing.JInternalFrame {
                     checker = 0;
                     break;
                 }}}while(checker == 0);
-                inID.setText(inmateID);
+                inID.setText("Pr-" + inmateID);
 
                 }
             }
